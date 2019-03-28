@@ -9,7 +9,7 @@
             <input class="upload_button_2" type="button" value="UPLOAD">
         </div>
         <div class="misi">
-            <h2>Why Sharing?</h2>
+            <h2 style="text-align: center;">Why Sharing?</h2>
             <img class="g_t" align="left" src="../assets/S__17219904.jpg">
             <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
                 underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
@@ -30,8 +30,8 @@
         </div>
         <div class="top_konten">
             <h2>bafe.id</h2>
-            <img class="g_t" align="left" src="../assets/S__17219904.jpg">
-            <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
+            <!--<img class="g_t" align="left" src="../assets/S__17219904.jpg">-->
+            <p class="artikel_t">Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
                 underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
                 browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.
                 Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of
@@ -92,6 +92,10 @@ export default {
         text-align: center;
         color: #385446;
     }
+    a {
+        color: #385446;
+        text-decoration: none;
+    }
     .how_to {
         margin: 0 auto;
         max-height: 300px;
@@ -114,7 +118,7 @@ export default {
     }
     .misi {
         margin: 0 auto;
-        width: 90%;
+        width: 75%;
         max-height: 300px;
         padding: 20px 40px;
         text-align: justify;
@@ -126,14 +130,27 @@ export default {
         max-width: 300px;
         padding-right: 5px;
     }
+    .top_konten:hover{
+        background-color: #000000;
+        background-image: none;
+    }
     .top_konten {
         margin: 0 auto;
-        width: 75%;
-        max-height: 300px;
+        width: 60%;
+        max-height: 400px;
         padding: 20px 40px;
         text-align: justify;
         border: 0px;
-        background-color: grey;
+        background-image: url("../assets/orang_jalan.jpg");
+        opacity: 0.8;
+        }
+    .artikel_t {
+        color: #ffffff;
+        padding: 5px;
+        opacity: 0;
+    }
+    .artikel_t:hover{
+        opacity: 1;
     }
     .grid-container {
         display: grid;
@@ -147,11 +164,6 @@ export default {
         text-align: justify;
         max-height: 300px;
     }
-    .artikel_t {
-        background-color: #385446;
-        padding: 5px;
-    }
-
     a {
         color: #fafafa;
         text-decoration: none;
