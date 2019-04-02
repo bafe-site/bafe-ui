@@ -32,13 +32,11 @@ export default {
     }
     nav {
         text-align: center;
+        display: flex;
     }
     .bCari{
         display: flex;
         width: 400px;
-    }
-    nav {
-        display: flex;
     }
     .Nav1 {
         width: 300px;

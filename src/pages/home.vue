@@ -4,8 +4,10 @@
             <h1 class="headVision">Citizen Journalism Platform for Innovative Solution</h1>
         </div>
         <div class="howTo">
-            <p>bergabunglah bersama kami untuk...</p>
-            <h2>Share ur Innovation</h2>
+            <div class="howToW">
+                <p>bergabunglah bersama kami untuk...</p>
+                <h2>Share ur Innovation</h2>
+            </div>
             <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="SUBMIT">
         </div>
         <div class="misi">
@@ -38,13 +40,14 @@
         </div>
         <div class="artikelLatestKontainer">
             <div class="grid-item">
-                <a class="artikel_te" href="/konten"><img class="gambarLatest" align="left" src="../assets/S__17219904.jpg"></a>
+                <a class="artikel_te" href="/detailArtikel">
+                <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg"></a>
                 <div>
                     <h3>bafe.id</h3>
                 </div>
             </div>
             <div class="grid-item">
-                <a class="artikel_te" href="/konten">
+                <a class="artikel_te" href="/detailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
                 </a>
                 <div>
@@ -52,7 +55,7 @@
                 </div>
             </div>
             <div class="grid-item">
-                <a class="artikel_te" href="/konten">
+                <a class="artikel_te" href="/detailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
                 </a>
                 <div>
@@ -74,30 +77,44 @@ export default {
         text-align: center;
         color: #385446;
     }
+    h1 {
+        text-align: center;
+    }
+    h3 {
+        color: #385446;
+        text-align: center;
+    }
     a {
         color: #385446;
         text-decoration: none;
     }
     .howTo {
+        display: grid;
+        grid-template-columns: auto;
         margin: 0 auto;
         height: 250px;
-        padding: 20px 40px;
-        text-align: center;
-        border: 0px;
         color: #fafafa;
         background-color: #385446;
         background-image: url('../assets/orang_ramai.jpg');
         background-position: 50% 0px;
         background-repeat: no-repeat;
     }
+    .howToW {
+        margin: 10px auto;
+        text-align: center;
+    }
     .uploadButton {
-        position: relative;
+        display: block;
+        margin: 0 auto;
+        width: 150px;
+        height: 70px;
+        float: center;
         padding: 15px 30px;
         border: 3px solid #fafafa;
         border-radius: 30px;
         background-color: #385446;
         color: #fafafa;
-        font-size: 20px;
+        font-size: 16px;
     }
     .misi {
         margin: 0 auto;
@@ -156,8 +173,5 @@ export default {
     .gambarLatest {
         max-height: 200px;
         max-width: 300px;
-    }
-    h3 {
-        color: #385446;
     }
 </style>
