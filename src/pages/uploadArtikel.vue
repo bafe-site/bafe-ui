@@ -1,35 +1,50 @@
 <template>
     <div>
-        <div class="ArtikelArea">
-            <div class="judulArtikel">
-                <textarea>judulArtikel</textarea>
+        <div class="artikelArea">
+            <div>
+                <input class="judulArtikel" type="text" name="judul_artikel" value="Tulis Judul Artikel">
             </div>
             <div class="isiArtikel">
-                <editor></editor>
+              <vue-editor v-model="content"></vue-editor>
             </div>
         </div>
-        <div>
-            <button type="submit" value="uploadArtikel">Submit</button>
+        <div class="tUploadArtikel">
+            <button class="ttUploadArtikel"type="submit" value="uploadArtikel">Submit</button>
         </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Editor from '@tinymce/tinymce-vue'
-
+import { VueEditor } from 'vue2-editor'
 export default {
-    data() {
-    },
+    name: 'isiArtikel',
     components: {
-        'editor': Editor
+      VueEditor
+    },
+    data() {
+      return {
+        content: '<p>Tulis Artikel mu</p>'
+      }
     }
 }
+
 </script>
 <style scoped>
-.isiArtikel{
+  .judulArtikel {
+    width: 80%;
+    margin: 15px 0;
+    padding: 10px 5px;
+  }
+  .artikelArea {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .tUploadArtikel {
+    margin: 10px;
     text-align: center;
-    max-width: 75%;
-    padding: 10px
-}
+  }
+  .ttUploadArtikel {
+    font-size: 24px;
+    padding: 5px;
+  }
 </style>

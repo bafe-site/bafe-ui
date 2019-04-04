@@ -143,7 +143,7 @@ export default {
         border: 0px;
         background-image: url("../assets/orang_jalan.jpg");
         opacity: 0.8;
-        }
+    }
     .artikelTop {
         color: #ffffff;
         padding: 5px;

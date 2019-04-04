@@ -14,3 +14,13 @@ new Vue({
   template: '<App/>'
 })
 
+var Editor = require('@tinymce/tinymce-vue').default;
+
+var app = new Vue({
+  el: '#app',
+  data: { /* Your data */ },
+  components: {
+    'editor': Editor // <- Important part
+  },
+  methods: { /* Your methods */}
+})
