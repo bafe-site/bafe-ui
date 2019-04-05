@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="vueApp">
         <div>
             <h1 class="headVision">Citizen Journalism Platform for Innovative Solution</h1>
         </div>
@@ -24,9 +24,9 @@
             <h1>Konten Teratas</h1>
         </div>
         <div class="topKonten">
-            <span>bafe.id</span>
-            <img class="gambarTop" align="left" src="../assets/S__17219904.jpg">
-            <p class="artikelTop">Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
+          <div class="isiTopKonten">
+            <a href="/detailArtikel">bafe.id</a>
+            <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
                 underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
                 browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.
                 Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of
@@ -34,6 +34,7 @@
                 Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
                 underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
                 browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.</p>
+          </div>
         </div>
         <div>
             <h1>Konten Terbaru</h1>
@@ -79,6 +80,10 @@ export default {
     }
     h1 {
         text-align: center;
+    }
+    h2 {
+      text-align: center;
+      color: #ffffff;
     }
     h3 {
         color: #385446;
@@ -135,27 +140,56 @@ export default {
         padding: 5px;
     }
     .topKonten {
-        margin: 0 auto;
-        width: 60%;
-        max-height: 250px;
-        padding: 20px 40px;
-        text-align: justify;
-        border: 0px;
-        background-image: url("../assets/orang_jalan.jpg");
-        opacity: 0.8;
+      width: 800px;
+      height: 400px;
+      margin: 0 auto;
     }
-    .artikelTop {
-        color: #ffffff;
-        padding: 5px;
-        opacity: 0;
+    .isiTopKonten {
+      width: 800px;
+      height: 250px;
     }
-    .artikelTop:hover {
-        opacity: 1;
+    .isiTopKonten::before {
+      content: '';
+      position: absolute;
+      height: 50%;
+      width: 50%;
+      background-image: url("../assets/orang_jalan.jpg");
+      background-repeat: no-repeat;
+      -webkit-filter: grayscale(0) blur(0);
+      filter: grayscale(0) blur(0);
+      transition: .4s ease-in-out;
     }
-    .gambarTop {
-        max-height: 200px;
-        max-width: 300px;
-        padding-right: 5px;
+    .isiTopKonten:hover:before {
+      -webkit-filter: grayscale(100%) blur(2px);
+      filter: grayscale(100%) blur(2px);
+      transition: .4s ease-in-out;
+    }
+    .isiTopKonten > p {
+      display: none;
+    }
+    .isiTopKonten:hover > p {
+      position: relative;
+      display: block;
+      color: #ffffff;
+      font-size: 16px;
+      z-index: 999;
+      width: 600px;
+      height: 100%;
+      padding: 20px 50px;
+      text-align: justify;
+    }
+    .isiTopKonten:hover > a {
+      position: relative;
+      display: block;
+      color: #ffffff;
+      text-align: center;
+      font-weight: bold;
+      font-size: 48px;
+      padding-top: 10px;
+      margin-top: 0;
+      z-index: 999;
+      width: 100%;
+      height: 30px;
     }
     .artikelLatestKontainer {
         display: grid;

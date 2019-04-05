@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="tUploadArtikel">
-            <button class="ttUploadArtikel"type="submit" value="uploadArtikel">Submit</button>
+            <button class="ttUploadArtikel" type="submit" value="uploadArtikel">Submit</button>
         </div>
     </div>
 </template>
@@ -17,15 +17,15 @@
 <script>
 import { VueEditor } from 'vue2-editor'
 export default {
-    name: 'isiArtikel',
-    components: {
-      VueEditor
-    },
-    data() {
-      return {
-        content: '<p>Tulis Artikel mu</p>'
-      }
+  name: 'isiArtikel',
+  components: {
+    VueEditor
+  },
+  data () {
+    return {
+      content: '<p>Tulis Artikel mu</p>'
     }
+  }
 }
 
 </script>

@@ -14,9 +14,9 @@ new Vue({
   template: '<App/>'
 })
 
-var Editor = require('@tinymce/tinymce-vue').default;
+var Editor = require('@tinymce/tinymce-vue').default
 
-var app = new Vue({
+new Vue({
   el: '#app',
   data: { /* Your data */ },
   components: {

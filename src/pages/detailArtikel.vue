@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="grid-container">
-            <div class="grid-item">
+        <div class="kontainer">
+            <div class="kontenArtikel">
                 <div class="artikel">
-                    <div class="grid-container">
+                    <div class="kontainer">
                         <img class="gArtikel" src="../assets/S__17219904.jpg"/>
                         <div style="width: 150px; font-size: 80%; text-align: center;">
                             <img class="gPenulis" src="../assets/S__17219904.jpg"/>
@@ -94,13 +94,13 @@ export default {
         line-height: 20px;
         font-size: 30px;
     }
-    .grid-container {
+    .kontainer {
         display: grid;
         width: 100%;
         grid-template-columns: 75% 25%;
         padding: 10px;
     }
-    .grid-item {
+    .kontenArtikel {
         width: 100%;
         font-size: 30px;
         text-align: center;

@@ -4,8 +4,8 @@
             <a href="/" >
                 <img class="logo" src="../assets/S__17219904.jpg" alt="home"></a>
             <a class="navTop" href="/">Home</a>
-            <a class="navTop" href="/about">About Us</a>
             <a class="navTop" href="/konten">Content</a>
+            <a class="navTop" href="/about">About Us</a>
             <div class="bCari">
                 <input type="text" class="search" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
                 <div>
@@ -27,7 +27,6 @@ export default {
 
 <style scoped>
     a {
-      color: #385446;
       text-decoration: none;
       font-size: 20px;
     }
@@ -46,7 +45,13 @@ export default {
       width: 300px;
       text-decoration: none;
       text-align: center;
+      color: #385446;
       margin: 40px auto;
+    }
+
+    .navTop:hover {
+      color: #ffffff;
+      background-color: #385446;
     }
 
     .search {
