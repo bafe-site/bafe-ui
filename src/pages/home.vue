@@ -11,7 +11,7 @@
             <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="SUBMIT">
         </div>
         <div class="misi">
-            <h2 style="text-align: center;">Why Sharing?</h2>
+            <h1>Why Sharing?</h1>
             <img class="gambarTengah" align="left" src="../assets/S__17219904.jpg">
             <p class="tulisanMisi">Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
                 underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
@@ -26,14 +26,7 @@
         <div class="topKonten">
           <div class="isiTopKonten">
             <a href="/detailArtikel">bafe.id</a>
-            <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
-                underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
-                browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.
-                Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of
-                components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
-                Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
-                underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
-                browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.</p>
+            <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to theunderlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliantbrowsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal number ofcomponents to re-render and apply the minimal amount of DOM manipulations when the app state changes.Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliantbrowsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.</p>
           </div>
         </div>
         <div>
@@ -68,8 +61,14 @@
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel'
+
 export default {
-  name: 'home'
+  name: 'home',
+  components: {
+    Carousel,
+    Slide
+  }
 }
 </script>
 
@@ -125,19 +124,18 @@ export default {
         margin: 0 auto;
         width: 75%;
         height: 250px;
-        padding: 20px 40px;
+        padding: 40px 40px;
         text-align: justify;
         border: 0px;
         color: #000000;
     }
     .tulisanMisi {
-        border: 1px;
-        margin: 30px;
+        margin: 50px;
     }
     .gambarTengah {
         height: 200px;
         width: 200px;
-        padding: 5px;
+        padding: 15px;
     }
     .topKonten {
       width: 800px;
@@ -190,6 +188,9 @@ export default {
       z-index: 999;
       width: 100%;
       height: 30px;
+    }
+    .sliderButton{
+      margin: 0 auto;
     }
     .artikelLatestKontainer {
         display: grid;
