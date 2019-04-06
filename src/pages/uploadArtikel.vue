@@ -23,7 +23,7 @@ export default {
   },
   data () {
     return {
-      content: '<p>Tulis Artikel mu</p>'
+      content: '<p>Tulis Artikel mu disini</p>'
     }
   }
 }
