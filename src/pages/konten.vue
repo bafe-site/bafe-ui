@@ -14,14 +14,14 @@
         </div>
         <div>
             <div class="artikelTrendingKontainer">
-                <div class="grid-item">
+                <div class="itemArtikelTrending">
                     <a class="artikel_te" href="/detailArtikel">
                     <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg"></a>
                     <div>
                         <h3>bafe.id</h3>
                     </div>
                 </div>
-                <div class="grid-item">
+                <div class="itemArtikelTrending">
                     <a class="artikel_te" href="/detailArtikel">
                     <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg">
                     </a>
@@ -29,7 +29,7 @@
                         <h3>bafe.id</h3>
                     </div>
                 </div>
-                <div class="grid-item">
+                <div class="itemArtikelTrending">
                     <a class="artikel_te" href="/detailArtikel">
                     <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg">
                     </a>
@@ -43,16 +43,16 @@
             <h1>Video</h1>
         </div>
         <div>
-            <div class="artikelTrendingKontainer">
-                <div class="grid-item">
+            <div class="videoTrendingKontainer">
+                <div class="itemVideoTrending">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe>
                     <h3>Edwin, sosok dibalik viralnya Nurhadi-Aldo</h3>
                 </div>
-                <div class="grid-item">
+                <div class="itemVideoTrending">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/6KsTjjmocKY"></iframe>
                     <h3>Stigma - Kapak Rimba vs Supersonik, Rivalitas atau Tradisi?</h3>
                 </div>
-                <div class="grid-item">
+                <div class="itemVideoTrending">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe>
                     <h3>Battle of Gudeg Malam, Mana yang Paling Enak?</h3>
                 </div>
@@ -92,7 +92,7 @@ h2 {
     background-color: #fafafa;
     margin-bottom: 150px;
 }
-.grid-item {
+.itemArtikelTrending {
     display: grid;
     grid-template-columns: auto;
     border: 20px solid #ffffff;
@@ -103,5 +103,19 @@ h2 {
 .gambarTrending {
     max-height: 200px;
     max-width: 300px;
+}
+.videoTrendingKontainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #fafafa;
+    margin-bottom: 150px;
+}
+.itemVideoTrending {
+    display: grid;
+    grid-template-columns: auto;
+    border: 20px solid #ffffff;
+    padding: 20px;
+    font-size: 18px;
+    height: 300px;
 }
 </style>
