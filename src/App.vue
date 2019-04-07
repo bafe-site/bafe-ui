@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <TheHeader></TheHeader>
-    <router-view/>
+    <router-view></router-view>
     <TheFooter></TheFooter>
   </div>
 </template>
@@ -15,12 +15,6 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #385446;
-}
+<style lang="scss">
+  @import "assets/style/main";
 </style>

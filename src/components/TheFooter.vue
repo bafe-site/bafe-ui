@@ -1,13 +1,20 @@
 <template>
     <div class="footer">
-        <div>
-            <a class="footer_a" href="https://www.instagram.com/bafe.id/" target="_blank">
-                <img class="i_i" src="../assets/icon_instagram.png" style="padding-bottom: 0.5em">
-            </a>
-            <a class="footer_b" href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA" target="_blank">
-                <img class="i_y" src="../assets/icon_youtube.png">
-            </a>
-        </div>
+      <div class="footer__info">
+        <p>2019 © Bafe.site</p>
+      </div>
+      <div class="footer__socials">
+        <a class="footer__icon" href="https://www.instagram.com/bafe.id/">
+          <div class="footer__icon--circle">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </a>
+        <a class="footer__icon" href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA">
+          <div class="footer__icon--circle">
+            <i class="fab fa-youtube"></i>
+          </div>
+        </a>
+      </div>
     </div>
 </template>
 
@@ -17,40 +24,44 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .footer {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 60px;
-        background-color: #385446;
-        color: white;
-        margin-top: 1%;
-    }
-    .footer_a {
-        color: #fafafa;
-        text-decoration: none;
-        text-align: right;
-    }
+      align-items: center;
+      background-color: #385446;
+      color: white;
+      display: flex;
+      height: 60px;
+      padding: 15px 20px;
 
-    .footer_b {
-        color: #fafafa;
-        text-decoration: none;
-        text-align: right;
-    }
+      &__socials {
+        display: flex;
+        margin-left: auto;
+      }
 
-    .i_y {
-        height: 50px;
-        width: 50px;
-        float: right;
-        padding: 5px 5px 0px 5px;
-    }
+      &__icon {
+        align-items: center;
+        color: black;
+        cursor: pointer;
+        display: flex;
+        font-size: 20px;
+        justify-content: flex-end;
+        padding: 8px;
 
-    .i_i {
-        height: 50px;
-        width: 50px;
-        float: right;
-        padding: 5px 5px 0px 5px;
+        &--circle {
+          align-items: center;
+          background-color: #fff;
+          border-radius: 30px;
+          display: flex;
+          height: 45px;
+          justify-content: center;
+          width: 45px;
+        }
+
+        &:hover > &--circle{
+          -webkit-transition: 100ms;
+          background-color: #7e9489;
+          color: #fff;
+        }
+      }
     }
 </style>
