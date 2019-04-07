@@ -1,26 +1,20 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <router-view/>
-    <Footer></Footer>
+    <TheHeader></TheHeader>
+    <router-view></router-view>
+    <TheFooter></TheFooter>
   </div>
 </template>
 
 <script>
-import Header from './components/Header'
-import Footer from "./components/Footer";
+import TheHeader from './components/TheHeader'
+import TheFooter from './components/TheFooter'
 export default {
   name: 'App',
-  components: {Footer, Header}
+  components: {TheFooter, TheHeader}
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #385446;
-}
+<style lang="scss">
+  @import "assets/style/main";
 </style>
