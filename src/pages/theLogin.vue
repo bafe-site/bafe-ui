@@ -1,36 +1,54 @@
 <template>
     <div>
-        <div class="loginForm">
+        <form class="loginForm" v-on:submit.prevent="onSubmit">
           <div class="logoBafe">
             <a href="/"><img class="logo" src="../assets/img/iconBafe.png"></a>
           </div>
             <div class="isiLoginForm">
                 <h4 class="labelLogin">Login</h4>
                 <div class="loginInput">
-                    <input type="text" class="form-control" placeholder="Username" label="Username" describedby="basidAddon1">
+                    <input required v-model="email" type="text" class="form-control" placeholder="Username" label="Username">
                 </div>
                 <h4 class="labelPassword">Password</h4>
                 <div class="passwordInput">
-                    <input type="password" class="form-control" placeholder="Password" label="Password" describedby="basicAddon2">
+                    <input required v-model="password" type="password" class="form-control" placeholder="Password" label="Password">
                 </div>
-                <button class="submitLogin" type="submit">Login</button>
-                </div>
-        </div>
+                <input class="submitLogin" type="submit" name="submit" value="Login">
+            </div>
+        </form>
     </div>
 </template>
 
 <script>
+import { error } from 'util'
+import axios from 'axios'
+
+var date = new Date;
+date.setDate(date.getDate()+30);
+
 export default {
   name: 'theLogin',
-  mounted () {
-    const Axios = require('axios')
-    Axios
+  data(){
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    onSubmit(){
+    axios
       .post('http://localhost/bafe/public/api/auth/login', {
-        email: 'broto@gmail.com',
-        password: 'brotobroto'
+        email: this.email,
+        password: this.password
       })
-      .then(response => (console.log(response)))
-  }
+      .then(res=>{
+        this.$cookiee.set('token', res.data.token,{ expires: date});
+      })
+      .catch(err=>{
+        consolte.log(error);
+      })
+    }
+  } 
 }
 </script>
 
