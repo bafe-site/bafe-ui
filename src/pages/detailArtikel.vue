@@ -176,7 +176,7 @@ itu dia menanyakan satu pertanyaan simpel yang membuat saya bingung, “Kamu    
                 </div>
                 <div class="flex-container">
                     <div>
-                        <a href="/detailArtikel"><img class="gKontenPojok" src="../assets/logo.png"/></a>
+                        <a href="/detailArtikel"><img class="gKontenPojok" src="../assets/logo.jpg"/></a>
                         <h4>bafe.id</h4>
                     </div>
                 </div>
