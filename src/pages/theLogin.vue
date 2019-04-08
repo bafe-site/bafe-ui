@@ -1,6 +1,9 @@
 <template>
     <div>
         <div class="loginForm">
+          <div class="logoBafe">
+            <a href="/"><img class="logo" src="../assets/iconBafe.png"></a>
+          </div>
             <div class="isiLoginForm">
                 <h4 class="labelLogin">Login</h4>
                 <div class="loginInput">
@@ -32,17 +35,24 @@ export default {
 </script>
 
 <style>
+.logo{
+  height: 100px;
+  width: 200px;
+}
+.logoBafe {
+  margin: 0 auto;
+}
 .loginForm {
-    height: 200px;
-    width: 400px;
-    background: #f1f1f1;
-    margin: 10% auto;
-    display: grid;
-    grid-template-columns: auto;
-    padding: 10px;
+  height: 300px;
+  width: 400px;
+  background: #f1f1f1;
+  margin: 8% auto;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 10px;
 }
 .isiLoginForm {
-    margin: auto;
+    margin: 0 auto;
 }
 .labelLogin{
     margin: 5px;
