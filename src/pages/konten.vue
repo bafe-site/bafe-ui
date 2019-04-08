@@ -43,16 +43,16 @@
             <h1>Video</h1>
         </div>
         <div>
-            <div class="artikelTrendingKontainer">
-                <div class="grid-item">
+            <div class="videoTrendingKontainer">
+                <div class="itemVideoTrending">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe>
                     <h3>Edwin, sosok dibalik viralnya Nurhadi-Aldo</h3>
                 </div>
-                <div class="grid-item">
+                <div class="itemVideoTrending">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/6KsTjjmocKY"></iframe>
                     <h3>Stigma - Kapak Rimba vs Supersonik, Rivalitas atau Tradisi?</h3>
                 </div>
-                <div class="grid-item">
+                <div class="itemVideoTrending">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe>
                 </div>
             </div>
