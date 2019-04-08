@@ -3,7 +3,7 @@
         <nav>
             <div class="NavTopBox">
                 <a href="/" >
-                <img class="logo" src="../assets/iconBafe.png" alt="home"></a>
+                <img class="logo" src="../assets/img/iconBafe.png" alt="home"></a>
             </div>
             <a class="NavTop" href="/Konten">Content</a>
             <a class="NavTop" href="/About">About Us</a>

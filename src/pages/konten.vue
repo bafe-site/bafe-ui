@@ -2,7 +2,7 @@
     <div>
         <div class="mengapaMenulis">
             <div class="gambarMengapaMenulis">
-                <img height="200px" width="200px" src="../assets/S__17219904.jpg">
+                <img height="200px" width="200px" src="../assets/img/S__17219904.jpg">
             </div>
             <div>
                 <h2>Tingkatkan Literasi dan Kesadaran Masyarakat Lewat Citizen Journalism</h2>
@@ -16,14 +16,14 @@
             <div class="artikelTrendingKontainer">
                 <div class="itemArtikelTrending">
                     <a class="artikel_te" href="/DetailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/gambar_isi.png"></a>
+                    <img class="gambarTrending" align="left" src="../assets/img/gambar_isi.png"></a>
                     <div>
                         <h3>bafe.id</h3>
                     </div>
                 </div>
                 <div class="itemArtikelTrending">
                     <a class="artikel_te" href="/DetailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/orang_jalan.jpg">
+                    <img class="gambarTrending" align="left" src="../assets/img/orang_jalan.jpg">
                     </a>
                     <div>
                         <h3>bafe.id</h3>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="itemArtikelTrending">
                     <a class="artikel_te" href="/DetailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/orang_ramai.jpg">
+                    <img class="gambarTrending" align="left" src="../assets/img/orang_ramai.jpg">
                     </a>
                     <div>
                         <h3>bafe.id</h3>

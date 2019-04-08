@@ -2,7 +2,7 @@
     <div>
         <div class="loginForm">
           <div class="logoBafe">
-            <a href="/"><img class="logo" src="../assets/iconBafe.png"></a>
+            <a href="/"><img class="logo" src="../assets/img/iconBafe.png"></a>
           </div>
             <div class="isiLoginForm">
                 <h4 class="labelLogin">Login</h4>

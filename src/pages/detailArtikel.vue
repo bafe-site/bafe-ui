@@ -4,9 +4,9 @@
             <div class="kontenArtikel">
                 <div class="artikel">
                     <div class="kontainer">
-                        <img class="gArtikel" src="../assets/S__17219904.jpg"/>
+                        <img class="gArtikel" src="../assets/img/gambar_isi.png"/>
                         <div style="width: 150px; font-size: 80%; text-align: center;">
-                            <img class="gPenulis" src="../assets/logo.jpg"/>
+                            <img class="gPenulis" src="../assets/img/logo.jpg"/>
                             Muammar Khadafi
                         </div>
                     </div>
@@ -164,19 +164,19 @@ itu dia menanyakan satu pertanyaan simpel yang membuat saya bingung, “Kamu    
                 </div>
                 <div class="flex-container">
                     <div>
-                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/orang_jalan.jpg"/></a>
+                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></a>
                         <h4>bafe.id</h4>
                     </div>
                 </div>
                 <div class="flex-container">
                     <div>
-                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/orang_ramai.jpg"/></a>
+                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></a>
                         <h4>bafe.id</h4>
                     </div>
                 </div>
                 <div class="flex-container">
                     <div>
-                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/logo.jpg"/></a>
+                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/img/logo.jpg"/></a>
                         <h4>bafe.id</h4>
                     </div>
                 </div>

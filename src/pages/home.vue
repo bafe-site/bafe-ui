@@ -12,7 +12,7 @@
         </div>
         <div class="misi">
             <h1>Why Sharing?</h1>
-            <img class="gambarTengah" align="left" src="../assets/S__17219904.jpg">
+            <img class="gambarTengah" align="left" src="../assets/img/S__17219904.jpg">
             <p class="tulisanMisi">Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
                 underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
                 browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.
@@ -35,14 +35,14 @@
         <div class="artikelLatestKontainer">
             <div class="grid-item">
                 <a class="artikel_te" href="/DetailArtikel">
-                <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg"></a>
+                <img class="gambarLatest" align="left" src="../assets/img/S__17219904.jpg"></a>
                 <div>
                     <h3>bafe.id</h3>
                 </div>
             </div>
             <div class="grid-item">
                 <a class="artikel_te" href="/DetailArtikel">
-                <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
+                <img class="gambarLatest" align="left" src="../assets/img/S__17219904.jpg">
                 </a>
                 <div>
                     <h3>bafe.id</h3>
@@ -50,7 +50,7 @@
             </div>
             <div class="grid-item">
                 <a class="artikel_te" href="/DetailArtikel">
-                <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
+                <img class="gambarLatest" align="left" src="../assets/img/S__17219904.jpg">
                 </a>
                 <div>
                     <h3>bafe.id</h3>
@@ -94,7 +94,7 @@ export default {
         height: 450px;
         color: #fafafa;
         background-color: #385446;
-        background-image: url('../assets/orang_ramai.jpg');
+        background-image: url('../assets/img/orang_ramai.jpg');
         background-position: 50% 0px;
         background-repeat: no-repeat;
     }
@@ -145,7 +145,7 @@ export default {
       position: absolute;
       height: 50%;
       width: 50%;
-      background-image: url("../assets/orang_jalan.jpg");
+      background-image: url("../assets/img/orang_jalan.jpg");
       background-repeat: no-repeat;
       -webkit-filter: grayscale(0) blur(0);
       filter: grayscale(0) blur(0);

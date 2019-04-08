@@ -12,21 +12,21 @@
             <table>
                 <tr>
                     <td>
-                        <img src="../assets/Kirono_Arundati.png"/>
+                        <img src="../assets/img/Kirono_Arundati.png"/>
                         <h2>Kirono Arundati</h2>
                     </td>
                     <td>
-                        <img src="../assets/Metha_Putri.png"/>
+                        <img src="../assets/img/Metha_Putri.png"/>
                         <h2>Metha Putri</h2>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img src="../assets/Ferdinand_Kurnia.png"/>
+                        <img src="../assets/img/Ferdinand_Kurnia.png"/>
                         <h2>Ferdinand Kurnia</h2>
                     </td>
                     <td>
-                        <img src="../assets/M_Vicky_Afris.png"/>
+                        <img src="../assets/img/M_Vicky_Afris.png"/>
                         <h2>M. Vicky Afris</h2>
                     </td>
                 </tr>
