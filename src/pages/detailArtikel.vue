@@ -4,7 +4,7 @@
             <div class="kontenArtikel">
                 <div class="artikel">
                     <div class="kontainer">
-                        <img class="gArtikel" src="../assets/S__17219904.jpg"/>
+                        <img class="gArtikel" src="../assets/gambar_isi.png"/>
                         <div style="width: 150px; font-size: 80%; text-align: center;">
                             <img class="gPenulis" src="../assets/logo.jpg"/>
                             Muammar Khadafi
