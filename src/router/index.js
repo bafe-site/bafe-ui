@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from '../pages/home.vue'
 import aboutUs from '../pages/aboutUs.vue'
-import detailArtikel from '../pages/detailArtikel.vue'
 import uploadArtikel from '../pages/uploadArtikel.vue'
 import theLogin from '../pages/theLogin.vue'
 import konten from '../pages/konten.vue'
@@ -21,11 +20,6 @@ export default new Router({
       path: '/about',
       name: 'aboutUs',
       component: aboutUs
-    },
-    {
-      path: '/detailArtikel',
-      name: 'detailArtikel',
-      component: detailArtikel
     },
     {
       path: '/uploadArtikel',
