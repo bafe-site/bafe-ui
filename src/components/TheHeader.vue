@@ -1,11 +1,12 @@
 <template>
     <div class="header">
         <nav>
-            <a href="/" >
-                <img class="logo" src="../assets/S__17219904.jpg" alt="home"></a>
-            <a class="navTop" href="/">Home</a>
-            <a class="navTop" href="/konten">Content</a>
-            <a class="navTop" href="/about">About Us</a>
+            <div class="NavTopBox">
+                <a href="/" >
+                <img class="logo" src="../assets/iconBafe.png" alt="home"></a>
+            </div>
+            <a class="NavTop" href="/Konten">Content</a>
+            <a class="NavTop" href="/About">About Us</a>
             <div class="bCari">
                 <input type="text" class="search" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
                 <div>
@@ -13,7 +14,7 @@
                 </div>
             </div>
             <div class="bLogin">
-                <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="UPLOAD">
+                <input onclick="location.href='/TermsAndCondition';" class="uploadButton" type="button" value="UPLOAD">
             </div>
         </nav>
     </div>
@@ -35,23 +36,28 @@ export default {
         text-align: center;
         display: flex;
     }
-
+    .NavTopBox {
+        margin: 0 50px;
+    }
     .bCari{
         display: flex;
         width: 400px;
     }
-
-    .navTop {
-      width: 300px;
-      text-decoration: none;
-      text-align: center;
-      color: #385446;
-      margin: 40px auto;
+    .NavTop {
+        width: 300px;
+        text-decoration: none;
+        float: none;
+        display: inline-block;
+        border: 0 solid;
+        margin: 40px 0;
+        font-size: 20px;
+        background-color: #ffffff;
+        color: #385446;
     }
 
-    .navTop:hover {
-      color: #ffffff;
-      background-color: #385446;
+    .NavTop:hover {
+        background-color: #385446;
+        color: #ffffff;
     }
 
     .search {
@@ -86,9 +92,13 @@ export default {
         background-color: #385446;
         color: #fafafa;
     }
+    .uploadButton:hover {
+      background-color: #fafafa;
+      color: #385446;
+      border-color: #385446;
+    }
     .logo {
-        width: 100px;
+        width: 300px;
         height: 100px;
-        border: 0;
     }
 </style>

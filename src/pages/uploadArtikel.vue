@@ -44,7 +44,15 @@ export default {
     text-align: center;
   }
   .ttUploadArtikel {
-    font-size: 24px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 9px 20px;
+    border: 5px solid #385446;
+    border-radius: 20px;
+    background-color: #385446;
+    color: #ffffff;
+  }
+  .ttUploadArtikel:hover{
+    background-color: #ffffff;
+    color: #385446;
   }
 </style>

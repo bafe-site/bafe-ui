@@ -7,7 +7,7 @@
             </div>
             <div class="footer_a">
             <a href="https://www.instagram.com/bafe.id/" target="_blank">
-                <img class="iconInstagram" src="../assets/icon_instagram.png" style="padding-bottom: 0.5em"></a>
+                <img class="iconInstagram" src="../assets/icon_instagram.png"></a>
             </div>
             <div class="footer_b">
             <a href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA" target="_blank">
@@ -36,7 +36,7 @@ export default {
     }
     .footerContainer{
         display: grid;
-        grid-template-columns: auto 50px 50px;
+        grid-template-columns: auto 50px 60px;
     }
     p {
         text-align: center;
@@ -56,8 +56,8 @@ export default {
     }
 
     .iconYoutube {
-        height: 40px;
-        width: 40px;
+        height: 50px;
+        width: 50px;
     }
 
     .iconInstagram {

@@ -8,10 +8,10 @@
                 <p>bergabunglah bersama kami untuk...</p>
                 <h2>Share ur Innovation</h2>
             </div>
-            <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="SUBMIT">
+            <input onclick="location.href='/TermsAndCondition';" class="uploadButton" type="button" value="SUBMIT">
         </div>
         <div class="misi">
-            <h2 style="text-align: center;">Why Sharing?</h2>
+            <h1>Why Sharing?</h1>
             <img class="gambarTengah" align="left" src="../assets/S__17219904.jpg">
             <p class="tulisanMisi">Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
                 underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
@@ -25,15 +25,8 @@
         </div>
         <div class="topKonten">
           <div class="isiTopKonten">
-            <a href="/detailArtikel">bafe.id</a>
-            <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
-                underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
-                browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.
-                Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of
-                components to re-render and apply the minimal amount of DOM manipulations when the app state changes.
-                Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
-                underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
-                browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.</p>
+            <a href="/DetailArtikel">bafe.id</a>
+            <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to theunderlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliantbrowsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal number ofcomponents to re-render and apply the minimal amount of DOM manipulations when the app state changes.Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliantbrowsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.</p>
           </div>
         </div>
         <div>
@@ -41,14 +34,14 @@
         </div>
         <div class="artikelLatestKontainer">
             <div class="grid-item">
-                <a class="artikel_te" href="/detailArtikel">
+                <a class="artikel_te" href="/DetailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg"></a>
                 <div>
                     <h3>bafe.id</h3>
                 </div>
             </div>
             <div class="grid-item">
-                <a class="artikel_te" href="/detailArtikel">
+                <a class="artikel_te" href="/DetailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
                 </a>
                 <div>
@@ -56,7 +49,7 @@
                 </div>
             </div>
             <div class="grid-item">
-                <a class="artikel_te" href="/detailArtikel">
+                <a class="artikel_te" href="/DetailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
                 </a>
                 <div>
@@ -68,6 +61,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'home'
 }
@@ -97,7 +91,7 @@ export default {
         display: grid;
         grid-template-columns: auto;
         margin: 0 auto;
-        height: 250px;
+        height: 450px;
         color: #fafafa;
         background-color: #385446;
         background-image: url('../assets/orang_ramai.jpg');
@@ -109,7 +103,6 @@ export default {
         text-align: center;
     }
     .uploadButton {
-        display: block;
         margin: 0 auto;
         width: 150px;
         height: 70px;
@@ -125,19 +118,18 @@ export default {
         margin: 0 auto;
         width: 75%;
         height: 250px;
-        padding: 20px 40px;
+        padding: 40px 40px;
         text-align: justify;
         border: 0px;
         color: #000000;
     }
     .tulisanMisi {
-        border: 1px;
-        margin: 30px;
+        margin: 50px;
     }
     .gambarTengah {
         height: 200px;
         width: 200px;
-        padding: 5px;
+        padding: 15px;
     }
     .topKonten {
       width: 800px;
@@ -190,6 +182,9 @@ export default {
       z-index: 999;
       width: 100%;
       height: 30px;
+    }
+    .sliderButton{
+      margin: 0 auto;
     }
     .artikelLatestKontainer {
         display: grid;

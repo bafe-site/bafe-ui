@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '../pages/home.vue'
-import aboutUs from '../pages/aboutUs.vue'
-import detailArtikel from '../pages/detailArtikel.vue'
-import uploadArtikel from '../pages/uploadArtikel.vue'
-import theLogin from '../pages/theLogin.vue'
-import konten from '../pages/konten.vue'
+import Home from '../pages/Home.vue'
+import AboutUs from '../pages/AboutUs.vue'
+import DetailArtikel from '../pages/DetailArtikel.vue'
+import UploadArtikel from '../pages/UploadArtikel.vue'
+import TheLogin from '../pages/TheLogin.vue'
+import Konten from '../pages/Konten.vue'
+import TermsAndCondition from '../pages/TermsAndCondition.vue'
 
 Vue.use(Router)
 
@@ -15,32 +16,37 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: home
+      component: Home
     },
     {
-      path: '/about',
+      path: '/About',
       name: 'aboutUs',
-      component: aboutUs
+      component: AboutUs
     },
     {
-      path: '/detailArtikel',
+      path: '/DetailArtikel',
       name: 'detailArtikel',
-      component: detailArtikel
+      component: DetailArtikel
     },
     {
-      path: '/uploadArtikel',
+      path: '/UploadArtikel',
       name: 'uploadArtikel',
-      component: uploadArtikel
+      component: UploadArtikel
     },
     {
       path: '/pintukemanaajadoraemon',
       name: 'theLogin',
-      component: theLogin
+      component: TheLogin
     },
     {
-      path: '/konten',
+      path: '/Konten',
       name: 'konten',
-      component: konten
+      component: Konten
+    },
+    {
+      path: '/TermsAndCondition',
+      name: 'TAC',
+      component: TermsAndCondition
     }
   ]
 })

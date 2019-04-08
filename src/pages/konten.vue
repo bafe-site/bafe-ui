@@ -6,7 +6,7 @@
             </div>
             <div>
                 <h2>Tingkatkan Literasi dan Kesadaran Masyarakat Lewat Citizen Journalism</h2>
-                <p class="tulisanMenulis">bafe.id adalah startup yang bergerak di bidang media digital.Membawa visi "connecting insight", kami ingin mengajak seluruh masyarakat untuk berbagi wawasan dan berkolaborasi untuk menciptakan solusi yang inovatif atas masalah yang ditemui sehari - hari.</p>
+                <p class="tulisanMenulis">bafe.id adalah startup yang bergerak di bidang media digital. Membawa visi "connecting insight", kami ingin mengajak seluruh masyarakat untuk berbagi wawasan dan berkolaborasi untuk menciptakan solusi yang inovatif atas masalah yang ditemui sehari - hari.</p>
             </div>
         </div>
         <div>
@@ -15,23 +15,23 @@
         <div>
             <div class="artikelTrendingKontainer">
                 <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/detailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg"></a>
+                    <a class="artikel_te" href="/DetailArtikel">
+                    <img class="gambarTrending" align="left" src="../assets/gambar_isi.png"></a>
                     <div>
                         <h3>bafe.id</h3>
                     </div>
                 </div>
                 <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/detailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg">
+                    <a class="artikel_te" href="/DetailArtikel">
+                    <img class="gambarTrending" align="left" src="../assets/orang_jalan.jpg">
                     </a>
                     <div>
                         <h3>bafe.id</h3>
                     </div>
                 </div>
                 <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/detailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg">
+                    <a class="artikel_te" href="/DetailArtikel">
+                    <img class="gambarTrending" align="left" src="../assets/orang_ramai.jpg">
                     </a>
                     <div>
                         <h3>bafe.id</h3>
@@ -54,7 +54,6 @@
                 </div>
                 <div class="itemVideoTrending">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe>
-                    <h3>Battle of Gudeg Malam, Mana yang Paling Enak?</h3>
                 </div>
             </div>
         </div>
@@ -76,9 +75,9 @@ h2 {
 }
 .mengapaMenulis {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto 75%;
     width: 75%;
-    margin-bottom: 150px;
+    margin: 100px auto;
 }
 .gambarMengapaMenulis {
     margin: 0 auto;
@@ -90,7 +89,7 @@ h2 {
     display: grid;
     grid-template-columns: auto auto auto;
     background-color: #fafafa;
-    margin-bottom: 150px;
+    margin: 100px auto;
 }
 .itemArtikelTrending {
     display: grid;
@@ -101,8 +100,22 @@ h2 {
     height: 300px;
 }
 .gambarTrending {
-    max-height: 200px;
-    max-width: 300px;
+    max-height: 300px;
+    max-width: 400px;
+}
+.videoTrendingKontainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #fafafa;
+    margin: 100px auto;
+}
+.itemVideoTrending {
+    display: grid;
+    grid-template-columns: auto;
+    border: 20px solid #ffffff;
+    padding: 20px;
+    font-size: 18px;
+    height: 300px;
 }
 .videoTrendingKontainer {
     display: grid;
