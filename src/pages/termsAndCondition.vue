@@ -69,7 +69,7 @@
 
 <script>
 export default {
-  name: 'termsAndCondition'
+ name: 'termsAndCondition'
 }
 </script>
 

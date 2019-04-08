@@ -8,7 +8,7 @@
                 <p>bergabunglah bersama kami untuk...</p>
                 <h2>Share ur Innovation</h2>
             </div>
-            <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="SUBMIT">
+            <input onclick="location.href='/termsAndCondition';" class="uploadButton" type="button" value="SUBMIT">
         </div>
         <div class="misi">
             <h1>Why Sharing?</h1>
@@ -91,7 +91,7 @@ export default {
         display: grid;
         grid-template-columns: auto;
         margin: 0 auto;
-        height: 250px;
+        height: 450px;
         color: #fafafa;
         background-color: #385446;
         background-image: url('../assets/orang_ramai.jpg');
@@ -103,7 +103,6 @@ export default {
         text-align: center;
     }
     .uploadButton {
-        display: block;
         margin: 0 auto;
         width: 150px;
         height: 70px;

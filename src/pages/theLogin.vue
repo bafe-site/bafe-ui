@@ -8,7 +8,7 @@
                 </div>
                 <h4 class="labelPassword">Password</h4>
                 <div class="passwordInput">
-                    <input type="text" class="form-control" placeholder="Password" label="Password" describedby="basicAddon2">
+                    <input type="password" class="form-control" placeholder="Password" label="Password" describedby="basicAddon2">
                 </div>
                 <button class="submitLogin" type="submit">Login</button>
                 </div>

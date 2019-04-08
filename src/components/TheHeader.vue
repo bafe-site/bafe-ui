@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="bLogin">
-                <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="UPLOAD">
+                <input onclick="location.href='/termsAndCondition';" class="uploadButton" type="button" value="UPLOAD">
             </div>
         </nav>
     </div>
@@ -43,18 +43,21 @@ export default {
         display: flex;
         width: 400px;
     }
-
-    .navTop {
-      width: 300px;
-      text-decoration: none;
-      text-align: center;
-      color: #385446;
-      margin: 40px auto;
+    .NavTop {
+        width: 300px;
+        text-decoration: none;
+        float: none;
+        display: inline-block;
+        border: 0 solid;
+        margin: 40px 0;
+        font-size: 20px;
+        background-color: #ffffff;
+        color: #385446;
     }
 
-    .navTop:hover {
-      color: #ffffff;
-      background-color: #385446;
+    .NavTop:hover {
+        background-color: #385446;
+        color: #ffffff;
     }
 
     .search {
