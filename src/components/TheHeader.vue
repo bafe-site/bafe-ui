@@ -37,7 +37,7 @@ export default {
         display: flex;
     }
     .NavTopBox {
-        margin: 0 100px;
+        margin: 0 50px;
     }
     .bCari{
         display: flex;
@@ -98,7 +98,7 @@ export default {
       border-color: #385446;
     }
     .logo {
-        width: 200px;
+        width: 300px;
         height: 100px;
     }
 </style>

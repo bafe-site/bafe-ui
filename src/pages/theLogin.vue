@@ -37,7 +37,7 @@ export default {
 <style>
 .logo{
   height: 100px;
-  width: 200px;
+  width: 300px;
 }
 .logoBafe {
   margin: 0 auto;
