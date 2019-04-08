@@ -3,9 +3,9 @@
         <nav>
             <a href="/" >
                 <img class="logo" src="../assets/S__17219904.jpg" alt="home"></a>
-            <a class="Nav1" href="/">Home</a>
-            <a class="Nav1" href="/konten">Content</a>
-            <a class="Nav1" href="/about">About Us</a>
+            <a class="NavTop" href="/">Home</a>
+            <a class="NavTop" href="/konten">Content</a>
+            <a class="NavTop" href="/about">About Us</a>
             <div class="bCari">
                 <input type="text" class="search" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
                 <div class="input-group-append">
@@ -38,14 +38,21 @@ export default {
         display: flex;
         width: 400px;
     }
-    .Nav1 {
+    .NavTop {
         width: 300px;
         text-decoration: none;
         float: none;
         display: inline-block;
         border: 0 solid;
         margin: 40px 0;
-        font-size: 20px
+        font-size: 20px;
+        background-color: #ffffff;
+        color: #385446;
+    }
+
+    .NavTop:hover {
+        background-color: #385446;
+        color: #ffffff;
     }
 
     .search {
