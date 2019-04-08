@@ -1,11 +1,12 @@
 <template>
     <div class="header">
         <nav>
-            <a href="/" >
-                <img class="logo" src="../assets/S__17219904.jpg" alt="home"></a>
-            <a class="navTop" href="/">Home</a>
-            <a class="navTop" href="/konten">Content</a>
-            <a class="navTop" href="/about">About Us</a>
+            <div class="NavTopBox">
+                <a href="/" >
+                <img class="logo" src="../assets/iconBafe.png" alt="home"></a>
+            </div>
+            <a class="NavTop" href="/konten">Content</a>
+            <a class="NavTop" href="/about">About Us</a>
             <div class="bCari">
                 <input type="text" class="search" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
                 <div>
@@ -35,7 +36,9 @@ export default {
         text-align: center;
         display: flex;
     }
-
+    .NavTopBox {
+        margin: 0 100px;
+    }
     .bCari{
         display: flex;
         width: 400px;
@@ -87,8 +90,7 @@ export default {
         color: #fafafa;
     }
     .logo {
-        width: 100px;
+        width: 200px;
         height: 100px;
-        border: 0;
     }
 </style>

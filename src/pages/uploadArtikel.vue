@@ -15,16 +15,13 @@
 </template>
 
 <script>
-import { VueEditor } from 'vue2-editor'
+import Editor from '@tinymce/tinymce-vue'
+
 export default {
-  name: 'isiArtikel',
-  components: {
-    VueEditor
-  },
   data () {
-    return {
-      content: '<p>Tulis Artikel mu</p>'
-    }
+  },
+  components: {
+    'editor': Editor
   }
 }
 

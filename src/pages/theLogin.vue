@@ -18,7 +18,16 @@
 
 <script>
 export default {
-  name: 'theLogin'
+  name: 'theLogin',
+  mounted () {
+    const Axios = require('axios')
+    Axios
+      .post('http://localhost/bafe/public/api/auth/login', {
+        email: 'broto@gmail.com',
+        password: 'brotobroto'
+      })
+      .then(response => (console.log(response)))
+  }
 }
 </script>
 

@@ -6,7 +6,7 @@
             </div>
             <div>
                 <h2>Tingkatkan Literasi dan Kesadaran Masyarakat Lewat Citizen Journalism</h2>
-                <p class="tulisanMenulis">bafe.id adalah startup yang bergerak di bidang media digital.Membawa visi "connecting insight", kami ingin mengajak seluruh masyarakat untuk berbagi wawasan dan berkolaborasi untuk menciptakan solusi yang inovatif atas masalah yang ditemui sehari - hari.</p>
+                <p class="tulisanMenulis">bafe.id adalah startup yang bergerak di bidang media digital. Membawa visi "connecting insight", kami ingin mengajak seluruh masyarakat untuk berbagi wawasan dan berkolaborasi untuk menciptakan solusi yang inovatif atas masalah yang ditemui sehari - hari.</p>
             </div>
         </div>
         <div>
@@ -43,18 +43,17 @@
             <h1>Video</h1>
         </div>
         <div>
-            <div class="videoTrendingKontainer">
-                <div class="itemVideoTrending">
+            <div class="artikelTrendingKontainer">
+                <div class="grid-item">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe>
                     <h3>Edwin, sosok dibalik viralnya Nurhadi-Aldo</h3>
                 </div>
-                <div class="itemVideoTrending">
+                <div class="grid-item">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/6KsTjjmocKY"></iframe>
                     <h3>Stigma - Kapak Rimba vs Supersonik, Rivalitas atau Tradisi?</h3>
                 </div>
-                <div class="itemVideoTrending">
+                <div class="grid-item">
                     <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe>
-                    <h3>Battle of Gudeg Malam, Mana yang Paling Enak?</h3>
                 </div>
             </div>
         </div>

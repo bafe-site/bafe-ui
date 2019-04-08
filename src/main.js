@@ -13,6 +13,7 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+<<<<<<< Updated upstream
 
 new Vue({
   el: '#app',
@@ -22,3 +23,5 @@ new Vue({
   },
   methods: { /* Your methods */}
 })
+=======
+>>>>>>> Stashed changes
