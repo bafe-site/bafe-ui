@@ -75,9 +75,9 @@ h2 {
 }
 .mengapaMenulis {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto 75%;
     width: 75%;
-    margin-bottom: 150px;
+    margin: 100px auto;
 }
 .gambarMengapaMenulis {
     margin: 0 auto;
@@ -89,7 +89,7 @@ h2 {
     display: grid;
     grid-template-columns: auto auto auto;
     background-color: #fafafa;
-    margin-bottom: 150px;
+    margin: 100px auto;
 }
 .itemArtikelTrending {
     display: grid;
@@ -107,7 +107,7 @@ h2 {
     display: grid;
     grid-template-columns: auto auto auto;
     background-color: #fafafa;
-    margin-bottom: 150px;
+    margin: 100px auto;
 }
 .itemVideoTrending {
     display: grid;

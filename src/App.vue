@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TheHeader v-if="['TheLogin'].indexOf($route.name)" > -1></TheHeader>
+    <TheHeader v-if="['theLogin'].indexOf($route.name)" > -1></TheHeader>
     <router-view/>
     <TheFooter></TheFooter>
   </div>
