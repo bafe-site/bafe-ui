@@ -18,14 +18,14 @@
             <div class="artikelTrendingKontainer">
                 <div class="grid-item">
                     <a class="artikel_te" href="/detailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg"></a>
+                    <img class="gambarTrending" align="left" src="../assets/gambar_isi.png"></a>
                     <div>
                         <h3>bafe.id</h3>
                     </div>
                 </div>
                 <div class="grid-item">
                     <a class="artikel_te" href="/detailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg">
+                    <img class="gambarTrending" align="left" src="../assets/orang_jalan.jpg">
                     </a>
                     <div>
                         <h3>bafe.id</h3>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="grid-item">
                     <a class="artikel_te" href="/detailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/S__17219904.jpg">
+                    <img class="gambarTrending" align="left" src="../assets/orang_ramai.jpg">
                     </a>
                     <div>
                         <h3>bafe.id</h3>
@@ -103,7 +103,7 @@ h2 {
     height: 300px;
 }
 .gambarTrending {
-    max-height: 200px;
-    max-width: 300px;
+    max-height: 300px;
+    max-width: 400px;
 }
 </style>

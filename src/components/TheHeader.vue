@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="bLogin">
-                <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="UPLOAD">
+                <input onclick="location.href='/termsAndCondition';" class="uploadButton" type="button" value="UPLOAD">
             </div>
         </nav>
     </div>
