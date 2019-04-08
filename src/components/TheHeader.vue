@@ -92,6 +92,11 @@ export default {
         background-color: #385446;
         color: #fafafa;
     }
+    .uploadButton:hover {
+      background-color: #fafafa;
+      color: #385446;
+      border-color: #385446;
+    }
     .logo {
         width: 200px;
         height: 100px;

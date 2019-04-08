@@ -87,4 +87,10 @@ export default {
   color: #fafafa;
   font-size: 16px;
 }
+.uploadGFormButton:hover {
+  background-color: #fafafa;
+  color: #385446;
+  border-color: #385446;
+}
+
 </style>
