@@ -164,19 +164,19 @@ itu dia menanyakan satu pertanyaan simpel yang membuat saya bingung, “Kamu    
                 </div>
                 <div class="flex-container">
                     <div>
-                        <a href="/detailArtikel"><img class="gKontenPojok" src="../assets/orang_jalan.jpg"/></a>
+                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/orang_jalan.jpg"/></a>
                         <h4>bafe.id</h4>
                     </div>
                 </div>
                 <div class="flex-container">
                     <div>
-                        <a href="/detailArtikel"><img class="gKontenPojok" src="../assets/orang_ramai.jpg"/></a>
+                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/orang_ramai.jpg"/></a>
                         <h4>bafe.id</h4>
                     </div>
                 </div>
                 <div class="flex-container">
                     <div>
-                        <a href="/detailArtikel"><img class="gKontenPojok" src="../assets/logo.jpg"/></a>
+                        <a href="/DetailArtikel"><img class="gKontenPojok" src="../assets/logo.jpg"/></a>
                         <h4>bafe.id</h4>
                     </div>
                 </div>

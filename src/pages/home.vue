@@ -8,7 +8,7 @@
                 <p>bergabunglah bersama kami untuk...</p>
                 <h2>Share ur Innovation</h2>
             </div>
-            <input onclick="location.href='/termsAndCondition';" class="uploadButton" type="button" value="SUBMIT">
+            <input onclick="location.href='/TermsAndCondition';" class="uploadButton" type="button" value="SUBMIT">
         </div>
         <div class="misi">
             <h1>Why Sharing?</h1>
@@ -25,7 +25,7 @@
         </div>
         <div class="topKonten">
           <div class="isiTopKonten">
-            <a href="/detailArtikel">bafe.id</a>
+            <a href="/DetailArtikel">bafe.id</a>
             <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to theunderlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliantbrowsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions. Combined with the reactivity system, Vue is able to intelligently figure out the minimal number ofcomponents to re-render and apply the minimal amount of DOM manipulations when the app state changes.Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliantbrowsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.</p>
           </div>
         </div>
@@ -34,14 +34,14 @@
         </div>
         <div class="artikelLatestKontainer">
             <div class="grid-item">
-                <a class="artikel_te" href="/detailArtikel">
+                <a class="artikel_te" href="/DetailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg"></a>
                 <div>
                     <h3>bafe.id</h3>
                 </div>
             </div>
             <div class="grid-item">
-                <a class="artikel_te" href="/detailArtikel">
+                <a class="artikel_te" href="/DetailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
                 </a>
                 <div>
@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="grid-item">
-                <a class="artikel_te" href="/detailArtikel">
+                <a class="artikel_te" href="/DetailArtikel">
                 <img class="gambarLatest" align="left" src="../assets/S__17219904.jpg">
                 </a>
                 <div>

@@ -15,14 +15,14 @@
         <div>
             <div class="artikelTrendingKontainer">
                 <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/detailArtikel">
+                    <a class="artikel_te" href="/DetailArtikel">
                     <img class="gambarTrending" align="left" src="../assets/gambar_isi.png"></a>
                     <div>
                         <h3>bafe.id</h3>
                     </div>
                 </div>
                 <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/detailArtikel">
+                    <a class="artikel_te" href="/DetailArtikel">
                     <img class="gambarTrending" align="left" src="../assets/orang_jalan.jpg">
                     </a>
                     <div>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/detailArtikel">
+                    <a class="artikel_te" href="/DetailArtikel">
                     <img class="gambarTrending" align="left" src="../assets/orang_ramai.jpg">
                     </a>
                     <div>

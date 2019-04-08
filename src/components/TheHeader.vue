@@ -5,8 +5,8 @@
                 <a href="/" >
                 <img class="logo" src="../assets/iconBafe.png" alt="home"></a>
             </div>
-            <a class="NavTop" href="/konten">Content</a>
-            <a class="NavTop" href="/about">About Us</a>
+            <a class="NavTop" href="/Konten">Content</a>
+            <a class="NavTop" href="/About">About Us</a>
             <div class="bCari">
                 <input type="text" class="search" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
                 <div>
@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="bLogin">
-                <input onclick="location.href='/termsAndCondition';" class="uploadButton" type="button" value="UPLOAD">
+                <input onclick="location.href='/TermsAndCondition';" class="uploadButton" type="button" value="UPLOAD">
             </div>
         </nav>
     </div>
