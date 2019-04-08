@@ -13,15 +13,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-<<<<<<< Updated upstream
-
-new Vue({
-  el: '#app',
-  data: { /* Your data */ },
-  components: {
-    'editor': Editor // <- Important part
-  },
-  methods: { /* Your methods */}
-})
-=======
->>>>>>> Stashed changes
