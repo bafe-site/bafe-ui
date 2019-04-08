@@ -15,15 +15,14 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Editor from '@tinymce/tinymce-vue'
 
 export default {
-    data() {
-    },
-    components: {
-        'editor': Editor
-    }
+  data () {
+  },
+  components: {
+    'editor': Editor
+  }
 }
 </script>
 <style scoped>

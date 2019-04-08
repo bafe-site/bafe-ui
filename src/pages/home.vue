@@ -139,17 +139,11 @@ export default {
         max-height: 250px;
         padding: 20px 40px;
         text-align: justify;
-        border: 0px;
         background-image: url("../assets/orang_jalan.jpg");
-        opacity: 0.8;
         }
     .artikelTop {
         color: #ffffff;
         padding: 5px;
-        opacity: 0;
-    }
-    .artikelTop:hover {
-        opacity: 1;
     }
     .gambarTop {
         max-height: 200px;

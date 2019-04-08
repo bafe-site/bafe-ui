@@ -7,8 +7,7 @@
             <div>
                 <h2>Tingkatkan Literasi dan Kesadaran Masyarakat Lewat Citizen Journalism</h2>
                 <p class="tulisanMenulis">bafe.id adalah startup yang bergerak di bidang media digital.
-                    Membawa visi "connecting insight", kami ingin mengajak seluruh masyarakat untuk berbagi wawasan dan 
-                    berkolaborasi untuk menciptakan solusi yang inovatif atas masalah yang ditemui sehari - hari.</p>
+                    Membawa visi "connecting insight", kami ingin mengajak seluruh masyarakat untuk berbagi wawasan dan berkolaborasi untuk menciptakan solusi yang inovatif atas masalah yang ditemui sehari - hari.</p>
             </div>
         </div>
         <div>
@@ -39,7 +38,7 @@
                         <h3>bafe.id</h3>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
         <div>
             <h1>Video</h1>
@@ -47,15 +46,15 @@
         <div>
             <div class="artikelTrendingKontainer">
                 <div class="grid-item">
-                    <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe> 
+                    <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe>
                     <h3>Edwin, sosok dibalik viralnya Nurhadi-Aldo</h3>
                 </div>
                 <div class="grid-item">
-                    <iframe width="320" height="180" src="https://www.youtube.com/embed/6KsTjjmocKY"></iframe> 
+                    <iframe width="320" height="180" src="https://www.youtube.com/embed/6KsTjjmocKY"></iframe>
                     <h3>Stigma - Kapak Rimba vs Supersonik, Rivalitas atau Tradisi?</h3>
                 </div>
                 <div class="grid-item">
-                    <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe> 
+                    <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe>
                     <h3>Battle of Gudeg Malam, Mana yang Paling Enak?</h3>
                 </div>
             </div>
@@ -65,7 +64,7 @@
 
 <script>
 export default {
-    name : 'konten'
+  name: 'konten'
 }
 </script>
 
