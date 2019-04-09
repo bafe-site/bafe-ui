@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <TheHeader></TheHeader>
-    <router-view></router-view>
+    <TheHeader v-if="['theLogin'].indexOf($route.name)" > -1></TheHeader>
+    <router-view/>
     <TheFooter></TheFooter>
   </div>
 </template>
@@ -15,6 +15,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import "assets/style/main";
+<style>
+#app {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 </style>
