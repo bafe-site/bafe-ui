@@ -1,0 +1,134 @@
+<template>
+    <div>
+        <div class="mengapaMenulis">
+            <div class="gambarMengapaMenulis">
+                <img height="200px" width="200px" src="../assets/img/S__17219904.jpg">
+            </div>
+            <div>
+                <h2>Tingkatkan Literasi dan Kesadaran Masyarakat Lewat Citizen Journalism</h2>
+                <p class="tulisanMenulis">bafe.id adalah startup yang bergerak di bidang media digital. Membawa visi "connecting insight", kami ingin mengajak seluruh masyarakat untuk berbagi wawasan dan berkolaborasi untuk menciptakan solusi yang inovatif atas masalah yang ditemui sehari - hari.</p>
+            </div>
+        </div>
+        <div>
+            <h1>Artikel</h1>
+        </div>
+        <div>
+            <div class="artikelTrendingKontainer">
+                <div class="itemArtikelTrending">
+                    <a class="artikel_te" href="/DetailArtikel">
+                    <img class="gambarTrending" align="left" src="../assets/img/gambar_isi.png"></a>
+                    <div>
+                        <h3>bafe.id</h3>
+                    </div>
+                </div>
+                <div class="itemArtikelTrending">
+                    <a class="artikel_te" href="/DetailArtikel">
+                    <img class="gambarTrending" align="left" src="../assets/img/orang_jalan.jpg">
+                    </a>
+                    <div>
+                        <h3>bafe.id</h3>
+                    </div>
+                </div>
+                <div class="itemArtikelTrending">
+                    <a class="artikel_te" href="/DetailArtikel">
+                    <img class="gambarTrending" align="left" src="../assets/img/orang_ramai.jpg">
+                    </a>
+                    <div>
+                        <h3>bafe.id</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>Video</h1>
+        </div>
+        <div>
+            <div class="videoTrendingKontainer">
+                <div class="itemVideoTrending">
+                    <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe>
+                    <h3>Edwin, sosok dibalik viralnya Nurhadi-Aldo</h3>
+                </div>
+                <div class="itemVideoTrending">
+                    <iframe width="320" height="180" src="https://www.youtube.com/embed/6KsTjjmocKY"></iframe>
+                    <h3>Stigma - Kapak Rimba vs Supersonik, Rivalitas atau Tradisi?</h3>
+                </div>
+                <div class="itemVideoTrending">
+                    <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'konten'
+}
+</script>
+
+<style scoped>
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+.mengapaMenulis {
+    display: grid;
+    grid-template-columns: auto 75%;
+    width: 75%;
+    margin: 100px auto;
+}
+.gambarMengapaMenulis {
+    margin: 0 auto;
+}
+.tulisanMenulis {
+    text-align: justify;
+}
+.artikelTrendingKontainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #fafafa;
+    margin: 100px auto;
+}
+.itemArtikelTrending {
+    display: grid;
+    grid-template-columns: auto;
+    border: 20px solid #ffffff;
+    padding: 20px;
+    font-size: 18px;
+    height: 300px;
+}
+.gambarTrending {
+    max-height: 300px;
+    max-width: 400px;
+}
+.videoTrendingKontainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #fafafa;
+    margin: 100px auto;
+}
+.itemVideoTrending {
+    display: grid;
+    grid-template-columns: auto;
+    border: 20px solid #ffffff;
+    padding: 20px;
+    font-size: 18px;
+    height: 300px;
+}
+.videoTrendingKontainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #fafafa;
+    margin-bottom: 150px;
+}
+.itemVideoTrending {
+    display: grid;
+    grid-template-columns: auto;
+    border: 20px solid #ffffff;
+    padding: 20px;
+    font-size: 18px;
+    height: 300px;
+}
+</style>

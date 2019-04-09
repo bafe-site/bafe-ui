@@ -1,20 +1,19 @@
 <template>
     <div class="footer">
-      <div class="footer__info">
-        <p>2019 © Bafe.site</p>
-      </div>
-      <div class="footer__socials">
-        <a class="footer__icon" href="https://www.instagram.com/bafe.id/">
-          <div class="footer__icon--circle">
-            <i class="fab fa-instagram"></i>
-          </div>
-        </a>
-        <a class="footer__icon" href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA">
-          <div class="footer__icon--circle">
-            <i class="fab fa-youtube"></i>
-          </div>
-        </a>
-      </div>
+        <div class="footerContainer">
+            <div>
+                <p>bafe.id adalah media publikasi masyarakat untuk berbagi wawasan dan inovasi tepat guna. Bergabung bersama kami dan jadilah agen perubahan.</p>
+                <p>Copyright © All rights reserved.</p>
+            </div>
+            <div class="footer_a">
+            <a href="https://www.instagram.com/bafe.id/" target="_blank">
+                <img class="iconInstagram" src="../assets/img/icon_instagram.png"></a>
+            </div>
+            <div class="footer_b">
+            <a href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA" target="_blank">
+                <img class="iconYoutube" src="../assets/img/icon_youtube.png"></a>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -24,44 +23,45 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
     .footer {
-      align-items: center;
-      background-color: #385446;
-      color: white;
-      display: flex;
-      height: 60px;
-      padding: 15px 20px;
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 80px;
+        background-color: #385446;
+        color: white;
+        margin-top: 1%;
+    }
+    .footerContainer{
+        display: grid;
+        grid-template-columns: auto 50px 60px;
+    }
+    p {
+        text-align: center;
+    }
+    .footer_a {
+        color: #fafafa;
+        text-decoration: none;
+        text-align: right;
+        margin: auto;
+    }
 
-      &__socials {
-        display: flex;
-        margin-left: auto;
-      }
+    .footer_b {
+        color: #fafafa;
+        text-decoration: none;
+        text-align: right;
+        margin: auto;
+    }
 
-      &__icon {
-        align-items: center;
-        color: black;
-        cursor: pointer;
-        display: flex;
-        font-size: 20px;
-        justify-content: flex-end;
-        padding: 8px;
+    .iconYoutube {
+        height: 50px;
+        width: 50px;
+    }
 
-        &--circle {
-          align-items: center;
-          background-color: #fff;
-          border-radius: 30px;
-          display: flex;
-          height: 45px;
-          justify-content: center;
-          width: 45px;
-        }
-
-        &:hover > &--circle{
-          -webkit-transition: 100ms;
-          background-color: #7e9489;
-          color: #fff;
-        }
-      }
+    .iconInstagram {
+        height: 40px;
+        width: 40px;
     }
 </style>

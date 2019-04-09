@@ -1,73 +1,105 @@
 <template>
     <div class="header">
-      <div class="header__logo">
-        <a href="/"><img src="../assets/img/S__17219904.jpg" alt="home"></a>
-      </div>
-      <div class="header__menu">
-        <the-menu></the-menu>
-      </div>
-      <div class="header__search">
-        <div class="search__input-group">
-          <input type="text" class="search__form-control" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
-          <button class="search__input-group-append"><i class="fas fa-search"></i></button>
-        </div>
-      </div>
-      <div class="header__action">
-        <button class="button button--main">Upload</button>
-      </div>
+        <nav>
+            <div class="NavTopBox">
+                <a href="/" >
+                <img class="logo" src="../assets/img/iconBafe.png" alt="home"></a>
+            </div>
+            <a class="NavTop" href="/Konten">Content</a>
+            <a class="NavTop" href="/About">About Us</a>
+            <div class="bCari">
+                <input type="text" class="search" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
+                <div>
+                    <button class="searchButton" id="basic-addon2">cari</button>
+                </div>
+            </div>
+            <div class="bLogin">
+                <input onclick="location.href='/TermsAndCondition';" class="uploadButton" type="button" value="UPLOAD">
+            </div>
+        </nav>
     </div>
 </template>
 
 <script>
-import TheMenu from './TheMenu'
 export default {
-  name: 'Header',
-  components: {TheMenu}
+  name: 'Header'
 }
 </script>
 
-<style lang="scss" scoped>
-  .header {
-    display: flex;
-
-    &__logo img {
-      height: 100px;
+<style scoped>
+    a {
+      text-decoration: none;
+      font-size: 20px;
     }
 
-    &__search {
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-      margin-right: 20px;
+    nav {
+        text-align: center;
+        display: flex;
+    }
+    .NavTopBox {
+        margin: 0 50px;
+    }
+    .bCari{
+        display: flex;
+        width: 400px;
+    }
+    .NavTop {
+        width: 300px;
+        text-decoration: none;
+        float: none;
+        display: inline-block;
+        border: 0 solid;
+        margin: 40px 0;
+        font-size: 20px;
+        background-color: #ffffff;
+        color: #385446;
     }
 
-    &__action {
-      display: flex;
-      align-items: center;
-      justify-self: flex-end;
-      margin-right: 20px;
+    .NavTop:hover {
+        background-color: #385446;
+        color: #ffffff;
     }
-  }
 
-  .search {
-    &__input-group {
-      display: flex;
-      height: 40px;
-
-      &-append {
-        padding: 0px 10px;
+    .search {
+        margin: 30px 0 34px 15px;
+        padding-left: 10px;
+        padding-right: 65px;
+        background: #fafafa;
         border: 2px solid #385446;
-        border-radius: 0 20px 20px 0;
+        border-radius: 30px 0 0 30px;
+    }
+
+    .searchButton {
+        margin-top: 30px;
+        margin-left: -2px;
+        padding: 11px 20px;
+        border: 2px solid #385446;
+        border-radius: 0 30px 30px 0;
         background-color: #385446;
         color: #fafafa;
-      }
     }
 
-    &__form-control {
-      background-color: lightgrey;
-      padding: 0px 15px;
-      border: 2px solid #385446;
-      border-radius: 20px 0 0 20px;
+    .searchButton:hover {
+        background-color: #fafafa;
+        color: #385446;
     }
-  }
+
+    .uploadButton {
+        margin-top: 28px;
+        position: relative;
+        padding: 9px 20px;
+        border: 5px solid #385446;
+        border-radius: 20px;
+        background-color: #385446;
+        color: #fafafa;
+    }
+    .uploadButton:hover {
+      background-color: #fafafa;
+      color: #385446;
+      border-color: #385446;
+    }
+    .logo {
+        width: 300px;
+        height: 100px;
+    }
 </style>
