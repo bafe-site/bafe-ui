@@ -2,71 +2,79 @@
     <div class="container">
       <div class="login-container">
           <a href="/" class="logo-container"><img src="../assets/img/iconBafe.png"></a>
+          <span class="error-message" v-if="errorMsg"> {{ errorMsg }} </span>
           <div class="input-set__vertical">
             <input id="login-username" v-model="email" type="text" class="input" placeholder="Username">
           </div>
           <div class="input-set__vertical">
              <input id="login-password" v-model="password" type="password" class="input" placeholder="Password">
           </div>
-        <button class="button button--main">Login</button>
+        <button class="button button--main" @click="login" :disabled="!isValid">Login</button>
       </div>
     </div>
 </template>
 
 <script>
-var date = new Date()
-date.setDate(date.getDate() + 30)
+import axios from 'axios'
 
 export default {
   name: 'theLogin',
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      errorMsg: ''
     }
   },
   methods: {
-    // onSubmit () {
-    //   axios
-    //     .post('http://localhost/bafe/public/api/auth/login', {
-    //       email: this.email,
-    //       password: this.password
-    //     })
-    //     .then(res => {
-    //       this.$cookie.set('token', res.data.token, { expires: date })
-    //     })
-    //     .catch(error => {
-    //       console.log(error)
-    //     })
-    // }
+    login () {
+      let self = this
+      var date = new Date()
+      axios
+        .post('http://localhost/bafe/public/api/auth/login', {
+          email: self.email,
+          password: self.password
+        })
+        .then(res => {
+          self.$cookie.set('token', res.data.token, { expires: date.getDate() + 30 })
+          self.goTo('home')
+        })
+        .catch(error => {
+          self.errorMsg = 'Username dan password tidak sesuai'
+          console.log(error)
+        })
+    },
+    goTo (name) {
+      this.$router.push({ name: name })
+    }
+  },
+  computed: {
+    isValid () {
+      return this.username && this.password
+    }
   }
 }
 </script>
 
 <style lang="scss">
-.input-set__vertical {
-  display: flex;
-  flex-direction: column;
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+  color: #FF4040;
+  margin-bottom: 10px;
+}
+
+.input-set__vertical {
   & > {
     input {
       text-align: center;
-      margin: 10px 0px;
     }
   }
-}
-
-.logo-container {
-  margin-bottom: 45px;
-  & > img{
-    height: 80px;
-  }
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .login-container {
@@ -79,6 +87,13 @@ export default {
   padding: 15px 50px;
   margin: 50px 0px;
   background: #f1f1f1;
+}
+
+.logo-container {
+  margin-bottom: 45px;
+  & > img{
+    height: 80px;
+  }
 }
 
 button {

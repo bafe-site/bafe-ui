@@ -12,6 +12,11 @@ button, input[type="submit"], input[type="reset"] {
   }
 }
 
+.button:disabled, .button:disabled:hover {
+  background-color: #7e9489;
+  cursor: default;
+}
+
 .button {
   border-radius: 20px;
   height: 40px;

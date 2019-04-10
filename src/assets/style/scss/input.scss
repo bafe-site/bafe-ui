@@ -13,3 +13,26 @@ input {
   box-sizing: border-box;
   border-radius: 20px;
 }
+
+// Input set
+
+.input-set__vertical {
+  display: flex;
+  flex-direction: column;
+
+  & > {
+    input {
+      margin: 10px 0px;
+    }
+  }
+}
+
+.input-set__horizontal {
+  display: flex;
+
+  & > {
+    input {
+      margin: 10px 0px;
+    }
+  }
+}
