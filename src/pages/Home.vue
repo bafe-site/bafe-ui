@@ -68,7 +68,7 @@
     </div>
     <div class="row">
       <div class="grid-container">
-        <div class="grid-item" v-for="n in 4">
+        <div class="grid-item" v-for="n in 4" :key="n">
           <div class="item item__summary--vertical">
             <div class="summary__thumbnail">
               <img class="g_t" align="left" src="../assets/img/S__17219904.jpg">
