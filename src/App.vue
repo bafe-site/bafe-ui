@@ -15,10 +15,7 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Open Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<style lang="scss">
+@import "./assets/style/main.scss";
+@import "~normalize.css";
 </style>

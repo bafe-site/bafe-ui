@@ -2,4 +2,14 @@ input {
   &:focus {
     outline: none;
   }
+
+  border: 2px solid #26342a;
+}
+
+.input {
+  padding: 10px 15px;
+  margin: 10px 0px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 20px;
 }
