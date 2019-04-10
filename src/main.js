@@ -15,6 +15,6 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-Vue.use(VueCookie)
 
+Vue.use(VueCookie)
 Vue.use(axios)

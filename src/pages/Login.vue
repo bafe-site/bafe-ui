@@ -18,7 +18,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'theLogin',
+  name: 'Login',
   data () {
     return {
       email: '',
@@ -36,8 +36,8 @@ export default {
           password: self.password
         })
         .then(res => {
-          self.$cookie.set('token', res.data.token, { expires: date.getDate() + 30 })
-          self.goTo('home')
+          self.$cookie.set('token', res.data.meta.token, { expires: date.getDate() + 30 })
+          // self.goTo('home')
         })
         .catch(error => {
           self.errorMsg = 'Username dan password tidak sesuai'
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     isValid () {
-      return this.username && this.password
+      return this.email && this.password
     }
   }
 }
