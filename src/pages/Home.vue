@@ -44,19 +44,17 @@
         <div class="carousel__arrow">
           <i class="fas fa-angle-left"></i>
         </div>
-        <div class="carousel__item-container">
+        <div class="carousel__item-container" v-for="m in kontenTop" :key="m.id">
           <div class="item item__summary--horizontal">
             <div class="summary__thumbnail">
-              <img class="g_t" align="left" src="../assets/img/S__17219904.jpg">
+              <img class="g_t" align="left" :src="require('@/assets/img/' + m.thumbnail )">
             </div>
             <div class="summary__content">
               <div class="content__title">
-                <h3>Belajar dari kreatifitas lokal</h3>
+                <h3> {{ m.title }} </h3>
               </div>
               <div class="content__description">
-                <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
-                  underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
-                  browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.</p>
+                <p> {{ m.content }} </p>
               </div>
             </div>
           </div>
@@ -68,31 +66,56 @@
     </div>
     <div class="row">
       <div class="grid-container">
-        <div class="grid-item" v-for="n in 4" :key="n">
+        <div class="grid-item" v-for="n in kontenTerakhir" :key="n.id">
           <div class="item item__summary--vertical">
             <div class="summary__thumbnail">
-              <img class="g_t" align="left" src="../assets/img/S__17219904.jpg">
+              <img class="g_t" align="left" :src="require('@/assets/img/' + n.thumbnail )">
             </div>
             <div class="summary__content">
               <div class="content__title">
-                <h3>bafe.id</h3>
+                <h3> {{ n.title }} </h3>
               </div>
               <div class="content__description">
-                <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM
-                  to the underlying Vue instance’s data.</p>
+                <p> {{ n.content|truncate }} </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import Axios from 'axios'
 export default {
-  name: 'Home'
+  name: 'Home',
+  data () {
+    return {
+      kontenTop: [],
+      kontenTerakhir: []
+    }
+  },
+  mounted () {
+    Promise.all([
+      Axios.get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc'),
+      Axios.get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
+    ])
+      .then(Axios.spread((kontenTerakhirRes, kontenTopRes) => {
+        this.kontenTerakhir = kontenTerakhirRes.data.content.data.slice(0, 3)
+        console.log(this.kontenTerakhir)
+        this.kontenTop = kontenTopRes.data.content.data.slice(0, 3)
+        console.log(this.kontenTop)
+      }))
+  },
+  filters: {
+    truncate: function (karakter) {
+      if (karakter.length > 40) {
+        karakter = karakter.substring(0, 36) + ' ...'
+      }
+      return karakter
+    }
+  }
 }
 </script>
 
