@@ -2,16 +2,19 @@
     <div>
         <div class="kontainer">
             <div class="grid-item">
-                <div class="artikel" v-for="n in artikel" :key="n.id" >
+                <div class="artikel">
                     <div class="kontainer">
-                        <img class="gArtikel" :src="require('../assets/' + n.thumbnail )"/>
+                        <img class="gArtikel" :src="require('@/assets/' + artikel.thumbnail)"/>
                         <div style="width: 150px; font-size: 80%; text-align: center;">
                             <img class="gPenulis" src="../assets/logo.jpg"/>
-                            <span>{{ n.meta.author }}</span>
+                            <span>{{ artikel.meta.author }}</span>
                         </div>
                     </div>
-                    <h2> {{ n.title }} </h2>
-                    <div v-html="n">
+                    <h2> {{ artikel.title }} </h2>
+                    <div>
+                      <span class="kategori">Kategori: {{ artikel.category }} </span>
+                    </div>
+                    <div v-html="artikel.content">
                     </div>
                 </div>
             </div>
@@ -107,5 +110,9 @@ export default {
         width: 150px;
         height: 150px;
         padding-bottom: 0.5em;
+    }
+    .kategori {
+      font-size: 16px;
+      font-weight: lighter;
     }
 </style>
