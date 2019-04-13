@@ -6,24 +6,9 @@
       </div>
     </div>
     <div class="row">
-      <div class="banner">
-        <div class="carousel__arrow" @click="carouselBack('banner')">
-          <i class="fas fa-angle-left"></i>
-        </div>
-        <div class="carousel__main">
-          <div class="banner__upper-desc">{{ carousel.banner.dataset[carousel.banner.active].description }}</div>
-          <div class="banner__title">
-            <h2>{{ carousel.banner.dataset[carousel.banner.active].title }}</h2>
-          </div>
-          <div class="banner__bottom-desc"></div>
-          <div class="banner__action">
-            <button class="button--hollow">{{ carousel.banner.dataset[carousel.banner.active].action }}</button>
-          </div>
-        </div>
-        <div class="carousel__arrow" @click="carouselNext('banner')">
-          <i class="fas fa-angle-right"></i>
-        </div>
-      </div>
+      <the-banner
+        :dataset="banner.dataset"
+        :config="banner.config"></the-banner>
     </div>
     <div class="row">
       <div class="item item__summary--horizontal">
@@ -46,38 +31,11 @@
         </div>
       </div>
     </div>
-    <h2>Top Content</h2>
-    <div class="row">
-      <div class="carousel">
-        <div class="carousel__arrow" @click="carouselBack('top')">
-          <i class="fas fa-angle-left"></i>
-        </div>
-        <div class="carousel__main">
-          <div class="carousel__item-container">
-            <div class="item item__summary--horizontal">
-              <div class="summary__thumbnail">
-                <img src="../assets/img/orang_ramai.jpg">
-              </div>
-              <div class="summary__content">
-                <div class="content__title">
-                  <h3> {{ carousel.top.dataset[carousel.top.active].title }} </h3>
-                </div>
-                <div class="content__description">
-                  <p> {{ carousel.top.dataset[carousel.top.active].content | truncate(200) }} </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel__bullet-container">
-            <span class="carousel__bullet" v-for="idx in carousel.top.dataset.length" :key="idx" @click="carouselChangeActive('top', idx)">
-              <a :class="{ 'carousel__bullet--active' : isActiveTopCarousel(idx) }"><i class="far fa-circle"></i></a>
-            </span>
-          </div>
-        </div>
-        <div class="carousel__arrow" @click="carouselNext('top')">
-          <i class="fas fa-angle-right"></i>
-        </div>
-      </div>
+    <div class="row" ref="carousel">
+      <h2>Top Content</h2>
+      <the-carousel
+        :dataset="carousel.top.dataset"
+        :config="carousel.top.config"></the-carousel>
     </div>
     <div class="row">
       <div class="grid-container">
@@ -103,29 +61,43 @@
 
 <script>
 import axios from 'axios'
+import TheCarousel from '../components/TheCarousel'
+import TheBanner from '../components/TheBanner'
 export default {
   name: 'Home',
+  components: {TheCarousel, TheBanner},
   data () {
     return {
       latestContent: [],
       carousel: {
         top: {
-          active: 0,
-          max: 0,
-          dataset: [{
-            title: '',
-            content: '',
-            thumbnail: ''
-          }]
-        },
-        banner: {
-          active: 0,
-          max: 0,
-          dataset: [{
+          config: {
+            max: 0
+          },
+          dataset: {
+            articles: [{
+              title: '',
+              content: '',
+              thumbnail: ''
+            }]
+          }
+        }
+      },
+      banner: {
+        config: {},
+        dataset: {
+          contents: [{
             title: '',
             description: '',
             background: '',
-            action: ''
+            action: {
+              text: '',
+              link: ''
+            },
+            style: {
+              align: '',
+              mode: 0
+            }
           }]
         }
       }
@@ -135,7 +107,6 @@ export default {
     let self = this
     self.$nextTick(() => {
       self.init()
-      setInterval(() => self.changeBanner(), 5000)
     })
   },
   methods: {
@@ -143,8 +114,8 @@ export default {
       let self = this
       axios.get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc')
         .then(response => {
-          self.carousel.top.dataset = response.data.content.data.splice(0, 3)
-          self.carousel.top.max = 3
+          self.carousel.top.dataset.articles = response.data.content.data.splice(0, 3)
+          self.carousel.top.config.max = 3
         })
         .catch(error => {
           alert(error)
@@ -158,55 +129,32 @@ export default {
           alert(error)
         })
 
-      self.carousel.banner.max = 3
-      self.carousel.banner.dataset = [{
-        title: 'Sahare Your Innovation',
+      self.banner.config.max = 3
+      self.banner.dataset.contents = [{
+        title: 'Share Your Innovation',
         description: 'Bergabunglah bersama kami untuk...',
         background: '',
-        action: 'Upload'
+        action: {
+          text: 'Upload',
+          link: ''
+        },
+        style: {
+          align: '',
+          mode: 1
+        }
       }, {
-        title: 'Sahare Your Innovation 2',
-        description: '2 Bergabunglah bersama kami untuk...',
+        title: 'Ceritakan Kisah Anda',
+        description: 'Ceritakan isu-isu yang terjadi disekitarmu, masalah seperti apa yang dicari?',
         background: '',
-        action: 'Download'
-      }, {
-        title: 'Sahare Your Innovation 3',
-        description: '3 Bergabunglah bersama kami untuk...',
-        background: '',
-        action: 'Download'
+        action: {
+          text: 'Tulis Sekarang',
+          link: ''
+        },
+        style: {
+          align: '',
+          mode: 0
+        }
       }]
-    },
-    carouselNext (type) {
-      let self = this
-      if (self.carousel[type].active !== self.carousel[type].max - 1) {
-        self.carousel[type].active += 1
-      }
-    },
-    carouselBack (type) {
-      let self = this
-      if (self.carousel[type].active !== 0) {
-        self.carousel[type].active -= 1
-      }
-    },
-    carouselChangeActive (type, idx) {
-      let self = this
-      self.carousel[type].active = idx - 1
-    },
-    changeBanner () {
-      let self = this
-      if (self.carousel.banner.active !== self.carousel.banner.max - 1) {
-        self.carouselNext('banner')
-      } else {
-        self.carousel.banner.active = 0
-      }
-    }
-  },
-  computed: {
-    isActiveTopCarousel () {
-      let self = this
-      return (idx) => {
-        return self.carousel.top.active == (idx - 1)
-      }
     }
   }
 }
@@ -214,7 +162,7 @@ export default {
 
 <style lang="scss" scoped>
   .row {
-    margin: 30px 0px;
+    margin: 50px 0px;
   }
   .motto {
     text-align: center;
@@ -223,46 +171,6 @@ export default {
 
   .container {
     padding: 0px 10vw;
-  }
-
-  .banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 400px;
-    position: relative;
-    text-align: center;
-    padding: 0px 30px;
-    color: #fff;
-
-    &__action {
-      margin: 25px 0px;
-    }
-  }
-  .banner::after {
-    background-color: #26342a;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.4;
-  }
-  .banner::before {
-    background-image: url('../assets/img/orang_ramai.jpg');
-    background-size: cover;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    opacity: 0.4;
   }
 
   .summary {
@@ -274,59 +182,6 @@ export default {
     }
     &__content {
       box-sizing: border-box;
-    }
-  }
-
-  .upload_button_2 {
-    position: relative;
-    padding: 15px 20px;
-    border: 5px solid #fafafa;
-    border-radius: 8px;
-    background-color: #385446;
-    color: #fafafa;
-  }
-  .carousel {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 10px 20px 10px;
-    text-align: justify;
-    background-color: lightgrey;
-    align-items: center;
-  }
-  .carousel__arrow {
-    text-align: center;
-    width: 30px;
-    height: 100%;
-    padding: 0px 5px;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      font-size: 30px;
-      /*background-color: #3e705a;*/
-      transition: 100ms;
-    }
-  }
-  .carousel__main {
-    width: 80%;
-  }
-
-  .carousel__bullet-container {
-    text-align: center;
-  }
-
-  .carousel__bullet {
-    font-size: 10px;
-    margin: 0px 2px;
-    color: #565656;
-    cursor: pointer;
-
-    &--active {
-      font-size: 12px;
-      color: black;
     }
   }
 
