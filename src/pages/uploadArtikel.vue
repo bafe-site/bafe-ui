@@ -15,15 +15,15 @@
 </template>
 
 <script>
-import Editor from '@tinymce/tinymce-vue'
+// import Editor from '@tinymce/tinymce-vue'
 
-export default {
-  data () {
-  },
-  components: {
-    'editor': Editor
-  }
-}
+// export default {
+//   data () {
+//   },
+//   components: {
+//     'editor': Editor
+//   }
+// }
 </script>
 <style scoped>
 .isiArtikel{
