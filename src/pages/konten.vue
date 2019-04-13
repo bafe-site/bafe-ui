@@ -14,27 +14,11 @@
         </div>
         <div>
             <div class="artikelTrendingKontainer">
-                <div class="itemArtikelTrending">
+                <div class="itemArtikelTrending" v-for="n in artikelTrending" :key="n.id">
                     <a class="artikel_te" href="/DetailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/img/gambar_isi.png"></a>
+                    <img class="gambarTrending" align="left" :src="require('@/assets/img/' + n.thumbnail)"></a>
                     <div>
-                        <h3>bafe.id</h3>
-                    </div>
-                </div>
-                <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/DetailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/img/orang_jalan.jpg">
-                    </a>
-                    <div>
-                        <h3>bafe.id</h3>
-                    </div>
-                </div>
-                <div class="itemArtikelTrending">
-                    <a class="artikel_te" href="/DetailArtikel">
-                    <img class="gambarTrending" align="left" src="../assets/img/orang_ramai.jpg">
-                    </a>
-                    <div>
-                        <h3>bafe.id</h3>
+                        <h3>{{ n.title }}</h3>
                     </div>
                 </div>
             </div>
@@ -44,16 +28,9 @@
         </div>
         <div>
             <div class="videoTrendingKontainer">
-                <div class="itemVideoTrending">
-                    <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe>
-                    <h3>Edwin, sosok dibalik viralnya Nurhadi-Aldo</h3>
-                </div>
-                <div class="itemVideoTrending">
-                    <iframe width="320" height="180" src="https://www.youtube.com/embed/6KsTjjmocKY"></iframe>
-                    <h3>Stigma - Kapak Rimba vs Supersonik, Rivalitas atau Tradisi?</h3>
-                </div>
-                <div class="itemVideoTrending">
-                    <iframe width="320" height="180" src="https://www.youtube.com/embed/fvWuRJd__OE"></iframe>
+                <div class="itemVideoTrending" v-for="m in videoTrending" :key="m.id">
+                    <iframe width="320" height="180" :src="m.video"></iframe>
+                    <h3>{{ m.title }}</h3>
                 </div>
             </div>
         </div>
@@ -61,8 +38,23 @@
 </template>
 
 <script>
+import Axios from 'axios'
 export default {
-  name: 'konten'
+  name: 'konten',
+  data () {
+    return {
+      artikelTrending: [],
+      videoTrending: []
+    }
+  },
+  mounted () {
+    Axios
+      .get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
+      .then(res => {
+        this.artikelTrending = res.data.content.data.slice(0, 3)
+        this.videoTrending = res.data.content.data.slice(0, 3)
+      })
+  }
 }
 </script>
 
