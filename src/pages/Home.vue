@@ -7,13 +7,21 @@
     </div>
     <div class="row">
       <div class="banner">
-        <div class="banner__upper-desc">bergabunglah bersama kami untuk...</div>
-        <div class="banner__title">
-          <h2>Share ur Innovation</h2>
+        <div class="carousel__arrow" @click="carouselBack('banner')">
+          <i class="fas fa-angle-left"></i>
         </div>
-        <div class="banner__bottom-desc"></div>
-        <div class="banner__action">
-          <button class="button--hollow">Upload</button>
+        <div class="carousel__main">
+          <div class="banner__upper-desc">{{ carousel.banner.dataset[carousel.banner.active].description }}</div>
+          <div class="banner__title">
+            <h2>{{ carousel.banner.dataset[carousel.banner.active].title }}</h2>
+          </div>
+          <div class="banner__bottom-desc"></div>
+          <div class="banner__action">
+            <button class="button--hollow">{{ carousel.banner.dataset[carousel.banner.active].action }}</button>
+          </div>
+        </div>
+        <div class="carousel__arrow" @click="carouselNext('banner')">
+          <i class="fas fa-angle-right"></i>
         </div>
       </div>
     </div>
@@ -41,42 +49,49 @@
     <h2>Top Content</h2>
     <div class="row">
       <div class="carousel">
-        <div class="carousel__arrow">
+        <div class="carousel__arrow" @click="carouselBack('top')">
           <i class="fas fa-angle-left"></i>
         </div>
-        <div class="carousel__item-container" v-for="m in kontenTop" :key="m.id">
-          <div class="item item__summary--horizontal">
-            <div class="summary__thumbnail">
-              <img class="g_t" align="left" :src="require('@/assets/img/' + m.thumbnail )">
-            </div>
-            <div class="summary__content">
-              <div class="content__title">
-                <h3> {{ m.title }} </h3>
+        <div class="carousel__main">
+          <div class="carousel__item-container">
+            <div class="item item__summary--horizontal">
+              <div class="summary__thumbnail">
+                <img src="../assets/img/orang_ramai.jpg">
               </div>
-              <div class="content__description">
-                <p> {{ m.content }} </p>
+              <div class="summary__content">
+                <div class="content__title">
+                  <h3> {{ carousel.top.dataset[carousel.top.active].title }} </h3>
+                </div>
+                <div class="content__description">
+                  <p> {{ carousel.top.dataset[carousel.top.active].content | truncate(200) }} </p>
+                </div>
               </div>
             </div>
           </div>
+          <div class="carousel__bullet-container">
+            <span class="carousel__bullet" v-for="idx in carousel.top.dataset.length" :key="idx" @click="carouselChangeActive('top', idx)">
+              <a :class="{ 'carousel__bullet--active' : isActiveTopCarousel(idx) }"><i class="far fa-circle"></i></a>
+            </span>
+          </div>
         </div>
-        <div class="carousel__arrow">
+        <div class="carousel__arrow" @click="carouselNext('top')">
           <i class="fas fa-angle-right"></i>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="grid-container">
-        <div class="grid-item" v-for="n in kontenTerakhir" :key="n.id">
+        <div class="grid-item" v-for="n in latestContent" :key="n.id">
           <div class="item item__summary--vertical">
             <div class="summary__thumbnail">
-              <img class="g_t" align="left" :src="require('@/assets/img/' + n.thumbnail )">
+              <img src="../assets/img/orang_ramai.jpg">
             </div>
             <div class="summary__content">
               <div class="content__title">
                 <h3> {{ n.title }} </h3>
               </div>
               <div class="content__description">
-                <p> {{ n.content|truncate }} </p>
+                <p>{{ n.content | truncate(36) }}</p>
               </div>
             </div>
           </div>
@@ -87,33 +102,111 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import axios from 'axios'
 export default {
   name: 'Home',
   data () {
     return {
-      kontenTop: [],
-      kontenTerakhir: []
+      latestContent: [],
+      carousel: {
+        top: {
+          active: 0,
+          max: 0,
+          dataset: [{
+            title: '',
+            content: '',
+            thumbnail: ''
+          }]
+        },
+        banner: {
+          active: 0,
+          max: 0,
+          dataset: [{
+            title: '',
+            description: '',
+            background: '',
+            action: ''
+          }]
+        }
+      }
     }
   },
   mounted () {
-    Promise.all([
-      Axios.get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc'),
-      Axios.get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
-    ])
-      .then(Axios.spread((kontenTerakhirRes, kontenTopRes) => {
-        this.kontenTerakhir = kontenTerakhirRes.data.content.data.slice(0, 3)
-        console.log(this.kontenTerakhir)
-        this.kontenTop = kontenTopRes.data.content.data.slice(0, 3)
-        console.log(this.kontenTop)
-      }))
+    let self = this
+    self.$nextTick(() => {
+      self.init()
+      setInterval(() => self.changeBanner(), 5000)
+    })
   },
-  filters: {
-    truncate: function (karakter) {
-      if (karakter.length > 40) {
-        karakter = karakter.substring(0, 36) + ' ...'
+  methods: {
+    init () {
+      let self = this
+      axios.get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc')
+        .then(response => {
+          self.carousel.top.dataset = response.data.content.data.splice(0, 3)
+          self.carousel.top.max = 3
+        })
+        .catch(error => {
+          alert(error)
+        })
+
+      axios.get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
+        .then(response => {
+          self.latestContent = response.data.content.data.splice(0, 4)
+        })
+        .catch(error => {
+          alert(error)
+        })
+
+      self.carousel.banner.max = 3
+      self.carousel.banner.dataset = [{
+        title: 'Sahare Your Innovation',
+        description: 'Bergabunglah bersama kami untuk...',
+        background: '',
+        action: 'Upload'
+      }, {
+        title: 'Sahare Your Innovation 2',
+        description: '2 Bergabunglah bersama kami untuk...',
+        background: '',
+        action: 'Download'
+      }, {
+        title: 'Sahare Your Innovation 3',
+        description: '3 Bergabunglah bersama kami untuk...',
+        background: '',
+        action: 'Download'
+      }]
+    },
+    carouselNext (type) {
+      let self = this
+      if (self.carousel[type].active !== self.carousel[type].max - 1) {
+        self.carousel[type].active += 1
       }
-      return karakter
+    },
+    carouselBack (type) {
+      let self = this
+      if (self.carousel[type].active !== 0) {
+        self.carousel[type].active -= 1
+      }
+    },
+    carouselChangeActive (type, idx) {
+      let self = this
+      self.carousel[type].active = idx - 1
+    },
+    changeBanner () {
+      let self = this
+      if (self.carousel.banner.active !== self.carousel.banner.max - 1) {
+        self.carouselNext('banner')
+      } else {
+        self.carousel.banner.active = 0
+      }
+    }
+  },
+  computed: {
+    isActiveTopCarousel () {
+      let self = this
+      return (idx) => {
+        return self.carousel.top.active == (idx - 1)
+      }
     }
   }
 }
@@ -134,7 +227,6 @@ export default {
 
   .banner {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 400px;
@@ -196,7 +288,7 @@ export default {
   .carousel {
     display: flex;
     justify-content: space-between;
-    padding: 20px 10px;
+    padding: 30px 10px 20px 10px;
     text-align: justify;
     background-color: lightgrey;
     align-items: center;
@@ -207,50 +299,53 @@ export default {
     height: 100%;
     padding: 0px 5px;
     font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       font-size: 30px;
-      background-color: #3e705a;
+      /*background-color: #3e705a;*/
       transition: 100ms;
     }
   }
-  .carousel__item-container {
+  .carousel__main {
     width: 80%;
   }
+
+  .carousel__bullet-container {
+    text-align: center;
+  }
+
+  .carousel__bullet {
+    font-size: 10px;
+    margin: 0px 2px;
+    color: #565656;
+    cursor: pointer;
+
+    &--active {
+      font-size: 12px;
+      color: black;
+    }
+  }
+
   .grid-container {
     display: grid;
     margin: 30px 0px;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: #385446;
     color: #fff;
+    padding: 10px 20px
   }
 
   .grid-item {
     padding: 10px 10px;
-    margin: 10px 0px;
-    font-size: 18px;
     text-align: center;
 
     &:hover {
       background-color: #1c261d;
       -webkit-transition: 100ms;
     }
-
-    &:first-child {
-      margin-left: 20px;
-    }
-
-    &:last-child {
-      margin-right: 20px;
-    }
-  }
-  .artikel_t {
-    background-color: #385446;
-    padding: 5px;
-  }
-
-  a {
-    color: #fafafa;
-    text-decoration: none;
   }
 </style>
