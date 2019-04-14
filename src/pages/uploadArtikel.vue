@@ -43,7 +43,8 @@ export default {
       Axios
         .post('http://localhost/bafe/public/api/article', {
           title: this.judulContent,
-          content: this.content
+          content: this.content,
+          categoryCodes: this.kategoriD,
         })
         .then(res => {
           console.log(this.content)
@@ -57,18 +58,6 @@ export default {
         this.kategori = res.data.data
         console.log(res.data.data)
       })
-    Axios.interceptors.request.use(
-      (config) => {
-        let token = localStorage.getItem('token')
-        if (token) {
-          config.headers['Authorization'] = `Bearer ${token}`
-        }
-        return config
-      },
-      (error) => {
-        return Promise.reject(error)
-      }
-    )
   }
 }
 
