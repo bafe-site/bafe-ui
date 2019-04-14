@@ -1,6 +1,6 @@
 <template>
   <div class="banner"
-       :style="{ 'background-image': 'url(' + require('../assets/img/orang_ramai.jpg') + ')' }">
+       :style="{ 'background-image': contents[active].background ? 'url(' + require('../assets/img/' + contents[active].background) + ')' : 'none' }">
     <div class="banner__container">
       <div class="banner__arrow" @click="back()">
         <i class="fas fa-angle-left"></i>
@@ -12,7 +12,7 @@
         </div>
         <div class="banner__bottom-desc" v-if="!contents[active].style.mode">{{ contents[active].description }}</div>
         <div class="banner__action">
-          <button class="button--hollow">{{ contents[active].action.text }}</button>
+          <a class="button button--hollow" :href="!contents[active].action.link">{{ contents[active].action.text }}</a>
         </div>
       </div>
       <div class="banner__arrow" @click="next()">
@@ -141,6 +141,8 @@ export default {
     }
 
     &__action {
+      display: flex;
+      justify-content: center;
       margin: 25px 0px;
     }
   }

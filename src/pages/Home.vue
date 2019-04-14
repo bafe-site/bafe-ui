@@ -42,7 +42,7 @@
         <div class="grid-item" v-for="n in latestContent" :key="n.id">
           <div class="item item__summary--vertical">
             <div class="summary__thumbnail">
-              <img src="../assets/img/orang_ramai.jpg">
+              <img v-if="n.thumbnail" :src="require('../assets/img/' + n.thumbnail)" :alt="n.thumbnail">
             </div>
             <div class="summary__content">
               <div class="content__title">
@@ -115,7 +115,6 @@ export default {
       axios.get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc')
         .then(response => {
           self.carousel.top.dataset.articles = response.data.content.data.splice(0, 3)
-          self.carousel.top.config.max = 3
         })
         .catch(error => {
           alert(error)
@@ -129,11 +128,10 @@ export default {
           alert(error)
         })
 
-      self.banner.config.max = 3
       self.banner.dataset.contents = [{
         title: 'Sahare Your Innovation',
         description: 'Bergabunglah bersama kami untuk...',
-        background: '',
+        background: 'orang_ramai.jpg',
         action: {
           text: 'Upload',
           link: ''
@@ -145,7 +143,7 @@ export default {
       }, {
         title: 'Ceritakan Kisah Anda',
         description: 'Ceritakan isu-isu yang terjadi disekitarmu, masalah seperti apa yang dicari?',
-        background: '',
+        background: 'gambar_isi.jpg',
         action: {
           text: 'Tulis Sekarang',
           link: ''

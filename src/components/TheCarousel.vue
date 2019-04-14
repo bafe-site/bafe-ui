@@ -6,9 +6,10 @@
     <div class="carousel__main">
       <div class="carousel__item-container">
         <div class="item item__summary--horizontal">
-          <div class="summary__thumbnail">
-            <img :src="require('../assets/img/' + 'orang_ramai.jpg')">
-          </div>
+          <img class="summary__thumbnail"
+               v-if="articles[active].thumbnail"
+               :src="require('../assets/img/' + articles[active].thumbnail)"
+               :alt="articles[active].thumbnail">
           <div class="summary__content">
             <div class="content__title">
               <h3> {{ articles[active].title }} </h3>
@@ -20,8 +21,13 @@
         </div>
       </div>
       <div class="carousel__bullet-container">
-            <span class="carousel__bullet" v-for="idx in articles.length" :key="idx" @click="change(idx)">
-              <a :class="{ 'carousel__bullet--active' : isActive(idx) }"><i class="far fa-circle"></i></a>
+            <span
+              class="carousel__bullet"
+              v-for="idx in articles.length"
+              :key="idx" @click="change(idx)">
+              <a :class="{ 'carousel__bullet--active' : isActive(idx) }">
+                <i class="far fa-circle"></i>
+              </a>
             </span>
       </div>
     </div>
@@ -91,7 +97,7 @@ export default {
         self.active -= 1
       }
     },
-    change (type, idx) {
+    change (idx) {
       let self = this
       self.active = idx - 1
     }
@@ -135,8 +141,8 @@ export default {
 
     &__arrow {
       text-align: center;
-      width: 30px;
-      height: 100%;
+      width: 40px;
+      height: 100px;
       padding: 0px 5px;
       font-size: 14px;
       cursor: pointer;
@@ -167,5 +173,10 @@ export default {
     &__main {
       width: 80%;
     }
+  }
+
+  /*Override CSS*/
+  .item__summary--horizontal {
+    margin-bottom: 30px;
   }
 </style>
