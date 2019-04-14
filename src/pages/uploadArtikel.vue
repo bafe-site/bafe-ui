@@ -47,7 +47,7 @@ export default {
           categoryCodes: this.kategoriD
         }, {
           headers: {
-            Authorization: this.$cookie.get('token')
+            Authorization: 'Bearer' + this.$cookie.get('token')
           }
         })
         .then(res => {
