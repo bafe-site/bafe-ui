@@ -129,7 +129,7 @@ export default {
         })
 
       self.banner.dataset.contents = [{
-        title: 'Sahare Your Innovation',
+        title: 'Share Your Innovation',
         description: 'Bergabunglah bersama kami untuk...',
         background: 'orang_ramai.jpg',
         action: {
