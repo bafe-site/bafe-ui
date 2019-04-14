@@ -44,10 +44,14 @@ export default {
         .post('http://localhost/bafe/public/api/article', {
           title: this.judulContent,
           content: this.content,
-          categoryCodes: this.kategoriD,
+          categoryCodes: this.kategoriD
+        }, {
+          headers: {
+            Authorization: this.$cookie.get('token')
+          }
         })
         .then(res => {
-          console.log(this.content)
+          console.log(this.$cookie.get('token'))
         })
     }
   },

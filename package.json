@@ -23,6 +23,8 @@
     "quill-image-drop-module": "^1.0.3",
     "quill-image-resize-module": "^3.0.0",
     "vue": "^2.5.2",
+    "vue-cookie": "^1.1.4",
+    "vue-cookies": "^1.5.13",
     "vue-router": "^3.0.1",
     "vue2-editor": "^2.6.6"
   },
