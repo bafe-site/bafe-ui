@@ -42,7 +42,7 @@
         <div class="grid-item" v-for="n in latestContent" :key="n.id">
           <div class="item item__summary--vertical">
             <div class="summary__thumbnail">
-              <img src="../assets/img/orang_ramai.jpg">
+              <img :src="require('@/assets/img/' + n.thumbnail)">
             </div>
             <div class="summary__content">
               <div class="content__title">
