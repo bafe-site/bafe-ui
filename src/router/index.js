@@ -5,7 +5,7 @@ import aboutUs from '../pages/aboutUs.vue'
 import detailArtikel from '../pages/detailArtikel.vue'
 import uploadArtikel from '../pages/uploadArtikel.vue'
 import theLogin from '../pages/theLogin.vue'
-import konten from '../pages/konten.vue'
+import Content from '../pages/Content.vue'
 import termsAndCondition from '../pages/termsAndCondition.vue'
 
 Vue.use(Router)
@@ -41,7 +41,7 @@ export default new Router({
     {
       path: '/konten',
       name: 'konten',
-      component: konten
+      component: Content
     },
     {
       path: '/termsAndCondition',
