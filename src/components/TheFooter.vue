@@ -7,11 +7,11 @@
             </div>
             <div class="footer_a">
             <a href="https://www.instagram.com/bafe.id/" target="_blank">
-                <img class="iconInstagram" src="../assets/icon_instagram.png" style="padding-bottom: 0.5em"></a>
+                <img class="iconInstagram" src="../assets/img/icon_instagram.png" style="padding-bottom: 0.5em"></a>
             </div>
             <div class="footer_b">
             <a href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA" target="_blank">
-                <img class="iconYoutube" src="../assets/icon_youtube.png"></a>
+                <img class="iconYoutube" src="../assets/img/icon_youtube.png"></a>
             </div>
         </div>
     </div>

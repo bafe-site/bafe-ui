@@ -2,7 +2,7 @@
     <div class="header">
         <nav>
             <a href="/" >
-                <img class="logo" src="../assets/S__17219904.jpg" alt="home"></a>
+                <img class="logo" src="../assets/img/S__17219904.jpg" alt="home"></a>
             <a class="navTop" href="/">Home</a>
             <a class="navTop" href="/about">About Us</a>
             <a class="navTop" href="/konten">Content</a>

@@ -13,29 +13,25 @@
       </ol>
     </div>
     <div class="kita">
-      <h1>Meet Our Team</h1>
-        <table>
-          <tr>
-            <td>
-              <img src="../assets/Kirono_Arundati.png"/>
-              <h2>Kirono Arundati</h2>
-            </td>
-            <td>
-              <img src="../assets/Metha_Putri.png"/>
-              <h2>Metha Putri</h2>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="../assets/Ferdinand_Kurnia.png"/>
-              <h2>Ferdinand Kurnia</h2>
-            </td>
-            <td>
-              <img src="../assets/M_Vicky_Afris.png"/>
-              <h2>M. Vicky Afris</h2>
-            </td>
-          </tr>
-        </table>
+      <h1 class="team">Meet Our Team</h1>
+      <div class="kontainer">
+        <div class="imageCo">
+          <img src="../assets/img/Kirono_Arundati.png"/>
+          <h2>Kirono Arundati</h2>
+        </div>
+        <div class="imageCo">
+          <img src="../assets/img/Metha_Putri.png"/>
+          <h2>Metha Putri</h2>
+        </div>
+        <div class="imageCo">
+          <img src="../assets/img/Ferdinand_Kurnia.png"/>
+          <h2>Ferdinand Kurnia</h2>
+        </div>
+        <div class="imageCo">
+          <img src="../assets/img/M_Vicky_Afris.png"/>
+          <h2>M. Vicky Afris</h2>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -51,16 +47,29 @@ export default {
     border: 5px solid #385446;
     margin: 0 auto;
     width: 80%;
+    color: #385446;
+    padding: 0 10px;
   }
   .solusi {
     margin: 0 auto;
     width: 80%;
+    color: #385446;
   }
-  table {
+  .kita {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .team {
+    text-align: center;
+  }
+  .kontainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0 auto;
+  }
+  .imageCo {
+    margin: 0 auto;
     width: 100%;
-    height: 200px;
-    max-height: 400px;
-    padding: 0px 8px;
-    border-spacing: 10px;
-    }
+    height: 100%;
+  }
 </style>
