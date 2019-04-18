@@ -1,0 +1,59 @@
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  display: block;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  vertical-align: middle;
+  width: fit-content;
+
+  &--hollow {
+    border: 2px solid #fff;
+
+    &:hover {
+      background-color: #26342a;
+      border: none;
+      -webkit-transition: 100ms;
+    }
+  }
+
+  &--main {
+    background-color: #385446; /* this is a theme color */
+    &:hover {
+      background-color: #26342a;
+    }
+  }
+
+  &--success {
+    background: rgb(28, 184, 65); /* this is a green */
+  }
+
+  &--error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+  }
+
+  &--warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+  }
+
+  &--secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+  }
+}
