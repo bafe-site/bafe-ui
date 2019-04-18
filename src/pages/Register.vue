@@ -4,12 +4,15 @@
           <a href="/" class="logo-container"><img src="../assets/img/iconBafe.png"></a>
           <span class="error-message" v-if="errorMsg"> {{ errorMsg }} </span>
           <div class="input-set__vertical">
-            <input id="login-username" v-model="email" type="text" class="input" placeholder="Username">
+            <input id="register-name" v-model="message" type="text" class="input" placeholder="Nama">
           </div>
           <div class="input-set__vertical">
-             <input id="login-password" v-model="password" type="password" class="input" placeholder="Password">
+            <input id="register-username" v-model="email" type="text" class="input" placeholder="Email">
           </div>
-        <button class="button button--main" @click="login" :disabled="!isValid">Login</button>
+          <div class="input-set__vertical">
+             <input id="register-password" v-model="password" type="password" class="input" placeholder="Password">
+          </div>
+        <button class="button button--main" @click="register" :disabled="!isValid">Register</button>
       </div>
     </div>
 </template>
@@ -18,26 +21,26 @@
 import axios from 'axios'
 
 export default {
-  name: 'Login',
+  name: 'Register',
   data () {
     return {
+      message: '',
       email: '',
       password: '',
       errorMsg: ''
     }
   },
   methods: {
-    login () {
+    register () {
       let self = this
-      var date = new Date()
       axios
-        .post('http://localhost/bafe/public/api/auth/login', {
+        .post('http://localhost/bafe/public/api/auth/register', {
+          name: self.message,
           email: self.email,
           password: self.password
         })
         .then(res => {
-          self.$cookie.set('token', res.data.meta.token, { expires: date.getDate() + 30 })
-          // self.goTo('home')
+          console.log(self.data)
         })
         .catch(error => {
           self.errorMsg = 'Username dan password tidak sesuai'
