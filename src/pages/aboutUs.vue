@@ -1,38 +1,36 @@
 <template>
-    <div>
-        <div class="about_us">
-            <h1>bafe.id</h1>
-            <p>Media memiliki peran yang penting dalam ekosistem digital untuk membentuk persepsi masyarakat terhadap isu ya
-                ng beredar; sebuah tanggung jawab untuk menyediakan informasi yang bermanfaat untuk perkembangan masyarakat.
-                Namun kini banyak media yang menyebarkan rasa cemas dan takut tanpa menyediakan solusi.
-            </p>
-        </div>
-        <div class="kita">
-            <h1>Meet Us</h1>
-            <table>
-                <tr>
-                    <td>
-                        <img src="../assets/Kirono_Arundati.png"/>
-                        <h2>Kirono Arundati</h2>
-                    </td>
-                    <td>
-                        <img src="../assets/Metha_Putri.png"/>
-                        <h2>Metha Putri</h2>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="../assets/Ferdinand_Kurnia.png"/>
-                        <h2>Ferdinand Kurnia</h2>
-                    </td>
-                    <td>
-                        <img src="../assets/M_Vicky_Afris.png"/>
-                        <h2>M. Vicky Afris</h2>
-                    </td>
-                </tr>
-            </table>
-        </div>
+  <div>
+    <div class="about_us">
+      <h1>Masalah</h1>
+      <h2>BERITA YANG BIAS, PENUH HOAKS, DAN MENYESATKAN</h2>
+      <p>Media memiliki peran yang penting dalam ekosistem digital untuk membentuk persepsi masyarakat terhadap isu yang beredar; sebuah tanggung jawab untuk menyediakan informasi yang bermanfaat untuk perkembangan masyarakat.Namun kini banyak media yang menyebarkan rasa cemas dan takut tanpa menyediakan solusi.</p>
     </div>
+    <div class="kita">
+      <h1>Meet Us</h1>
+        <table>
+          <tr>
+            <td>
+              <img src="../assets/Kirono_Arundati.png"/>
+              <h2>Kirono Arundati</h2>
+            </td>
+            <td>
+              <img src="../assets/Metha_Putri.png"/>
+              <h2>Metha Putri</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../assets/Ferdinand_Kurnia.png"/>
+              <h2>Ferdinand Kurnia</h2>
+            </td>
+            <td>
+              <img src="../assets/M_Vicky_Afris.png"/>
+              <h2>M. Vicky Afris</h2>
+            </td>
+          </tr>
+        </table>
+    </div>
+  </div>
 </template>
 
 <script>
