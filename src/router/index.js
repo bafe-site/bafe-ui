@@ -1,10 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home.vue'
-import aboutUs from '../pages/aboutUs.vue'
-import uploadArtikel from '../pages/uploadArtikel.vue'
-import theLogin from '../pages/theLogin.vue'
-import konten from '../pages/konten.vue'
+import ArticleForm from '../pages/ArticleForm.vue'
 
 Vue.use(Router)
 
@@ -17,24 +14,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'aboutUs',
-      component: aboutUs
-    },
-    {
-      path: '/uploadArtikel',
-      name: 'uploadArtikel',
-      component: uploadArtikel
-    },
-    {
-      path: '/pintukemanaajadoraemon',
-      name: 'theLogin',
-      component: theLogin
-    },
-    {
-      path: '/konten',
-      name: 'konten',
-      component: konten
+      path: '/article/upload',
+      name: 'upload',
+      component: ArticleForm
     }
   ]
 })

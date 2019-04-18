@@ -16,6 +16,25 @@ a {
   text-decoration: none;
 }
 
+.button--text {
+  display: block;
+}
+
+.button--standar {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px 5px;
+
+  &:first-child {
+    margin-left: auto;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
 .button {
   display: block;
   border-radius: 20px;
