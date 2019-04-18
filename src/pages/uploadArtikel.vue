@@ -12,7 +12,7 @@
         <div class="tagArea">
           <h2>Kategori</h2>
           <select v-model="kategoriD">
-            <option v-for="n in kategori" :key="n.id">{{ n.categoryName }}</option>
+            <option v-for="n in kategori" :key="n.id">{{ n.id }}</option>
           </select>
         </div>
       </div>
@@ -47,7 +47,7 @@ export default {
           categoryCodes: this.kategoriD
         }, {
           headers: {
-            Authorization: 'Bearer' + this.$cookie.get('token')
+            'Authorization': 'Bearer ' + this.$cookie.get('token')
           }
         })
         .then(res => {
