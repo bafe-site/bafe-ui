@@ -18,8 +18,8 @@
       </div>
       <div class="row">
         <h2>Artikel</h2>
-        <div class="grid-container">
-          <div class="grid-item" v-for="n in 3" :key="n">
+        <div class="list__container list__container--horizontal">
+          <div class="list__item--horizontal" v-for="n in 3" :key="n">
             <div class="item item__summary--vertical">
               <img class="summary__thumbnail summary__thumbnail--fix" align="left" src="../assets/gambar_isi.png"></a>
               <div class="summary__content">
@@ -33,8 +33,8 @@
       </div>
       <div class="row">
         <h2>Video</h2>
-        <div class="grid-container">
-          <div class="grid-item" v-for="n in 3" :key="n">
+        <div class="list__container list__container--horizontal">
+          <div class="list__item list__item--horizontal" v-for="n in 3" :key="n">
             <div class="item item__summary--vertical">
               <div class="summary__thumbnail">
                 <iframe width="320" height="180" src="https://www.youtube.com/embed/VuJYGJlKzPk"></iframe>
@@ -64,23 +64,16 @@ h2, p {
   margin-bottom: 45px;
 }
 
+/*Override CSS*/
+
+.list__container {
+  background-color: #fafafa;
+}
+
 .content__description {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.grid-container {
-  display: grid;
-  margin: 30px 0px;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: #fafafa;
-  padding: 10px 20px
-}
-
-.grid-item {
-  padding: 10px 10px;
-  text-align: center;
 }
 
 .summary__thumbnail--fix{

@@ -38,8 +38,8 @@
         :config="carousel.top.config"></the-carousel>
     </div>
     <div class="row">
-      <div class="grid-container">
-        <div class="grid-item" v-for="n in latestContent" :key="n.id">
+      <div class="list__container list__container--horizontal">
+        <div class="list__item list__item--horizontal" v-for="n in latestContent" :key="n.id">
           <div class="item item__summary--vertical">
             <div class="summary__thumbnail">
               <img v-if="n.thumbnail" :src="require('../assets/img/' + n.thumbnail)" :alt="n.thumbnail">
@@ -183,16 +183,12 @@ export default {
     }
   }
 
-  .grid-container {
-    display: grid;
-    margin: 30px 0px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  .list__container {
     background-color: #385446;
     color: #fff;
-    padding: 10px 20px
   }
 
-  .grid-item {
+  .list__item {
     padding: 10px 10px;
     text-align: center;
 
