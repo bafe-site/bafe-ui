@@ -3,8 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import filter from './filter/index'
 
 Vue.config.productionTip = false
+
+for (let formatter in filter) {
+  Vue.filter(formatter, filter[formatter])
+}
 
 /* eslint-disable no-new */
 new Vue({
