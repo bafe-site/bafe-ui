@@ -24,19 +24,19 @@
             </div>
             <div class="flex-container">
               <div>
-                <a href="/article/1"><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></a>
+                <a @click="navigateTo(1)"><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></a>
                 <h4>bafe.id</h4>
               </div>
             </div>
             <div class="flex-container">
               <div>
-                <a href="/article/5"><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></a>
+                <a @click.prevent="navigateTo(5)"><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></a>
                 <h4>bafe.id</h4>
               </div>
             </div>
             <div class="flex-container">
               <div>
-                <a href="/article/8"><img class="gKontenPojok" src="../assets/img/logo.png"/></a>
+                <a @click.prevent="navigateTo(8)"><img class="gKontenPojok" src="../assets/img/logo.png"/></a>
                 <h4>bafe.id</h4>
               </div>
             </div>
@@ -60,12 +60,19 @@ export default {
       .get(linkToArticle)
       .then(res => {
         this.artikel = res.data.content.data
-        console.log(this.artikel)
+        // console.log(this.artikel)
         // console.log(this.$route.params.id)
       })
       .catch(err => {
         console.log(err)
       })
+  },
+  methods: {
+    navigateTo: function (nav) {
+      this.$router.push({
+        path: `/article/${nav}`
+      })
+    }
   }
 }
 </script>
