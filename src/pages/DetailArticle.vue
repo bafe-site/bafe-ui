@@ -4,11 +4,10 @@
       <div class="grid-item">
         <div class="artikel">
           <div class="kontainer">
-            <img v-if="artikel.thumbnail" class="gArtikel" :src="require('@/assets/img/' + artikel.thumbnail)"/>
+            <img class="gArtikel" :src="require('@/assets/img/' + artikel.thumbnail)"/>
               <div style="width: 150px; font-size: 80%; text-align: center;">
                 <img class="gPenulis" src="../assets/img/logo.jpg"/>
-                <span v-if="artikel.meta.author">{{ artikel.meta.author }}</span>
-                <span v-if="!artikel.meta.author">Rekan bafe.id</span>
+                <span>{{ artikel.meta.author }}</span>
               </div>
             </div>
           <h2>{{ artikel.title }}</h2>
@@ -21,24 +20,12 @@
       </div>
       <div class="grid-item">
         <div>
-          <h2>Related</h2>
+          <h2>Popular</h2>
             </div>
-            <div class="flex-container">
+            <div class="flex-container" v-for="n in artikelPinggir.slice(0, 3)" :key="n.id">
               <div>
-                <a href="1"><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></a>
-                <h4>bafe.id</h4>
-              </div>
-            </div>
-            <div class="flex-container">
-              <div>
-                <a href="5"><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></a>
-                <h4>bafe.id</h4>
-              </div>
-            </div>
-            <div class="flex-container">
-              <div>
-                <a href="8"><img class="gKontenPojok" src="../assets/img/logo.png"/></a>
-                <h4>bafe.id</h4>
+                <router-link :to="{ name: 'artikel', params: { id: n.id }}" :key="$route.path"><img class="gKontenPojok" :src="require('@/assets/img/' + n.thumbnail )"/></router-link>
+                <h5>{{ n.title }}</h5>
               </div>
             </div>
         </div>
@@ -47,33 +34,47 @@
 </template>
 
 <script>
+import Axios from 'axios'
 export default {
   name: 'detailArtikel',
   data () {
     return {
-      artikel: []
+      artikel: [],
+      artikelPinggir: [],
+      idArtikel: ''
+    }
+  },
+  created () {
+    this.fetchData()
+  },
+  watch: {
+    '$route': 'fetchData'
+  },
+  methods: {
+    fetchData () {
+      const linkToArticle = 'http://localhost/bafe/public/api/article/' + this.$route.params.id
+      Axios
+        .get(linkToArticle)
+        .then(res => {
+          this.artikel = res.data.content.data
+          // console.log(this.artikel)
+          // console.log(this.$route.params.id)
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   mounted () {
-    const linkToArticle = 'http://localhost/bafe/public/api/article/' + this.$route.params.id
-    const Axios = require('axios')
     Axios
-      .get(linkToArticle)
+      .get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
       .then(res => {
-        this.artikel = res.data.content.data
-        // console.log(this.artikel)
-        // console.log(this.$route.params.id)
+        this.artikelPinggir = res.data.content.data
+        console.log(this.artikelPinggir)
       })
       .catch(err => {
         console.log(err)
       })
-  },
-  methods: {
-    navigateTo: function (nav) {
-      this.$router.push({
-        path: `/article/${nav}`
-      })
-    }
   }
 }
 </script>
