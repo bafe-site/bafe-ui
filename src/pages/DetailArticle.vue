@@ -4,10 +4,11 @@
       <div class="grid-item">
         <div class="artikel">
           <div class="kontainer">
-            <img class="gArtikel" :src="require('@/assets/img/' + artikel.thumbnail)"/>
+            <img v-if="artikel.thumbnail" class="gArtikel" :src="require('@/assets/img/' + artikel.thumbnail)"/>
               <div style="width: 150px; font-size: 80%; text-align: center;">
                 <img class="gPenulis" src="../assets/img/logo.jpg"/>
-                <span>{{ artikel.meta.author }}</span>
+                <span v-if="artikel.meta.author">{{ artikel.meta.author }}</span>
+                <span v-if="!artikel.meta.author">Rekan bafe.id</span>
               </div>
             </div>
           <h2>{{ artikel.title }}</h2>
@@ -24,19 +25,19 @@
             </div>
             <div class="flex-container">
               <div>
-                <a @click="navigateTo(1)"><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></a>
+                <router-link :to="{ path: '/article/1'}" append><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></router-link>
                 <h4>bafe.id</h4>
               </div>
             </div>
             <div class="flex-container">
               <div>
-                <a @click.prevent="navigateTo(5)"><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></a>
+                <router-link :to="{ path: '/article/5'}" append><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></router-link>
                 <h4>bafe.id</h4>
               </div>
             </div>
             <div class="flex-container">
               <div>
-                <a @click.prevent="navigateTo(8)"><img class="gKontenPojok" src="../assets/img/logo.png"/></a>
+                <router-link :to="{ path: '/article/9'}" append><img class="gKontenPojok" src="../assets/img/logo.png"/></router-link>
                 <h4>bafe.id</h4>
               </div>
             </div>
@@ -66,14 +67,14 @@ export default {
       .catch(err => {
         console.log(err)
       })
-  },
-  methods: {
-    navigateTo: function (nav) {
-      this.$router.push({
-        path: `/article/${nav}`
-      })
-    }
   }
+  // methods: {
+  //   navigateTo: function (nav) {
+  //     this.$router.push({
+  //       path: `/article/${nav}`
+  //     })
+  //   }
+  // }
 }
 </script>
 
