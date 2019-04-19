@@ -25,19 +25,19 @@
             </div>
             <div class="flex-container">
               <div>
-                <router-link :to="{ path: '/article/1'}" append><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></router-link>
+                <a href="1"><img class="gKontenPojok" src="../assets/img/orang_jalan.jpg"/></a>
                 <h4>bafe.id</h4>
               </div>
             </div>
             <div class="flex-container">
               <div>
-                <router-link :to="{ path: '/article/5'}" append><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></router-link>
+                <a href="5"><img class="gKontenPojok" src="../assets/img/orang_ramai.jpg"/></a>
                 <h4>bafe.id</h4>
               </div>
             </div>
             <div class="flex-container">
               <div>
-                <router-link :to="{ path: '/article/9'}" append><img class="gKontenPojok" src="../assets/img/logo.png"/></router-link>
+                <a href="8"><img class="gKontenPojok" src="../assets/img/logo.png"/></a>
                 <h4>bafe.id</h4>
               </div>
             </div>
@@ -67,14 +67,14 @@ export default {
       .catch(err => {
         console.log(err)
       })
+  },
+  methods: {
+    navigateTo: function (nav) {
+      this.$router.push({
+        path: `/article/${nav}`
+      })
+    }
   }
-  // methods: {
-  //   navigateTo: function (nav) {
-  //     this.$router.push({
-  //       path: `/article/${nav}`
-  //     })
-  //   }
-  // }
 }
 </script>
 
