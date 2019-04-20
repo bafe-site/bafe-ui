@@ -12,12 +12,27 @@ button, input[type="submit"], input[type="reset"] {
   }
 }
 
-.button {
-  border-radius: 20px;
-  height: 40px;
-  padding: 0px 20px;
-  color: #fff;
+a {
+  text-decoration: none;
+}
 
+.button {
+  display: block;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  vertical-align: middle;
+  width: fit-content;
+
+  &--hollow {
+    border: 2px solid #fff;
+
+    &:hover {
+      background-color: #26342a;
+      border: none;
+      -webkit-transition: 100ms;
+    }
+  }
 
   &--main {
     background-color: #385446; /* this is a theme color */

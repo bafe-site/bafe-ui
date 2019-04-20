@@ -208,9 +208,22 @@ export default {
       deep: true
     }
   }
+}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+  .row {
+    margin: 50px 0px;
+  }
+  .motto {
+    text-align: center;
+    color: #385446;
+  }
+
+  .container {
+    padding: 0px 10vw;
+  }
+
   .summary {
     &__thumbnail {
       & > img {
@@ -225,8 +238,8 @@ export default {
 
   .grid-container {
     display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
     margin: 30px 0px;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #385446;
     color: #fff;
     padding: 10px 20px
