@@ -137,7 +137,7 @@ export default {
           orderBy: 'viewer',
           direction: 'desc',
           size: 3,
-          page: 1,
+          page: 1
         }
       })
         .then(response => {
@@ -148,13 +148,13 @@ export default {
           alert(error)
         })
       axios.get(Constant.lookup.category)
-      .then(response =>{
-        self.categories = response.data.data
-        console.log(self.categories)
-      })
-      .catch(error =>{
-        console.log(error)
-      })
+        .then(response => {
+          self.categories = response.data.data
+          console.log(self.categories)
+        })
+        .catch(error => {
+          console.log(error)
+        })
       self.banner.dataset.contents = [{
         title: 'Share Your Innovation',
         description: 'Bergabunglah bersama kami untuk...',
@@ -181,7 +181,7 @@ export default {
         }
       }]
     },
-    getLatestArticle (size){
+    getLatestArticle (size) {
       let self = this
       axios.get(Constant.article.get, {
         params: {
@@ -190,7 +190,7 @@ export default {
           size: size,
           page: 1,
           category: self.filter.category
-        },
+        }
       })
         .then(response => {
           self.latestContent = response.data.content.data
@@ -201,16 +201,29 @@ export default {
     }
   },
   watch: {
-    'filter.category' : {
+    'filter.category': {
       handler () {
         this.getLatestArticle(3)
       },
       deep: true
     }
   }
+}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+  .row {
+    margin: 50px 0px;
+  }
+  .motto {
+    text-align: center;
+    color: #385446;
+  }
+
+  .container {
+    padding: 0px 10vw;
+  }
+
   .summary {
     &__thumbnail {
       & > img {
@@ -225,8 +238,8 @@ export default {
 
   .grid-container {
     display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
     margin: 30px 0px;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #385446;
     color: #fff;
     padding: 10px 20px
