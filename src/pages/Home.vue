@@ -38,11 +38,17 @@
         :config="carousel.top.config"></the-carousel>
     </div>
     <div class="row">
-      <div class="list__container list__container--horizontal">
-        <div class="list__item list__item--horizontal" v-for="n in latestContent" :key="n.id">
+      <div class="category">
+          <select name="Kategori" id="" v-model="filter.category">
+            <option selected value>All</option>
+            <option v-for="n in categories" :key="n.id" :value="n.id">{{n.categoryName}}</option>
+          </select>
+        </div>
+      <div class="grid-container">
+        <div class="grid-item" v-for="n in latestContent" :key="n.id">
           <div class="item item__summary--vertical">
             <div class="summary__thumbnail">
-              <img v-if="n.thumbnail" :src="require('../assets/img/' + n.thumbnail)" :alt="n.thumbnail">
+              <img v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail" :alt="n.thumbnail">
             </div>
             <div class="summary__content">
               <div class="content__title">
@@ -56,11 +62,15 @@
         </div>
       </div>
     </div>
+    <div>
+      <button @click="getLatestArticle(filter.size + 3)">Load More</button>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Constant from '../constant'
 import TheCarousel from '../components/TheCarousel'
 import TheBanner from '../components/TheBanner'
 export default {
@@ -68,7 +78,15 @@ export default {
   components: {TheCarousel, TheBanner},
   data () {
     return {
+      filter: {
+        orderBy: '',
+        direction: '',
+        page: 1,
+        size: 3,
+        category: ''
+      },
       latestContent: [],
+      categories: [],
       carousel: {
         top: {
           config: {
@@ -107,27 +125,36 @@ export default {
     let self = this
     self.$nextTick(() => {
       self.init()
+      console.log('hai', Constant.article.get)
     })
   },
   methods: {
     init () {
       let self = this
-      axios.get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc')
+      self.getLatestArticle(3)
+      axios.get(Constant.article.get, {
+        params: {
+          orderBy: 'viewer',
+          direction: 'desc',
+          size: 3,
+          page: 1
+        }
+      })
         .then(response => {
-          self.carousel.top.dataset.articles = response.data.content.data.splice(0, 3)
+          self.carousel.top.dataset.articles = response.data.content.data
+          console.log(self.latestContent)
         })
         .catch(error => {
           alert(error)
         })
-
-      axios.get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
+      axios.get(Constant.lookup.category)
         .then(response => {
-          self.latestContent = response.data.content.data.splice(0, 4)
+          self.categories = response.data.data
+          console.log(self.categories)
         })
         .catch(error => {
-          alert(error)
+          console.log(error)
         })
-
       self.banner.dataset.contents = [{
         title: 'Share Your Innovation',
         description: 'Bergabunglah bersama kami untuk...',
@@ -153,6 +180,32 @@ export default {
           mode: 0
         }
       }]
+    },
+    getLatestArticle (size) {
+      let self = this
+      axios.get(Constant.article.get, {
+        params: {
+          orderBy: 'id',
+          direction: 'desc',
+          size: size,
+          page: 1,
+          category: self.filter.category
+        }
+      })
+        .then(response => {
+          self.latestContent = response.data.content.data
+        })
+        .catch(error => {
+          alert(error)
+        })
+    }
+  },
+  watch: {
+    'filter.category': {
+      handler () {
+        this.getLatestArticle(3)
+      },
+      deep: true
     }
   }
 }
@@ -183,7 +236,10 @@ export default {
     }
   }
 
-  .list__container {
+  .grid-container {
+    display: grid;
+    margin: 30px 0px;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #385446;
     color: #fff;
   }

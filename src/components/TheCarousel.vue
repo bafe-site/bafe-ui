@@ -8,7 +8,7 @@
         <div class="item item__summary--horizontal">
           <img class="summary__thumbnail"
                v-if="articles[active].thumbnail"
-               :src="require('../assets/img/' + articles[active].thumbnail)"
+               :src="'data:image/jpeg;base64,'+articles[active].thumbnail"
                :alt="articles[active].thumbnail">
           <div class="summary__content">
             <div class="content__title">
