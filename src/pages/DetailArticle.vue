@@ -1,15 +1,19 @@
 <template>
-  <div>
+  <!-- <div> -->
     <div class="kontainer">
       <div class="grid-item">
         <div class="artikel">
-          <div class="kontainer">
-            <img class="gArtikel" :src="require('@/assets/img/' + artikel.thumbnail)"/>
-              <div style="width: 150px; font-size: 80%; text-align: center;">
-                <img class="gPenulis" src="../assets/img/logo.jpg"/>
-                <span>{{ artikel.meta.author }}</span>
-              </div>
+          <img class="gArtikel" :src="'data:image/jpeg;base64,'+ artikel.thumbnail"/>
+          <div class="kontainer-inside">
+            <div class="grid-item-inside" style="width: 150px; font-size: 80%; text-align: center;">
+              <img class="gPenulis" src="../assets/img/logo.jpg"/>
+              <span>{{ artikel.meta.author }}</span>
             </div>
+            <div class="grid-item-inside">
+              <span>View: {{ artikel.viewer }}</span>
+              <span>Created: {{artikel.createdDate}}</span>
+            </div>
+          </div>
           <h2>{{ artikel.title }}</h2>
           <div>
             <span class="kategori">Kategori: {{ artikel.category }} </span>
@@ -18,7 +22,7 @@
           </div>
         </div>
       </div>
-      <div class="grid-item">
+      <!-- <div class="grid-item">
         <div>
           <h2>Popular</h2>
             </div>
@@ -28,53 +32,51 @@
                 <h5>{{ n.title }}</h5>
               </div>
             </div>
-        </div>
-      </div>
+        </div> -->
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
+import Constant from '../constant'
 export default {
   name: 'detailArtikel',
   data () {
     return {
       artikel: [],
-      artikelPinggir: [],
-      idArtikel: ''
+      artikelPinggir: []
     }
   },
-  created () {
-    this.fetchData()
-  },
-  watch: {
-    '$route': 'fetchData'
-  },
   methods: {
-    fetchData () {
-      const linkToArticle = 'http://localhost/bafe/public/api/article/' + this.$route.params.id
+    init () {
       Axios
-        .get(linkToArticle)
+        .get(Constant.article.getId.replace(/{id}/i, this.$route.params.id))
         .then(res => {
           this.artikel = res.data.content.data
           // console.log(this.artikel)
           // console.log(this.$route.params.id)
         })
         .catch(err => {
+          // console.log(Constant.article.getId.replace(/{id}/i, this.$route.params.id))
           console.log(err)
         })
+      // Axios
+      //   .get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
+      //   .then(res => {
+      //     this.artikelPinggir = res.data.content.data
+      //     console.log(this.artikelPinggir)
+      //   })
+      //   .catch(err => {
+      //     console.log(err)
+      //   })
     }
   },
   mounted () {
-    Axios
-      .get('http://localhost/bafe/public/api/article?orderBy=viewer&direction=desc')
-      .then(res => {
-        this.artikelPinggir = res.data.content.data
-        console.log(this.artikelPinggir)
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    let self = this
+    self.$nextTick(() =>{
+      self.init()
+    })
   }
 }
 </script>
@@ -100,25 +102,34 @@ export default {
     .kontainer {
         display: grid;
         width: 100%;
-        grid-template-columns: 75% 25%;
+        grid-template-columns: 100%;
         padding: 10px;
     }
+    .kontainer-inside {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
     .grid-item {
-        width: 100%;
+      margin: 0 auto;
+        width: 65%;
         font-size: 30px;
         text-align: center;
     }
+    .grid-item-inside {
+      width: 100%;
+      margin-top: 15px;
+    }
     .gKontenPojok{
-        max-width: 400px;
-        max-height: 200px;
+        width: 400px;
+        height: 300px;
     }
     .artikel{
         font-size: 18px;
         text-align: justify;
     }
     .gArtikel{
-        max-width: 1000px;
-        max-height: 400px;
+        width: 800px;
+        height: 600px;
     }
     .gPenulis{
         width: 150px;
