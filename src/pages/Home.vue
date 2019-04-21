@@ -2,7 +2,6 @@
   <div class="container">
     <div class="row">
       <div class="motto">
-        <h1>Citizen Journalism Platform for Innovative Solution</h1>
       </div>
     </div>
     <div class="row">
@@ -218,10 +217,6 @@ export default {
   .motto {
     text-align: center;
     color: #385446;
-  }
-
-  .container {
-    padding: 0px 10vw;
   }
 
   .summary {

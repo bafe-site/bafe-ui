@@ -12,7 +12,7 @@
         </div>
         <div class="banner__bottom-desc" v-if="!contents[active].style.mode">{{ contents[active].description }}</div>
         <div class="banner__action">
-          <a class="button button--hollow" :href="!contents[active].action.link">{{ contents[active].action.text }}</a>
+          <a class="button button--hollow button--round button--white" :href="!contents[active].action.link">{{ contents[active].action.text }}</a>
         </div>
       </div>
       <div class="banner__arrow" @click="next()">

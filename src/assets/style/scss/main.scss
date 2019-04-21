@@ -1,0 +1,18 @@
+@import "abstracts/variables";
+
+@import "base/reset";
+@import "base/typography";
+
+@import "components/button";
+@import "components/input";
+@import "components/item";
+
+body {
+   margin: 0;
+   width: 100%;
+ }
+
+.container {
+  max-width: 1200px;
+  margin: 0px auto;
+}

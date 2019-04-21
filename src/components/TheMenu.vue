@@ -16,13 +16,13 @@ export default {
   .menu {
     display: flex;
     align-items: center;
+    margin: 0px 10px;
 
     &__item {
       text-decoration: none;
       color: #385446;
       display: flex;
-      padding: 40px 40px;
-      font-size: 18px;
+      padding: 10px 10px;
 
       &:hover {
         background-color: #7e9489;
