@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="header__action">
-        <button class="button button--main">Upload</button>
+        <button class="button button--round">Upload</button>
       </div>
     </div>
 </template>
