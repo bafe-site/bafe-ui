@@ -50,7 +50,7 @@ export default {
 
     h1 {
       color: $bafe;
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 600;
     }
 
