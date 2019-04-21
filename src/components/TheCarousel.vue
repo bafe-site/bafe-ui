@@ -115,27 +115,33 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/style/scss/abstracts/variables";
   .carousel {
     display: flex;
     justify-content: space-between;
-    padding: 30px 10px 20px 10px;
+    padding: 45px 10px 20px 10px;
+    box-sizing: border-box;
+    max-height: 450px;
     text-align: justify;
-    background-color: lightgrey;
+    background-color: $bafe;
+    color: $white;
     align-items: center;
 
     &__bullet {
       font-size: 10px;
       margin: 0px 2px;
-      color: #565656;
+      color: $grey-2;
       cursor: pointer;
 
       &-container {
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       &--active {
         font-size: 12px;
-        color: black;
+        color: $white;
       }
     }
 

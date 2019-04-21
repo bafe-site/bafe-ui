@@ -12,14 +12,14 @@
     <div class="row">
       <div class="item item__summary--horizontal">
         <div class="summary__thumbnail">
-          <img align="left" src="../assets/img/S__17219904.jpg">
+          <img align="left" src="../assets/img/gambar_isi.jpg">
         </div>
         <div class="summary__content">
           <div class="set__title content__title">
             <h2>Why Sharing?</h2>
           </div>
           <div class="content__description">
-            <p>Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
+            <p class="highlight">Vue.js uses an HTML-based template syntax that allows you to declaratively bind the rendered DOM to the
               underlying Vue instance’s data. All Vue.js templates are valid HTML that can be parsed by spec-compliant
               browsers and HTML parsers. Under the hood, Vue compiles the templates into Virtual DOM render functions.
               Combined with the reactivity system, Vue is able to intelligently figure out the minimal number of
@@ -36,9 +36,9 @@
         :dataset="carousel.top.dataset"
         :config="carousel.top.config"></the-carousel>
     </div>
-    <div class="row">
+    <div class="row section__content">
       <div class="category">
-          <select name="Kategori" id="" v-model="filter.category">
+          <select class="input" name="Kategori" id="" v-model="filter.category">
             <option selected value>All</option>
             <option v-for="n in categories" :key="n.id" :value="n.id">{{n.categoryName}}</option>
           </select>
@@ -60,9 +60,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <div>
-      <button @click="getLatestArticle(filter.size + 3)">Load More</button>
+      <div style="text-align: center">
+        <button style="margin: 30px auto"class="button button--hollow" @click="getLatestArticle(filter.size + 3)">Load More</button>
+      </div>
     </div>
   </div>
 </template>
@@ -211,8 +211,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "../assets/style/scss/abstracts/variables";
+  .section {
+    &__content {
+      background-color: $grey-1;
+      padding: 25px;
+    }
+  }
+  h2 {
+    font-size: 40px;
+  }
+
   .row {
-    margin: 50px 0px;
+    margin: 80px 0px;
   }
   .motto {
     text-align: center;
@@ -233,11 +244,8 @@ export default {
 
   .grid-container {
     display: grid;
-    margin: 30px 0px;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: #385446;
-    color: #fff;
-    padding: 10px 20px
+    padding: 10px 0px;
   }
 
   .grid-item {
