@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../pages/Home.vue'
-import ArticleForm from '../pages/ArticleForm.vue'
+import SearchResult from '../pages/SearchResult.vue'
 
 Vue.use(Router)
 
@@ -14,9 +14,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/article/upload',
-      name: 'upload',
-      component: ArticleForm
+      path: '/searchResult',
+      name: 'searchResult',
+      component: SearchResult
     }
   ]
 })

@@ -8,7 +8,7 @@
       </div>
       <div class="header__search">
         <div class="search__input-group">
-          <input type="text" class="search__form-control" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
+          <input type="text" v-model="inputSearch" class="search__form-control" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
           <button class="search__input-group-append"><i class="fas fa-search"></i></button>
         </div>
       </div>
@@ -22,7 +22,12 @@
 import TheMenu from './TheMenu'
 export default {
   name: 'Header',
-  components: {TheMenu}
+  components: {TheMenu},
+  data () {
+    return {
+      inputSearch: ''
+    }
+  }
 }
 </script>
 
