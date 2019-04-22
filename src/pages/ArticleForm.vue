@@ -35,15 +35,15 @@
             <input id="author" class="input" v-model="author" type="text">
           </div>
           <div class="form-group__container form-group__container--vertical">
-            <label>Upload Gambar</label>
+            <label>Unggah Gambar</label>
             <input type="file" @change="processImage($event)">
           </div>
           <div class="form-group__container form-group__container--vertical">
-            <label>Upload Video</label>
+            <label>Unggah Video</label>
             <input type="file" @change="processVideo($event)">
           </div>
           <div class="form-group__container form-group__container--horizontal">
-            <button @click="saveContent" class="button button--main" type="submit" value="uploadArtikel">Ajukan</button>
+            <button @click="saveContent" class="button button--main" type="submit" value="uploadArtikel">Kirim</button>
             <a class="pull-right"><i class="fa fa-trash"></i><span> hapus </span></a>
           </div>
         </div>
@@ -76,39 +76,38 @@ export default {
   methods: {
     saveContent () {
       let self = this
-      var dateNow = Date.now()
+      // var dateNow = Date.now()
       var kategoriID = parseInt(self.kategoriD)
       var strImage = self.selectedFile.replace(/^data:image\/[a-z]+;base64,/, '')
-      console.log(strImage)
+      // console.log(strImage)
       // var tagS = self.tag.join()
       let data = JSON.stringify({
         title: self.judulContent,
         content: self.content,
         category: kategoriID,
-        thumbnail: strImage,
         video: self.video,
         author: self.author,
         tag: self.tag,
-        dateCreated: dateNow
+        // dateCreated: dateNow,
+        draft: 0,
+        thumbnail: strImage
       })
       Axios
         .post(Constant.article.post, data, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + self.$cookie.get('token'),
-            'Accept': 'application/json'}
+          headers: Constant.header
         })
         .then(res => {
-          console.log(typeof (kategoriD))
+          console.log(data)
         })
         .catch(err => {
+          console.log(data)
           console.log(err)
         })
     },
     processImage (e) {
       let self = this
       const file = e.target.files[0]
-      console.log(file)
+      // console.log(file)
       if (!file.type.includes('image/')) {
         alert('Please select an image file')
         return
@@ -117,7 +116,7 @@ export default {
         const reader = new FileReader()
         reader.onload = (event) => {
           self.selectedFile = event.target.result
-          console.log(self.selectedFile)
+          // console.log(self.selectedFile)
         }
         reader.readAsDataURL(file)
       }
