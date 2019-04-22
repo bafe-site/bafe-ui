@@ -3,7 +3,7 @@
       <div class="row article-form">
         <div class="article-form__container">
             <div class="form-group__container form-group__container--vertical">
-              <label for="title"> Add A New Post </label>
+              <label for="title"> Tambahkan Pos Baru </label>
               <input id="title"
                 onfocus="this.value=''"
                 v-model="judulContent"
@@ -14,37 +14,37 @@
         </div>
         <div class="setting-form__container">
           <div class="form-group__container">
-            <button class="button--standar">save draft</button>
-            <button class="button--standar">preview</button>
+            <button class="button--standar">simpan draf</button>
+            <button class="button--standar">lihat artikel</button>
           </div>
           <div class="form-group__container form-group__container--vertical">
-            <label for="category">category</label>
+            <label for="category">kategori</label>
             <select
               id="category"
               v-model="kategoriD"
-            class="input">
+              class="input">
               <option v-for="n in kategori" :key="n.id" v-bind:value="n.id">{{ n.categoryName }}</option>
             </select>
           </div>
           <div class="form-group__container form-group__container--vertical">
-            <label for="tags">tags</label>
+            <label for="tags">label</label>
             <textarea id="tags" class="input" v-model="tag"></textarea>
           </div>
-          <div class="form-group_container form-groud__container--horizontal">
-            <label for="author">author</label>
+          <div class="form-group__container form-group__container--vertical">
+            <label for="author">penulis</label>
             <input id="author" class="input" v-model="author" type="text">
           </div>
-          <div class="form-group__container form-groud__container--horizontal">
+          <div class="form-group__container form-group__container--vertical">
             <label>Upload Gambar</label>
             <input type="file" @change="processImage($event)">
           </div>
-          <div class="form-group__container form-groud__container--horizontal">
+          <div class="form-group__container form-group__container--vertical">
             <label>Upload Video</label>
             <input type="file" @change="processVideo($event)">
           </div>
           <div class="form-group__container form-group__container--horizontal">
-            <button @click="saveContent" class="button button--main" type="submit" value="uploadArtikel">Submit</button>
-            <a class="pull-right"><i class="fa fa-trash"></i><span> delete </span></a>
+            <button @click="saveContent" class="button button--main" type="submit" value="uploadArtikel">Ajukan</button>
+            <a class="pull-right"><i class="fa fa-trash"></i><span> hapus </span></a>
           </div>
         </div>
       </div>
@@ -54,6 +54,7 @@
 <script>
 import { VueEditor } from 'vue2-editor'
 import Axios from 'axios'
+import Constant from '../constant'
 export default {
   name: 'ArticleForm',
   components: {
@@ -68,53 +69,82 @@ export default {
       thumbnail: '',
       video: '',
       author: '',
-      tag: ''
+      tag: '',
+      selectedFile: ''
     }
   },
   methods: {
     saveContent () {
-      var kategoriID = parseInt(this.kategoriD)
-      // var tagS = this.tag.join()
+      let self = this
+      var dateNow = Date.now()
+      var kategoriID = parseInt(self.kategoriD)
+      var strImage = self.selectedFile.replace(/^data:image\/[a-z]+;base64,/, '')
+      console.log(strImage)
+      // var tagS = self.tag.join()
       let data = JSON.stringify({
-        title: this.judulContent,
-        content: this.content,
+        title: self.judulContent,
+        content: self.content,
         category: kategoriID,
-        thumbnail: this.thumbnail,
-        video: this.video,
-        author: this.author,
-        tag: this.tag
+        thumbnail: strImage,
+        video: self.video,
+        author: self.author,
+        tag: self.tag,
+        dateCreated: dateNow
       })
       Axios
-        .post('http://localhost/bafe/public/api/article', data, {
+        .post(Constant.article.post, data, {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.$cookie.get('token'),
-            'Accept': 'application/json'
-          }
+            'Authorization': 'Bearer ' + self.$cookie.get('token'),
+            'Accept': 'application/json'}
         })
         .then(res => {
-          console.log(data)
           console.log(typeof (kategoriD))
         })
         .catch(err => {
-          console.log(data)
           console.log(err)
         })
     },
-    processImage (event) {
-      this.thumbnail = event.target.files[0].name
+    processImage (e) {
+      let self = this
+      const file = e.target.files[0]
+      console.log(file)
+      if (!file.type.includes('image/')) {
+        alert('Please select an image file')
+        return
+      }
+      if (typeof FileReader === 'function') {
+        const reader = new FileReader()
+        reader.onload = (event) => {
+          self.selectedFile = event.target.result
+          console.log(self.selectedFile)
+        }
+        reader.readAsDataURL(file)
+      }
     },
     processVideo (event) {
-      this.video = event.target.files[0].name
+      let self = this
+      self.video = event.target.files[0].name
+    },
+    getKategori () {
+      let self = this
+      Axios
+        .get(Constant.lookup.category)
+        .then(res => {
+          self.kategori = res.data.data
+          console.log(self.kategori)
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   mounted () {
-    Axios
-      .get('http://localhost/bafe/public/api/category')
-      .then(res => {
-        this.kategori = res.data.data
-        console.log(res.data.data)
-      })
+    let self = this
+    self.$nextTick(() => {
+      // self.init()
+      self.getKategori()
+    })
   }
 }
 
