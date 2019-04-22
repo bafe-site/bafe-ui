@@ -5,10 +5,17 @@
             <div class="form-group__container form-group__container--vertical">
               <label for="title"> Tambahkan Pos Baru </label>
               <input id="title"
-                onfocus="this.value=''"
                 v-model="judulContent"
                 class="input"
-                type="text">
+                type="text"
+                placeholder="Tulis Judul Artikelmu Disini">
+            </div>
+            <div class="form-group__container form-group__container--vertical">
+              <input id="summary"
+                v-model="summaryContent"
+                class="input"
+                type="text"
+                placeholder="Tulis Simpulan Artikelmu Disini">
             </div>
             <vue-editor onfocus="this.value=''" v-model="content"></vue-editor>
         </div>
@@ -34,13 +41,19 @@
             <label for="author">penulis</label>
             <input id="author" class="input" v-model="author" type="text">
           </div>
-          <div class="form-group__container form-group__container--vertical">
+          <div class="form-group__container form-group__container--horizontal">
+            <select v-model="picked">
+              <option value="gambar">Unggah Gambar</option>
+              <option value="video">Unggah Video</option>
+            </select>
+          </div>
+          <div v-if="picked==='gambar'" class="form-group__container form-group__container--vertical">
             <label>Unggah Gambar</label>
             <input type="file" @change="processImage($event)">
           </div>
-          <div class="form-group__container form-group__container--vertical">
+          <div v-if="picked==='video'" class="form-group__container form-group__container--vertical">
             <label>Unggah Video</label>
-            <input type="file" @change="processVideo($event)">
+            <input type="text" class="input" v-model="video" placeholder="Masukan URL disini">
           </div>
           <div class="form-group__container form-group__container--horizontal">
             <button @click="saveContent" class="button button--main" type="submit" value="uploadArtikel">Kirim</button>
@@ -62,15 +75,17 @@ export default {
   },
   data () {
     return {
-      judulContent: 'Tulis Judul Artikelmu disini ...',
+      judulContent: '',
       content: '',
       kategori: [],
       kategoriD: '',
-      thumbnail: '',
-      video: '',
+      thumbnail: 'empty',
+      video: 'empty',
       author: '',
       tag: '',
-      selectedFile: ''
+      selectedFile: '',
+      summaryContent: '',
+      picked: 'gambar'
     }
   },
   methods: {
@@ -79,6 +94,9 @@ export default {
       // var dateNow = Date.now()
       var kategoriID = parseInt(self.kategoriD)
       var strImage = self.selectedFile.replace(/^data:image\/[a-z]+;base64,/, '')
+      if (self.video !== null && self.video !== '') {
+        self.video = 'emptyVideo'
+      }
       // console.log(strImage)
       // var tagS = self.tag.join()
       let data = JSON.stringify({
@@ -90,8 +108,10 @@ export default {
         tag: self.tag,
         // dateCreated: dateNow,
         draft: 0,
-        thumbnail: strImage
+        thumbnail: strImage,
+        summary: self.summaryContent
       })
+      // console.log(data)
       Axios
         .post(Constant.article.post, data, {
           headers: Constant.header
@@ -100,7 +120,11 @@ export default {
           console.log(data)
         })
         .catch(err => {
-          console.log(data)
+          if (err.response.status === 422) {
+            console.log('lack of data')
+            alert('Masukan belum lengkap')
+          }
+          // console.log(data)
           console.log(err)
         })
     },
@@ -120,10 +144,6 @@ export default {
         }
         reader.readAsDataURL(file)
       }
-    },
-    processVideo (event) {
-      let self = this
-      self.video = event.target.files[0].name
     },
     getKategori () {
       let self = this
@@ -149,6 +169,9 @@ export default {
 
 </script>
 <style lang="scss" scoped>
+  #summary {
+    margin-top: 0;
+  }
   .article-form {
     display: flex;
     flex-direction: row;
@@ -172,5 +195,25 @@ export default {
   .pull-right {
     margin-left: auto;
     color: darkred;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #0a0a0a;
+    font-size: 13px;
+  }
+
+  ::-moz-placeholder {
+    color: #0a0a0a;
+    font-size: 13px;
+  }
+
+  :-ms-input-placeholder {
+    color: #0a0a0a;
+    font-size: 13px;
+  }
+
+  ::placeholder {
+    color: #0a0a0a;
+    font-size: 13px;
   }
 </style>
