@@ -11,11 +11,19 @@
                :src="'data:image/jpeg;base64,'+articles[active].thumbnail"
                :alt="articles[active].thumbnail">
           <div class="summary__content">
+            <div class="summary__meta">
+              <span class="label">{{ articles[active].category }}</span>
+            </div>
             <div class="content__title">
               <h3> {{ articles[active].title }} </h3>
             </div>
             <div class="content__description">
               <p> {{ articles[active].content | truncate(200) }} </p>
+            </div>
+            <div class="content__action">
+              <button class="button button--hollow button--round button--white">
+                Selengkapnya
+              </button>
             </div>
           </div>
         </div>
@@ -25,8 +33,11 @@
               class="carousel__bullet"
               v-for="idx in articles.length"
               :key="idx" @click="change(idx)">
-              <a :class="{ 'carousel__bullet--active' : isActive(idx) }">
+              <a v-show="!isActive(idx)">
                 <i class="far fa-circle"></i>
+              </a>
+              <a v-show="isActive(idx)">
+                <i class="fas fa-circle"></i>
               </a>
             </span>
       </div>
@@ -116,6 +127,18 @@ export default {
 
 <style scoped lang="scss">
   @import "../assets/style/scss/abstracts/variables";
+  .label {
+    font-size: 12px;
+    color: $bafe;
+    padding: 5px 10px;
+    margin-top: 5px;
+    background-color: $white;
+  }
+
+  .content__action {
+    margin-top: 35px;
+  }
+
   .carousel {
     display: flex;
     justify-content: space-between;
@@ -166,6 +189,7 @@ export default {
       &__thumbnail {
         width: 50%;
         text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         & > img {
           max-height: 250px;
         }
