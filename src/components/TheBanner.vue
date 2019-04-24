@@ -1,6 +1,6 @@
 <template>
   <div class="banner"
-       :style="{ 'background-image': contents[active].background ? 'url(' + require('../assets/img/' + contents[active].background) + ')' : 'none' }">
+       :style="{ 'background-image': 'url(\'data:image/png;base64,' + contents[active].background + '\')' }">
     <div class="banner__container">
       <div class="banner__arrow" @click="back()">
         <i class="fas fa-angle-left"></i>
@@ -12,7 +12,7 @@
         </div>
         <div class="banner__bottom-desc" v-if="!contents[active].style.mode">{{ contents[active].description }}</div>
         <div class="banner__action">
-          <a class="button button--hollow" :href="!contents[active].action.link">{{ contents[active].action.text }}</a>
+          <a class="button button--hollow button--round button--white" :href="!contents[active].action.link">{{ contents[active].action.text }}</a>
         </div>
       </div>
       <div class="banner__arrow" @click="next()">
