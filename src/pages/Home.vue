@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="row" ref="carousel">
-      <h2>Trending</h2>
+      <h2>Populer</h2>
       <the-carousel
         :dataset="carousel.top.dataset"
         :config="carousel.top.config"></the-carousel>

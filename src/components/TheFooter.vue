@@ -4,11 +4,13 @@
       <div class="footer">
         <div class="footer__info">
           <div class="footer__menu">
-            <a href="/">Home</a>
+            <a href="/">Beranda</a>
             <span>|</span>
-            <a href="/">About Us</a>
+            <a href="/">Tentang Kami</a>
             <span>|</span>
-            <a href="/">Terms & Condition</a>
+            <a href="/">Pedoman Media Siber</a>
+            <span>|</span>
+            <a href="/">Terms of Service</a>
           </div>
           <img src="../assets/img/logo-horizontal.png">
           <p>2019 © Bafe.site</p>
