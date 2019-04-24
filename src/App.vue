@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TheHeader></TheHeader>
+    <TheHeader :inputSearch="inputSearch" @update="onUpdate"></TheHeader>
     <router-view></router-view>
     <TheFooter></TheFooter>
   </div>
@@ -11,10 +11,20 @@ import TheHeader from './components/TheHeader'
 import TheFooter from './components/TheFooter'
 export default {
   name: 'App',
-  components: {TheFooter, TheHeader}
+  components: {TheFooter, TheHeader},
+  data () {
+    return {
+      inputSearch: ''
+    }
+  },
+  methods: {
+    onUpdate (value) {
+      this.inputSearch = value
+    }
+  }
 }
 </script>
 
 <style lang="scss">
-  @import "assets/style/main";
+  @import "assets/style/scss/main";
 </style>
