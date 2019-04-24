@@ -1,26 +1,46 @@
 <template>
-  <div class="kontainer">
-    <div class="kontainer__inside">
-      <h1>Search Result</h1>
-      <div class="search__input-group">
-          <input type="text" class="search__form-control" v-model="inputSearch" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
-          <button @click="search(inputSearch)" class="search__input-group-append"><i class="fas fa-search"></i></button>
+  <div id="search-result" >
+    <header class="body__title">
+      <div class="container">
+        <h2>{{ 'Hasil pencarian untuk "' + $route.query.keyword + '"'}}</h2>
+      </div>
+    </header>
+    <div class="body__content">
+      <div class="container">
+        <div class="row">
+          <the-search></the-search>
         </div>
-    </div>
-    <div class="grid-container">
-      <div class="grid-item" v-for="n in searchGet" :key="n.id">
-        <div class="item item__summary--vertical">
-          <div class="summary__thumbnail">
-            <img v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail" :alt="n.thumbnail">
-          </div>
-          <div class="summary__content">
-            <div class="content__title">
-            <h3> {{ n.title }} </h3>
+        <div class="row">
+          <div class="not-found__container" v-if="isNotFound">
+            <div class="not-found__image">
+              <i class="fas fa-paper-plane"></i>
             </div>
-          <div class="content__description">
-            <p>{{ n.content | truncate(36) }}</p>
-              </div>
+            <h2>Help Us Share Your Idea</h2>
+            <p>Konten yang anda cari tidak ditemukan.</p>
           </div>
+          <div class="grid-container" v-else>
+            <div class="grid-item" v-for="n in articles" :key="n.id">
+              <div class="item item__summary--vertical">
+                <div class="summary__thumbnail">
+                  <img v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail" :alt="n.thumbnail">
+                </div>
+                <div class="summary__label">
+                  <span class="label">{{ n.category }}</span>
+                </div>
+                <div class="summary__content">
+                  <div class="content__title">
+                    <h3> {{ n.title }} </h3>
+                  </div>
+                  <div class="content__description">
+                    <p>{{ n.content | truncate(36) }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div style="text-align: center">-->
+          <!--<button v-if="isShow.button.loadMore" style="margin: 30px auto" class="button button&#45;&#45;hollow" @click="load()">Load More</button>-->
+          <!--</div>-->
         </div>
       </div>
     </div>
@@ -30,11 +50,13 @@
 <script>
 import Axios from 'axios'
 import Constant from '../constant'
+import TheSearch from '../components/TheSearch'
+
 export default {
+  components: {TheSearch},
   data () {
     return {
-      searchGet: [],
-      inputSearch: ''
+      articles: []
     }
   },
   methods: {
@@ -47,8 +69,7 @@ export default {
           }
         })
         .then(res => {
-          self.searchGet = res.data.content.data
-          console.log(self.searchGet)
+          self.articles = res.data.content.data
         })
         .catch(err => {
           console.log(err)
@@ -58,74 +79,29 @@ export default {
   mounted () {
     let self = this
     self.$nextTick(() => {
-      self.search(self.inputSearch)
+      if (this.$route.query.keyword) {
+        this.search(this.$route.query.keyword)
+      }
     })
+  },
+  computed: {
+    isNotFound () {
+      return this.articles.length === 0
+    }
+  },
+  watch: {
+    '$route.query.keyword' (keyword) {
+      if (keyword) {
+        this.search(keyword)
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .kontainer {
-    width: 80%;
-    margin: 0 auto;
-    &__inside {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
 
-  .search {
-      &__input-group {
-        display: flex;
-        height: 40px;
-        margin: 0 auto;
-
-        &-append {
-          padding: 0px 10px;
-          border: 2px solid #385446;
-          border-radius: 0 20px 20px 0;
-          background-color: #385446;
-          color: #fafafa;
-        }
-      }
-
-      &__form-control {
-        background-color: lightgrey;
-        padding: 0px 15px;
-        border: 2px solid #385446;
-        border-radius: 20px 0 0 20px;
-      }
-    }
-
-  .summary {
-    &__thumbnail {
-      & > img {
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
-    &__content {
-      box-sizing: border-box;
-    }
-  }
-
-    .grid-container {
-    display: grid;
-    margin: 30px 0px;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: #385446;
-    color: #fff;
-    padding: 10px 20px
-  }
-
-  .grid-item {
-    padding: 10px 10px;
-    text-align: center;
-
-    &:hover {
-      background-color: #1c261d;
-      -webkit-transition: 100ms;
-    }
+  .row {
+    margin: 15px 0px;
   }
 </style>
