@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <TheHeader></TheHeader>
-    <router-view></router-view>
-    <TheFooter></TheFooter>
+    <the-header v-if="['theLogin', 'search', 'home'].indexOf($route.name) > -1"></the-header>
+    <router-view/>
+    <the-footer></the-footer>
   </div>
 </template>
 

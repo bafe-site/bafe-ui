@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import filter from './filter/index'
+import VueCookie from 'vue-cookie'
+import Vuex from 'vuex'
 
 Vue.config.productionTip = false
 
@@ -18,3 +20,6 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+Vue.use(VueCookie)
+Vue.use(Vuex)

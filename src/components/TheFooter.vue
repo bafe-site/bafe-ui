@@ -13,7 +13,7 @@
             <a href="/">Terms of Service</a>
           </div>
           <img src="../assets/img/logo-horizontal.png">
-          <p>2019 © Bafe.site</p>
+          <p>Copyright © All rights reserved.</p>
         </div>
         <div class="footer__socials">
           <a class="footer__icon" href="https://www.instagram.com/bafe.id/">
