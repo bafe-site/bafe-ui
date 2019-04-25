@@ -17,5 +17,4 @@ export default {
 
 <style lang="scss">
 @import "./assets/style/main.scss";
-@import "~normalize.css";
 </style>

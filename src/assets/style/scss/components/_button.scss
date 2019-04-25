@@ -1,0 +1,181 @@
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.button {
+  display: block;
+  box-sizing: border-box;
+  min-height: 40px;
+  border-radius: 4px;
+  padding: 8px 20px;
+  vertical-align: middle;
+  border: 1px solid $bafe;
+  color: $white;
+  background-color: $bafe;
+
+  &:disabled {
+    background-color: $grey-2 !important;
+    border: 1px solid $grey-5 !important;
+    color: $grey-5 !important;
+    cursor: default !important;
+  }
+
+  &:hover:enabled {
+    border: 1px solid $dark-bafe;
+    background-color: $dark-bafe;
+    -webkit-transition: 200ms;
+  }
+
+  &--round {
+    border-radius: 20px;
+  }
+
+  &.button--hollow {
+    border: 1px solid $bafe;
+    color: $bafe;
+    background-color: transparent;
+
+    &:hover:enabled {
+      background-color: $bafe;
+      color: $white;
+      -webkit-transition: 200ms;
+    }
+  }
+
+  // By Color
+
+  &--success {
+    background: $green;
+    border: 1px solid $green;
+
+    &:hover:enabled {
+      border: 1px solid $dark-green;
+      background-color: $dark-green;
+      -webkit-transition: 200ms;
+    }
+
+    &.button--hollow {
+      border: 1px solid $green;
+      background: transparent;
+      color: $green;
+
+      &:hover:enabled {
+        background-color: $green;
+        color: $white;
+        -webkit-transition: 200ms;
+      }
+    }
+  }
+
+  &--error {
+    background: $red;
+    border: 1px solid $red;
+
+    &:hover:enabled {
+      border: 1px solid $dark-red;
+      background-color: $dark-red;
+      -webkit-transition: 200ms;
+    }
+
+    &.button--hollow {
+      border: 1px solid $red;
+      background: transparent;
+      color: $red;
+
+      &:hover:enabled {
+        background-color: $red;
+        color: $white;
+        -webkit-transition: 200ms;
+      }
+    }
+  }
+
+  &--warning {
+    background: $orange;
+    border: 1px solid $orange;
+
+    &:hover:enabled {
+      border: 1px solid $dark-orange;
+      background-color: $dark-orange;
+      -webkit-transition: 200ms;
+    }
+
+    &.button--hollow {
+      border: 1px solid $orange;
+      background: transparent;
+      color: $orange;
+
+      &:hover:enabled {
+        background-color: $orange;
+        color: $white;
+        -webkit-transition: 200ms;
+      }
+    }
+  }
+
+  &--primary {
+    background: $blue;
+    border: 1px solid $blue;
+
+    &:hover:enabled {
+      border: 1px solid $dark-blue;
+      background-color: $dark-blue;
+      -webkit-transition: 200ms;
+    }
+
+    &.button--hollow {
+      border: 1px solid $blue;
+      background: transparent;
+      color: $blue;
+
+      &:hover:enabled {
+        background-color: $blue;
+        color: $white;
+        -webkit-transition: 200ms;
+      }
+    }
+  }
+
+  &--default {
+    background: $white;
+    color: $black;
+    border: 1px solid $grey-5;
+
+    &:hover:enabled {
+      border: 1px solid $grey-2;
+      background-color: $grey-2;
+      -webkit-transition: 200ms;
+    }
+
+    &.button--hollow {
+      border: 1px solid $grey-5;
+      background: transparent;
+
+      &:hover:enabled {
+        background-color: $grey-5;
+        color: $white;
+        -webkit-transition: 200ms;
+      }
+    }
+  }
+
+  &--white {
+    &.button--hollow {
+      background-color: transparent;
+      border: 2px solid $white;
+      color: $white;
+
+      &:hover:enabled {
+        background-color: $bafe;
+        color: $white;
+        -webkit-transition: 200ms;
+      }
+    }
+  }
+}
