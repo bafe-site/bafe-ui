@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Tor from '../pages/Tor.vue'
 import Home from '../pages/Home.vue'
-import Content from '../pages/Content.vue'
+import Login from '../pages/Login.vue'
+import SearchResult from '../pages/SearchResult.vue'
 import DetailArticle from '../pages/DetailArticle'
 
 Vue.use(Router)
@@ -10,19 +12,27 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: Login
+    }, {
       path: '/',
       name: 'home',
       component: Home
+    }, {
+      path: '/tor',
+      name: 'TermsandCondition',
+      component: Tor
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchResult
     },
     {
       path: '/article/:id',
       name: 'artikel',
       component: DetailArticle
     },
-    {
-      path: '/konten',
-      name: 'konten',
-      component: Content
-    }
   ]
 })
