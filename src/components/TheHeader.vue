@@ -13,7 +13,7 @@
           <the-search></the-search>
         </div>
         <div class="header__action">
-          <button class="button button--round">Upload</button>
+          <button @click="goToTorPage" class="button button--round">Upload</button>
         </div>
       </div>
     </div>
@@ -29,6 +29,12 @@ export default {
   data () {
     return {
       inputSearch: ''
+    }
+  },
+  methods : {
+    goToTorPage () {
+      let self = this
+      self.$router.push('/tor')
     }
   }
 }

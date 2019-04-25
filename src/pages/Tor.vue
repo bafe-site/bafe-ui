@@ -3,7 +3,7 @@
 
       <div class="body__title">
         <div class="container">
-          <h2>Terms and Condition</h2>
+          <h2>Syarat dan Ketentuan</h2>
         </div>
       </div>
       <div class="body__content">
