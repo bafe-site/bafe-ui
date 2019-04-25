@@ -262,54 +262,11 @@ export default {
     margin: 80px 0px;
   }
 
-  .summary {
-    &__thumbnail {
-      & > img {
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
-    &__content {
-      box-sizing: border-box;
-    }
-    &__label {
-      align-self: flex-start;
-    }
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 10px 0px;
-  }
-
-  .grid-item {
-    padding: 10px 10px;
-
-    &:hover {
-      -webkit-transform: scale(1.05, 1.05);
-      transform: scale(1.05, 1.05);
-      -webkit-transition: 100ms;
-    }
-  }
-
   .label {
     font-size: 12px;
     color: $white;
     padding: 5px 10px;
     margin-top: 5px;
     background-color: $bafe;
-  }
-
-  .not-found {
-    &__container {
-      color: $grey-3;
-      text-align: center;
-      padding: 35px 0px;
-    }
-
-    &__image {
-      font-size: 60px;
-    }
   }
 </style>

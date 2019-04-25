@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <TheHeader v-if="['theLogin'].indexOf($route.name)" > -1></TheHeader>
+    <the-header v-if="['theLogin', 'home'].indexOf($route.name) > -1"></the-header>
     <router-view/>
-    <TheFooter></TheFooter>
+    <the-footer></the-footer>
   </div>
 </template>
 
@@ -16,5 +16,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/style/scss/main.scss";
+  @import "assets/style/scss/main";
 </style>

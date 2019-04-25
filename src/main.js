@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import filter from './filter/index'
 import VueCookie from 'vue-cookie'
+import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.config.productionTip = false
@@ -22,4 +23,5 @@ new Vue({
 })
 
 Vue.use(VueCookie)
+Vue.use(Vuex)
 Vue.use(axios)
