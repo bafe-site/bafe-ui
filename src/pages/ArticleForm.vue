@@ -11,11 +11,11 @@
                 placeholder="Tulis Judul Artikelmu Disini">
             </div>
             <div class="form-group__container form-group__container--vertical">
-              <input id="summary"
+              <textarea id="summary"
                 v-model="summaryContent"
                 class="input"
                 type="text"
-                placeholder="Tulis Simpulan Artikelmu Disini">
+                placeholder="Tulis Simpulan Artikelmu Disini"></textarea>
             </div>
             <div>
               <vue-editor onfocus="this.value=''" v-model="content"></vue-editor>
@@ -164,6 +164,10 @@ export default {
 
 </script>
 <style lang="scss" scoped>
+  .container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
   .article-form {
     display: flex;
     flex-direction: row;
