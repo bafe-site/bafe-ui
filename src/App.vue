@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <the-header v-if="['theLogin', 'search', 'home'].indexOf($route.name) > -1"></the-header>
+    <img src="./assets/logo.png">
     <router-view/>
-    <the-footer></the-footer>
   </div>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader'
-import TheFooter from './components/TheFooter'
 export default {
-  name: 'App',
-  components: {TheFooter, TheHeader}
+  name: 'App'
 }
 </script>
 
-<style lang="scss">
-  @import "assets/style/scss/main";
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
