@@ -9,7 +9,7 @@
           <div class="input-set__vertical">
              <input id="login-password" v-model="password" type="password" class="input" placeholder="Password">
           </div>
-        <button class="button button--main" @click="login" :disabled="!isValid">Login</button>
+        <button class="button button--main" @click="login">Login</button>
       </div>
     </div>
 </template>
@@ -30,19 +30,20 @@ export default {
     login () {
       let self = this
       var date = new Date()
-      axios
-        .post('http://localhost/bafe/public/api/auth/login', {
-          email: self.email,
-          password: self.password
-        })
-        .then(res => {
-          self.$cookie.set('token', res.data.meta.token, { expires: date.getDate() + 30 })
-          // self.goTo('home')
-        })
-        .catch(error => {
-          self.errorMsg = 'Username dan password tidak sesuai'
-          console.log(error)
-        })
+      if (self.isValid) {
+        axios
+          .post('http://localhost/bafe/public/api/auth/login', {
+            email: self.email,
+            password: self.password
+          })
+          .then(res => {
+            self.$cookie.set('token', res.data.meta.token, { expires: date.getDate() + 30 })
+            // self.goTo('home')
+          })
+          .catch(error => {
+            self.errorMsg = 'Username atau password tidak sesuai'
+          })
+      }
     },
     goTo (name) {
       this.$router.push({ name: name })
@@ -56,13 +57,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+<style lang="scss" scoped>
 
 .error-message {
   color: #FF4040;
@@ -84,8 +79,8 @@ export default {
   text-align: center;
   height: 400px;
   width: 400px;
+  margin: 80px auto;
   padding: 15px 50px;
-  margin: 50px 0px;
   background: #f1f1f1;
 }
 

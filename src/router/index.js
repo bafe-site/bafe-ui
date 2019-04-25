@@ -13,12 +13,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-    },
+    }, {
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
+    }, {
       path: '/tor',
       name: 'TermsandCondition',
       component: Tor
