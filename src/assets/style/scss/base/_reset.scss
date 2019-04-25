@@ -1,0 +1,15 @@
+button, input, select, textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="text"]{
+  text-decoration: none;
+  border: 0px;
+  -webkit-appearance: none;
+}
+
+a {
+  text-decoration: none;
+}
