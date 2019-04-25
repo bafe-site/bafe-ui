@@ -3,22 +3,31 @@
       <div class="row article-form">
         <div class="article-form__container">
             <div class="form-group__container form-group__container--vertical">
-              <label for="title"> Tambahkan Pos Baru </label>
+              <h3> Tambahkan Pos Baru </h3>
               <input id="title"
                 v-model="judulContent"
                 class="input"
                 type="text"
                 placeholder="Tulis Judul Artikelmu Disini">
             </div>
-            <vue-editor onfocus="this.value=''" v-model="content"></vue-editor>
+            <div class="form-group__container form-group__container--vertical">
+              <textarea id="summary"
+                v-model="summaryContent"
+                class="input"
+                type="text"
+                placeholder="Tulis Simpulan Artikelmu Disini"></textarea>
+            </div>
+            <div>
+              <vue-editor onfocus="this.value=''" v-model="content"></vue-editor>
+            </div>
         </div>
         <div class="setting-form__container">
-          <div class="form-group__container">
-            <button class="button--standar">simpan draf</button>
-            <button class="button--standar">lihat artikel</button>
-          </div>
+          <!--<div class="setting-form__action">-->
+            <!--<button class="button button&#45;&#45;primary">simpan draf</button>-->
+            <!--<button class="button button&#45;&#45;default">lihat artikel</button>-->
+          <!--</div>-->
           <div class="form-group__container form-group__container--vertical">
-            <label for="category">kategori</label>
+            <label for="category">Kategori</label>
             <select
               id="category"
               v-model="kategoriD"
@@ -27,26 +36,21 @@
             </select>
           </div>
           <div class="form-group__container form-group__container--vertical">
-            <label for="tags">label</label>
+            <label for="tags">Label</label>
             <textarea id="tags" class="input" v-model="tag"></textarea>
           </div>
           <div class="form-group__container form-group__container--vertical">
-            <label for="author">penulis</label>
+            <label for="author">Penulis</label>
             <input id="author" class="input" v-model="author" type="text">
           </div>
-          <div class="form-group__container form-group__container--horizontal">
-            <select v-model="picked">
-              <option value="gambar">Unggah Gambar</option>
-              <option value="video">Unggah Video</option>
+          <div class="form-group__container form-group__container--vertical">
+            <label>Media</label>
+            <select v-model="picked" class="input">
+              <option value="gambar">Gambar</option>
+              <option value="video">Video</option>
             </select>
-          </div>
-          <div v-if="picked==='gambar'" class="form-group__container form-group__container--vertical">
-            <label>Unggah Gambar</label>
-            <input type="file" @change="processImage($event)">
-          </div>
-          <div v-if="picked==='video'" class="form-group__container form-group__container--vertical">
-            <label>Unggah Video</label>
-            <input type="text" class="input" v-model="video" placeholder="Masukan URL disini">
+              <input v-if="picked==='video'" type="text" class="input" v-model="video" placeholder="Masukan URL disini">
+              <input v-else type="file" @change="processImage($event)">
           </div>
           <div class="form-group__container form-group__container--horizontal">
             <button @click="saveContent" class="button button--main" type="submit" value="uploadArtikel">Kirim</button>
@@ -73,10 +77,11 @@ export default {
       kategori: [],
       kategoriD: '',
       thumbnail: 'empty',
-      video: '',
+      video: 'empty',
       author: '',
       tag: '',
       selectedFile: '',
+      summaryContent: '',
       picked: 'gambar'
     }
   },
@@ -87,9 +92,9 @@ export default {
       var kategoriID = parseInt(self.kategoriD)
       var strImage = self.selectedFile.replace(/^data:image\/[a-z]+;base64,/, '')
       if (self.video !== null && self.video !== '') {
-        self.video = 'empty'
+        self.video = 'emptyVideo'
       }
-      // console.log(strImage)
+
       // var tagS = self.tag.join()
       let data = JSON.stringify({
         title: self.judulContent,
@@ -100,8 +105,10 @@ export default {
         tag: self.tag,
         // dateCreated: dateNow,
         draft: 0,
-        thumbnail: strImage
+        thumbnail: strImage,
+        summary: self.summaryContent
       })
+      // console.log(data)
       Axios
         .post(Constant.article.post, data, {
           headers: Constant.header
@@ -121,7 +128,6 @@ export default {
     processImage (e) {
       let self = this
       const file = e.target.files[0]
-      // console.log(file)
       if (!file.type.includes('image/')) {
         alert('Please select an image file')
         return
@@ -130,7 +136,6 @@ export default {
         const reader = new FileReader()
         reader.onload = (event) => {
           self.selectedFile = event.target.result
-          // console.log(self.selectedFile)
         }
         reader.readAsDataURL(file)
       }
@@ -159,6 +164,10 @@ export default {
 
 </script>
 <style lang="scss" scoped>
+  .container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
   .article-form {
     display: flex;
     flex-direction: row;
@@ -168,15 +177,26 @@ export default {
 
   .article-form__container {
     margin: 10px 0px;
+    max-width: 800px;
   }
 
-  .setting-form__container {
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    margin: 10px 0px;
-    padding: 15px 20px;
-    width: 300px;
-    box-sizing: border-box;
+  .setting-form {
+    &__container {
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      margin: 10px 0px;
+      padding: 15px 20px;
+      width: 375px;
+      box-sizing: border-box;
+    }
+
+    &__action {
+      display: flex;
+      justify-content: flex-end;
+      & > button {
+        margin-left: 15px;
+      }
+    }
   }
 
   .pull-right {
