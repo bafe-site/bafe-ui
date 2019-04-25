@@ -261,12 +261,4 @@ export default {
   .row {
     margin: 80px 0px;
   }
-
-  .label {
-    font-size: 12px;
-    color: $white;
-    padding: 5px 10px;
-    margin-top: 5px;
-    background-color: $bafe;
-  }
 </style>
