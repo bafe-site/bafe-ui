@@ -53,6 +53,7 @@ import Constant from '../constant'
 import TheSearch from '../components/TheSearch'
 
 export default {
+  name: 'SearchResult',
   components: {TheSearch},
   data () {
     return {
