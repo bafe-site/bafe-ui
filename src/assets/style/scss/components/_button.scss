@@ -20,10 +20,13 @@ button, input[type="submit"], input[type="reset"] {
   background-color: $bafe;
 
   &:disabled {
-    background-color: $grey-2
+    background-color: $grey-2 !important;
+    border: 1px solid $grey-5 !important;
+    color: $grey-5 !important;
+    cursor: default !important;
   }
 
-  &:hover {
+  &:hover:enabled {
     border: 1px solid $dark-bafe;
     background-color: $dark-bafe;
     -webkit-transition: 200ms;
@@ -38,7 +41,7 @@ button, input[type="submit"], input[type="reset"] {
     color: $bafe;
     background-color: transparent;
 
-    &:hover {
+    &:hover:enabled {
       background-color: $bafe;
       color: $white;
       -webkit-transition: 200ms;
@@ -51,7 +54,7 @@ button, input[type="submit"], input[type="reset"] {
     background: $green;
     border: 1px solid $green;
 
-    &:hover {
+    &:hover:enabled {
       border: 1px solid $dark-green;
       background-color: $dark-green;
       -webkit-transition: 200ms;
@@ -62,7 +65,7 @@ button, input[type="submit"], input[type="reset"] {
       background: transparent;
       color: $green;
 
-      &:hover {
+      &:hover:enabled {
         background-color: $green;
         color: $white;
         -webkit-transition: 200ms;
@@ -74,7 +77,7 @@ button, input[type="submit"], input[type="reset"] {
     background: $red;
     border: 1px solid $red;
 
-    &:hover {
+    &:hover:enabled {
       border: 1px solid $dark-red;
       background-color: $dark-red;
       -webkit-transition: 200ms;
@@ -85,7 +88,7 @@ button, input[type="submit"], input[type="reset"] {
       background: transparent;
       color: $red;
 
-      &:hover {
+      &:hover:enabled {
         background-color: $red;
         color: $white;
         -webkit-transition: 200ms;
@@ -97,7 +100,7 @@ button, input[type="submit"], input[type="reset"] {
     background: $orange;
     border: 1px solid $orange;
 
-    &:hover {
+    &:hover:enabled {
       border: 1px solid $dark-orange;
       background-color: $dark-orange;
       -webkit-transition: 200ms;
@@ -108,7 +111,7 @@ button, input[type="submit"], input[type="reset"] {
       background: transparent;
       color: $orange;
 
-      &:hover {
+      &:hover:enabled {
         background-color: $orange;
         color: $white;
         -webkit-transition: 200ms;
@@ -120,7 +123,7 @@ button, input[type="submit"], input[type="reset"] {
     background: $blue;
     border: 1px solid $blue;
 
-    &:hover {
+    &:hover:enabled {
       border: 1px solid $dark-blue;
       background-color: $dark-blue;
       -webkit-transition: 200ms;
@@ -131,7 +134,7 @@ button, input[type="submit"], input[type="reset"] {
       background: transparent;
       color: $blue;
 
-      &:hover {
+      &:hover:enabled {
         background-color: $blue;
         color: $white;
         -webkit-transition: 200ms;
@@ -144,7 +147,7 @@ button, input[type="submit"], input[type="reset"] {
     color: $black;
     border: 1px solid $grey-5;
 
-    &:hover {
+    &:hover:enabled {
       border: 1px solid $grey-2;
       background-color: $grey-2;
       -webkit-transition: 200ms;
@@ -154,7 +157,7 @@ button, input[type="submit"], input[type="reset"] {
       border: 1px solid $grey-5;
       background: transparent;
 
-      &:hover {
+      &:hover:enabled {
         background-color: $grey-5;
         color: $white;
         -webkit-transition: 200ms;
@@ -168,7 +171,7 @@ button, input[type="submit"], input[type="reset"] {
       border: 2px solid $white;
       color: $white;
 
-      &:hover {
+      &:hover:enabled {
         background-color: $bafe;
         color: $white;
         -webkit-transition: 200ms;
