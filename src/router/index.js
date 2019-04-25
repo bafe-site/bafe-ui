@@ -4,6 +4,7 @@ import Tor from '../pages/Tor.vue'
 import Home from '../pages/Home.vue'
 import Login from '../pages/Login.vue'
 import SearchResult from '../pages/SearchResult.vue'
+import DetailArticle from '../pages/DetailArticle'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: SearchResult
+    },
+    {
+      path: '/article/:id',
+      name: 'artikel',
+      component: DetailArticle
     }
   ]
 })
