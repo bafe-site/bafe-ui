@@ -7,7 +7,7 @@ const api = {
     post: 'http://localhost/bafe/public/api/article'
   },
   lookup: {
-    category: 'http://localhost/bafe/public/api/category'
+    category: 'http://localhost/bafe/public/api/lookup/category'
   },
   Authorization: 'Bearer ' + cookie.get('token'),
   header: {

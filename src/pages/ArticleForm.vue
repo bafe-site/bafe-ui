@@ -10,6 +10,13 @@
                 type="text"
                 placeholder="Tulis Judul Artikelmu Disini">
             </div>
+            <div class="form-group__container form-group__container--vertical">
+              <input id="summary"
+                v-model="summaryContent"
+                class="input"
+                type="text"
+                placeholder="Tulis Simpulan Artikelmu Disini">
+            </div>
             <div>
               <vue-editor onfocus="this.value=''" v-model="content"></vue-editor>
             </div>
@@ -70,10 +77,11 @@ export default {
       kategori: [],
       kategoriD: '',
       thumbnail: 'empty',
-      video: '',
+      video: 'empty',
       author: '',
       tag: '',
       selectedFile: '',
+      summaryContent: '',
       picked: 'gambar'
     }
   },
@@ -84,7 +92,7 @@ export default {
       var kategoriID = parseInt(self.kategoriD)
       var strImage = self.selectedFile.replace(/^data:image\/[a-z]+;base64,/, '')
       if (self.video !== null && self.video !== '') {
-        self.video = 'empty'
+        self.video = 'emptyVideo'
       }
 
       // var tagS = self.tag.join()
@@ -97,8 +105,10 @@ export default {
         tag: self.tag,
         // dateCreated: dateNow,
         draft: 0,
-        thumbnail: strImage
+        thumbnail: strImage,
+        summary: self.summaryContent
       })
+      // console.log(data)
       Axios
         .post(Constant.article.post, data, {
           headers: Constant.header
@@ -154,10 +164,6 @@ export default {
 
 </script>
 <style lang="scss" scoped>
-  .container {
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
   .article-form {
     display: flex;
     flex-direction: row;
