@@ -4,6 +4,7 @@ import Tor from '../pages/Tor.vue'
 import Home from '../pages/Home.vue'
 import Login from '../pages/Login.vue'
 import SearchResult from '../pages/SearchResult.vue'
+import ArticleForm from '../pages/ArticleForm.vue'
 
 Vue.use(Router)
 
@@ -20,13 +21,18 @@ export default new Router({
       component: Home
     }, {
       path: '/tor',
-      name: 'TermsandCondition',
+      name: 'tor',
       component: Tor
     },
     {
       path: '/search',
       name: 'search',
       component: SearchResult
+    },
+    {
+      path: '/article/upload',
+      name: 'upload',
+      component: ArticleForm
     }
   ]
 })
