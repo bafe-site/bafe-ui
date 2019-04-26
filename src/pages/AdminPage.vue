@@ -63,7 +63,6 @@ export default {
         })
         .then(res => {
           console.log('success')
-          console.log(deletetArtikel)
         })
         .catch(err => {
           console.log('error delete article')
@@ -85,7 +84,6 @@ export default {
       .get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc')
       .then(res => {
         this.dataArtikel = res.data.content.data
-        console.log(this.dataArtikel)
       })
       .catch(err => {
         console.log(err)

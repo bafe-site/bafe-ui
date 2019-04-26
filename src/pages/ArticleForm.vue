@@ -122,20 +122,18 @@ export default {
         thumbnail: strImage,
         summary: self.summaryContent
       })
-      // console.log(data)
+
       Axios
         .post(Constant.article.post, data, {
           headers: Constant.header
         })
         .then(res => {
-          console.log(data)
         })
         .catch(err => {
           if (err.response.status === 422) {
             console.log('lack of data')
             alert('Masukan belum lengkap')
           }
-          // console.log(data)
           console.log(err)
         })
     },
@@ -160,7 +158,6 @@ export default {
         .get(Constant.lookup.category)
         .then(res => {
           self.kategori = res.data.data
-          console.log(self.kategori)
         })
         .catch(err => {
           console.log(err)
