@@ -1,20 +1,35 @@
 <template>
-    <div class="footer">
-        <div class="footerContainer">
-            <div>
-                <p>bafe.id adalah media publikasi masyarakat untuk berbagi wawasan dan inovasi tepat guna. Bergabung bersama kami dan jadilah agen perubahan.</p>
-                <p>Copyright © All rights reserved.</p>
-            </div>
-            <div class="footer_a">
-            <a href="https://www.instagram.com/bafe.id/" target="_blank">
-                <img class="iconInstagram" src="../assets/img/icon_instagram.png" style="padding-bottom: 0.5em"></a>
-            </div>
-            <div class="footer_b">
-            <a href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA" target="_blank">
-                <img class="iconYoutube" src="../assets/img/icon_youtube.png"></a>
-            </div>
+  <div class="footer__container">
+    <div class="container">
+      <div class="footer">
+        <div class="footer__info">
+          <div class="footer__menu">
+            <a href="/">Beranda</a>
+            <span>|</span>
+            <a href="/">Tentang Kami</a>
+            <span>|</span>
+            <a href="/">Pedoman Media Siber</a>
+            <span>|</span>
+            <a href="/">Terms of Service</a>
+          </div>
+          <img src="../assets/img/logo-horizontal.png">
+          <p>Copyright © All rights reserved.</p>
         </div>
+        <div class="footer__socials">
+          <a class="footer__icon" href="https://www.instagram.com/bafe.id/">
+            <div class="footer__icon--circle">
+              <i class="fab fa-instagram"></i>
+            </div>
+          </a>
+          <a class="footer__icon" href="https://www.youtube.com/channel/UCj_AlXuthn7krLgr3Wxw3kA">
+            <div class="footer__icon--circle">
+              <i class="fab fa-youtube"></i>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -23,45 +38,73 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  @import "../assets/style/scss/abstracts/variables";
     .footer {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 80px;
-        background-color: #385446;
-        color: white;
-        margin-top: 1%;
-    }
-    .footerContainer{
-        display: grid;
-        grid-template-columns: auto 50px 50px;
-    }
-    p {
-        text-align: center;
-    }
-    .footer_a {
-        color: #fafafa;
-        text-decoration: none;
-        text-align: right;
-        margin: auto;
-    }
+      align-items: center;
+      color: $black;
+      display: flex;
+      padding: 25px 25px;
 
-    .footer_b {
-        color: #fafafa;
-        text-decoration: none;
-        text-align: right;
-        margin: auto;
-    }
+      &__menu {
+        margin-bottom: 35px;
 
-    .iconYoutube {
-        height: 40px;
-        width: 40px;
-    }
+        span {
+          color: $grey-2;
+        }
 
-    .iconInstagram {
-        height: 40px;
-        width: 40px;
+        a {
+          text-decoration: none;
+          color: $bafe;
+
+          &:hover {
+            border-bottom: 1px solid $bafe;
+          }
+        }
+      }
+
+      &__info {
+        max-width: 600px;
+        img {
+          height: 60px;
+        }
+      }
+
+      &__container {
+        background-color: #fff;
+        border-top: 1px solid $grey-2;
+      }
+
+      &__socials {
+        display: flex;
+        align-self: flex-start;
+        margin-left: auto;
+      }
+
+      &__icon {
+        align-items: center;
+        color: $bafe;
+        cursor: pointer;
+        display: flex;
+        font-size: 20px;
+        justify-content: flex-end;
+        padding: 8px;
+
+        &--circle {
+          align-items: center;
+          background-color: transparent;
+          border-radius: 30px;
+          display: flex;
+          height: 45px;
+          justify-content: center;
+          width: 45px;
+        }
+
+        &:hover > &--circle{
+          -webkit-transition: 0.3s;
+          background-color: $bafe;
+          color: $white;
+        }
+      }
     }
 </style>

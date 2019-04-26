@@ -1,0 +1,19 @@
+.form-group {
+  &__container {
+    display: flex;
+    margin: 10px 0px;
+
+    & > label {
+      margin-bottom: 5px;
+    }
+
+
+    &--vertical {
+      flex-direction: column;
+    }
+
+    &--horizontal {
+      align-items: center;
+    }
+  }
+}
