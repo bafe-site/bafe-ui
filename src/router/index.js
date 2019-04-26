@@ -6,6 +6,7 @@ import Login from '../pages/Login.vue'
 import SearchResult from '../pages/SearchResult.vue'
 import ArticleForm from '../pages/ArticleForm.vue'
 import DetailArticle from '../pages/DetailArticle'
+import admin from '../pages/AdminPage.vue'
 
 Vue.use(Router)
 
@@ -36,8 +37,12 @@ export default new Router({
       component: ArticleForm
     }, {
       path: '/article/:id',
-      name: 'artikel',
+      name: 'article',
       component: DetailArticle
+    }, {
+      path: '/admin',
+      name: 'admin',
+      component: admin
     }
   ]
 })

@@ -40,7 +40,6 @@ export default {
     display: flex;
     box-sizing: border-box;
     height: 65px;
-    padding: 10px 25px;
     align-items: center;
 
     &__container {

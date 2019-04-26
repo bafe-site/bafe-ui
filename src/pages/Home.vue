@@ -141,7 +141,6 @@ export default {
     let self = this
     self.$nextTick(() => {
       self.init()
-      console.log('hai', Constant.article.get)
     })
   },
   methods: {
@@ -165,7 +164,6 @@ export default {
       axios.get(Constant.lookup.category)
         .then(response => {
           self.categories = response.data.data
-          console.log(self.categories)
         })
         .catch(error => {
           console.log(error)
@@ -209,9 +207,7 @@ export default {
       })
         .then(response => {
           self.latestContent = response.data.content.data
-          console.log(response.data.content.meta.totalPage)
           if (response.data.content.meta.totalPage === 1) {
-            console.log('halo')
             self.isShow.button.loadMore = false
           }
         })
@@ -232,7 +228,6 @@ export default {
       deep: true
     },
     latestContent (value) {
-      console.log('hai')
       if (value.length === 0) {
         this.isShow.content = false
         this.isShow.notFound = true
