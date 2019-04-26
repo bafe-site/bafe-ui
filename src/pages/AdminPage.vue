@@ -1,21 +1,43 @@
 <template>
   <div>
-    <table>
-      <tr>
-        <td>Id</td>
-        <td>Judul Artikel</td>
-        <td>Author</td>
-        <td>Thumbnail</td>
-        <td>Control</td>
-      </tr>
-      <tr v-for="n in dataArtikel" :key="n.id">
-        <td>{{ n.id }}</td>
-        <td>{{ n.title }}</td>
-        <td>{{ n.meta.author }}</td>
-        <td><img class="imageInside" :src="require('@/assets/img/' + n.thumbnail )"></td>
-        <td><button @click='deleteArticle(n.id)'>Delete?</button></td>
-      </tr>
-    </table>
+    <div class="body__title">
+      <div class="container">
+        <h2>Daftar Artikel</h2>
+      </div>
+    </div>
+    <div class="body__content">
+      <div class="container">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Judul Artikel</th>
+            <th>Kategori</th>
+            <th>Penulis</th>
+            <th>Tanggal Dibuat</th>
+            <th>Thumbnail</th>
+            <th>View</th>
+            <th>Aksi</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="n in dataArtikel" :key="n.id">
+            <td class="column--center">{{ n.id }}</td>
+            <td>{{ n.title }}</td>
+            <td>{{ n.category }}</td>
+            <td>{{ n.meta.author }}</td>
+            <td>{{ n.meta.createdDate }}</td>
+            <td><img class="imageInside" :src="'data:image/jpeg;base64,'+ n.thumbnail"></td>
+            <td class="column--center">{{ n.viewer }}</td>
+            <td class="column--center">
+              <button @click='deleteArticle(n.id)'><i class="fas fa-trash-alt"></i></button>
+              <button @click='seeArticle(n.id)'><i class="fas fa-eye"></i></button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,6 +69,15 @@ export default {
           console.log('error delete article')
           console.log(err)
         })
+    },
+    seeArticle (idx) {
+      let self = this
+      self.$router.push({
+        name: 'article',
+        params: {
+          id: idx
+        }
+      })
     }
   },
   mounted () {
@@ -65,16 +96,16 @@ export default {
 
 <style scoped>
 table {
-  border-collapse: collapse;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
 }
-table,td,tr {
-  border: 2px solid #385446;
+
+.body__content {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
+
 .imageInside {
-  height: 100px;
-  width: 200px;
+  max-width: 200px;
   margin: 3px;
 }
 </style>

@@ -44,7 +44,7 @@ export default {
       align-items: center;
       color: $black;
       display: flex;
-      padding: 25px 25px;
+      padding: 25px 0px;
 
       &__menu {
         margin-bottom: 35px;

@@ -37,7 +37,7 @@ export default new Router({
       component: ArticleForm
     }, {
       path: '/article/:id',
-      name: 'artikel',
+      name: 'article',
       component: DetailArticle
     }, {
       path: '/admin',

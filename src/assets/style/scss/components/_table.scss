@@ -1,0 +1,28 @@
+.table {
+  tr, td, th {
+    border: 1px solid $bafe;
+    padding: 15px 10px;
+  }
+
+  td {
+    vertical-align: top;
+    text-align: left;
+  }
+
+  tr {
+    &:hover {
+      background-color: #edede7;
+    }
+
+    td.column--center {
+        text-align: center;
+    }
+  }
+
+  thead {
+    th {
+      background-color: $bafe;
+      color: $pure-white;
+    }
+  }
+}
