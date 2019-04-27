@@ -84,12 +84,26 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  mounted () {
+    this.increment()
+  },
+  methods: {
+    ...mapMutations([
+      'increment'
+    ])
+  },
+  computed: {
+    ...mapGetters({
+      count: 'getCount'
+    })
   }
 }
 </script>
