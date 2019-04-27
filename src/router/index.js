@@ -6,7 +6,8 @@ import Login from '../pages/Login.vue'
 import SearchResult from '../pages/SearchResult.vue'
 import ArticleForm from '../pages/ArticleForm.vue'
 import DetailArticle from '../pages/DetailArticle'
-import admin from '../pages/AdminPage.vue'
+import Admin from '../pages/AdminPage.vue'
+import AboutUs from '../pages/aboutUs'
 
 Vue.use(Router)
 
@@ -42,7 +43,11 @@ export default new Router({
     }, {
       path: '/admin',
       name: 'admin',
-      component: admin
+      component: Admin
+    }, {
+      path: '/about',
+      name: 'about',
+      component: AboutUs
     }
   ]
 })
