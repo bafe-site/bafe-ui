@@ -217,7 +217,7 @@ export default {
     },
     load () {
       this.filter.size += 3
-      this.getLatestArticle( this.filter.size)
+      this.getLatestArticle(this.filter.size)
     }
   },
   watch: {

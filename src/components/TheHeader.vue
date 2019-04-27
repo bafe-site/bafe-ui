@@ -14,6 +14,9 @@
         </div>
         <div class="header__action">
           <button class="button button--round">Upload</button>
+          <router-link :to="{name: 'admin'}" v-if="isLogin" class="button button--round button--hollow">
+            <i class="fa fa-user"></i>{{ '&nbsp;' + user}}</router-link>
+          <a v-if="isLogin" @click="logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
       </div>
     </div>
@@ -23,6 +26,8 @@
 <script>
 import TheMenu from './TheMenu'
 import TheSearch from './TheSearch'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'Header',
   components: {TheMenu, TheSearch},
@@ -30,6 +35,17 @@ export default {
     return {
       inputSearch: ''
     }
+  },
+  methods: {
+    logout () {
+
+    }
+  },
+  computed: {
+    ...mapGetters({
+      user: 'getUser',
+      isLogin: 'isLogin'
+    })
   }
 }
 </script>
@@ -56,6 +72,14 @@ export default {
       font-weight: 600;
     }
 
+    &__action {
+      & > * {
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+
     &__menu {
       margin: 0px 15px;
     }
@@ -64,7 +88,7 @@ export default {
       display: flex;
       align-items: center;
       margin-left: auto;
-      margin-right: 35px;
+      margin-right: 10px;
     }
 
     &__action {

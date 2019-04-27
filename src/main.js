@@ -2,10 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import { store } from './store'
 import router from './router'
 import filter from './filter/index'
 import VueCookie from 'vue-cookie'
-import Vuex from 'vuex'
 import axios from 'axios'
 
 Vue.config.productionTip = false
@@ -17,11 +17,11 @@ for (let formatter in filter) {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'
 })
 
 Vue.use(VueCookie)
-Vue.use(Vuex)
 Vue.use(axios)

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="admin-page" v-if="isLogin">
     <div class="body__title">
       <div class="container">
         <h2>Daftar Artikel</h2>
@@ -43,6 +43,8 @@
 
 <script>
 import Axios from 'axios'
+import { mapGetters } from  'vuex'
+
 export default {
   name: 'AdminPage',
   data () {
@@ -88,6 +90,12 @@ export default {
       .catch(err => {
         console.log(err)
       })
+  },
+  computed: {
+    ...mapGetters({
+      user: 'getUser',
+      isLogin: 'isLogin'
+    })
   }
 }
 </script>
