@@ -1,89 +1,90 @@
 <template>
-    <div class="header">
-        <nav>
-            <a href="/" >
-                <img class="logo" src="../assets/img/S__17219904.jpg" alt="home"></a>
-            <a class="navTop" href="/">Home</a>
-            <a class="navTop" href="/about">About Us</a>
-            <a class="navTop" href="/konten">Content</a>
-            <div class="bCari">
-                <input type="text" class="search" placeholder="Cari Disini" aria-label="Cari Disini" aria-describedby="basic-addon2">
-                <div>
-                    <button class="searchButton" id="basic-addon2">cari</button>
-                </div>
-            </div>
-            <div class="bLogin">
-                <input onclick="location.href='/uploadArtikel';" class="uploadButton" type="button" value="UPLOAD">
-            </div>
-        </nav>
+  <div class="header__container">
+    <div class="container">
+      <div class="header">
+        <div class="header__logo">
+          <a href="/"><img src="../assets/img/logo-icon.png" alt="home"></a>
+        </div>
+        <div class="header__menu">
+          <h1>Citizen Journalism Platform for Innovative Solution</h1>
+          <!--<the-menu></the-menu>-->
+        </div>
+        <div class="header__search">
+          <the-search></the-search>
+        </div>
+        <div class="header__action">
+          <button class="button button--round">Upload</button>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
+import TheMenu from './TheMenu'
+import TheSearch from './TheSearch'
 export default {
-  name: 'Header'
+  name: 'Header',
+  components: {TheMenu, TheSearch},
+  data () {
+    return {
+      inputSearch: ''
+    }
+  }
 }
 </script>
 
-<style scoped>
-    a {
-      color: #385446;
-      text-decoration: none;
-      font-size: 20px;
+<style lang="scss" scoped>
+  @import "../assets/style/scss/abstracts/variables";
+  .header {
+    display: flex;
+    box-sizing: border-box;
+    height: 65px;
+    align-items: center;
+
+    &__container {
+      border-bottom: 1px solid $grey-2;
     }
 
-    nav {
-        text-align: center;
-        display: flex;
+    &__logo img {
+      height: 40px;
     }
 
-    .bCari{
-        display: flex;
-        width: 400px;
+    h1 {
+      color: $bafe;
+      font-size: 24px;
+      font-weight: 600;
     }
 
-    .navTop {
-      width: 300px;
-      text-decoration: none;
-      text-align: center;
-      margin: 40px auto;
+    &__menu {
+      margin: 0px 15px;
     }
 
-    .search {
-        margin: 30px 0 34px 15px;
-        padding-left: 10px;
-        padding-right: 65px;
-        background: #fafafa;
-        border: 2px solid #385446;
-        border-radius: 30px 0 0 30px;
+    &__search {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      margin-right: 35px;
     }
 
-    .searchButton {
-        margin-top: 30px;
-        padding: 10px 20px;
-        border: 2px solid #385446;
-        border-radius: 0 30px 30px 0;
-        background-color: #385446;
-        color: #fafafa;
+    &__action {
+      display: flex;
+      align-items: center;
+      justify-self: flex-end;
     }
+  }
 
-    .searchButton:hover {
-        background-color: #fafafa;
-        color: #385446;
-    }
+  /deep/.search {
+    &__form-control {
+      width: 100px;
 
-    .uploadButton {
-        margin-top: 28px;
-        position: relative;
-        padding: 9px 20px;
-        border: 5px solid #385446;
-        border-radius: 20px;
-        background-color: #385446;
-        color: #fafafa;
+      &:hover {
+        width: 200px;
+        -webkit-transition: width 0.6s ease-in-out;
+        -moz-transition: width 0.6s ease-in-out;
+        -o-transition: width 0.6s ease-in-out;
+        transition: width 0.6s ease-in-out;
+      }
     }
-    .logo {
-        width: 100px;
-        height: 100px;
-        border: 0;
-    }
+  }
 </style>
