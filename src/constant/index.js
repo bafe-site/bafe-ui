@@ -1,4 +1,4 @@
-import cookie from 'vue-cookie'
+
 const api = {
   base: 'http://localhost/bafe/public/api/',
   article: {
@@ -9,10 +9,11 @@ const api = {
   lookup: {
     category: 'http://localhost/bafe/public/api/lookup/category'
   },
-  Authorization: 'Bearer ' + cookie.get('token'),
+  auth: {
+    logout: 'http://localhost/bafe/public/api/auth/logout'
+  },
   header: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + cookie.get('token'),
     'Accept': 'application/json'
   }
 }
