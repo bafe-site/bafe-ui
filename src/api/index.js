@@ -23,7 +23,9 @@ const api = {
       })
     },
     find: () => {},
-    delete: () => {}
+    delete: (id) => {
+      return Axios.delete(path.detail_article.replace('{id}', id))
+    }
   },
   lookup: {
     category: {

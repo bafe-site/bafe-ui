@@ -42,25 +42,28 @@
 </template>
 
 <script>
-import Axios from 'axios'
+import Api from '../api'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'AdminPage',
   data () {
     return {
-      dataArtikel: []
+      dataArtikel: [],
+      filter: {
+        orderBy: 'id',
+        direction: 'desc',
+        page: 1,
+        size: 10,
+        category: ''
+      }
     }
   },
   methods: {
-    deleteArticle: function (idx) {
-      const deleteArtikel = 'http://localhost/bafe/public/api/article/' + idx
-      Axios
-        .delete(deleteArtikel)
-        .then(res => {
-          console.log('success')
-        })
-        .catch(err => { console.log(err) })
+    deleteArticle (idx) {
+      Api.article.delete(idx).then(res => {
+        this.filterArticle()
+      }).catch(err => { console.log(err) })
     },
     seeArticle (idx) {
       let self = this
@@ -70,17 +73,24 @@ export default {
           id: idx
         }
       })
+    },
+    filterArticle () {
+      const params = {
+        orderBy: this.filter.orderBy,
+        direction: this.filter.direction,
+        size: this.filter.size,
+        page: this.filter.page,
+        category: this.filter.category
+      }
+      Api.article.filter(params).then(res => {
+        this.dataArtikel = res.data.content.data
+      }).catch(err => { console.log(err) })
     }
   },
   mounted () {
-    Axios
-      .get('http://localhost/bafe/public/api/article?orderBy=id&direction=desc')
-      .then(res => {
-        this.dataArtikel = res.data.content.data
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    this.$nextTick(() => {
+      this.filterArticle()
+    })
   },
   computed: {
     ...mapGetters(['isAuthenticated'])
