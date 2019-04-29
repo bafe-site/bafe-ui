@@ -6,8 +6,27 @@ import Login from '../pages/Login.vue'
 import SearchResult from '../pages/SearchResult.vue'
 import ArticleForm from '../pages/ArticleForm.vue'
 import DetailArticle from '../pages/DetailArticle'
+import admin from '../pages/AdminPage.vue'
+
+import store from '../store'
 
 Vue.use(Router)
+
+const ifNotAuthenticated = (to, from, next) => {
+  if (!store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/')
+}
+
+const ifAuthenticated = (to, from, next) => {
+  if (store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/login')
+}
 
 export default new Router({
   mode: 'history',
@@ -15,7 +34,8 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      beforeEnter: ifNotAuthenticated
     }, {
       path: '/',
       name: 'home',
@@ -36,8 +56,13 @@ export default new Router({
       component: ArticleForm
     }, {
       path: '/article/:id',
-      name: 'artikel',
+      name: 'article',
       component: DetailArticle
+    }, {
+      path: '/admin',
+      name: 'admin',
+      component: admin,
+      beforeEnter: ifAuthenticated
     }
   ]
 })

@@ -21,25 +21,28 @@
               <p> {{ articles[active].content | truncate(200) }} </p>
             </div>
             <div class="content__action">
-              <button class="button button--hollow button--round button--white">
+              <router-link
+                tag="button"
+                class="button button--hollow button--round button--white"
+                :to="{name: 'article', params: { id: articles[active].id }}">
                 Selengkapnya
-              </button>
+              </router-link>
             </div>
           </div>
         </div>
       </div>
       <div class="carousel__bullet-container">
-            <span
-              class="carousel__bullet"
-              v-for="idx in articles.length"
-              :key="idx" @click="change(idx)">
-              <a v-show="!isActive(idx)">
-                <i class="far fa-circle"></i>
-              </a>
-              <a v-show="isActive(idx)">
-                <i class="fas fa-circle"></i>
-              </a>
-            </span>
+        <span
+          class="carousel__bullet"
+          v-for="idx in articles.length"
+          :key="idx" @click="change(idx)">
+          <a v-show="!isActive(idx)">
+            <i class="far fa-circle"></i>
+          </a>
+          <a v-show="isActive(idx)">
+            <i class="fas fa-circle"></i>
+          </a>
+        </span>
       </div>
     </div>
     <div class="carousel__arrow" @click="next()">

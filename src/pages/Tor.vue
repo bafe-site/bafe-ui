@@ -1,6 +1,5 @@
 <template>
   <div id="tor">
-
       <div class="body__title">
         <div class="container">
           <h2>Syarat dan Ketentuan</h2>
@@ -67,24 +66,14 @@ export default {
 
 <style lang="scss" scoped>
   @import "../assets/style/scss/abstracts/variables";
-
-  * {
-    line-height: 2.5;
-  }
-
   ol {
     margin-left: 15px;
-  }
-
-  .body__title {
-    h2 {
-      margin: 15px;
-    }
   }
 
   .body__content {
     padding: 25px 0px;
     background-color: #f5f5f5;
+    line-height: 2.5;
   }
 
   .body__action {

@@ -13,7 +13,10 @@
           <the-search></the-search>
         </div>
         <div class="header__action">
-          <button @click="goToTorPage" class="button button--round">Upload</button>
+          <router-link tag="button" :to="{ name: 'tor'}" class="button button--round">Upload</router-link>
+          <router-link :to="{name: 'admin'}" v-if="isAuthenticated" class="button button--round button--hollow">
+            <i class="fa fa-user"></i>{{ '&nbsp;' + userName}}</router-link>
+          <a v-if="isAuthenticated" @click="logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
       </div>
     </div>
@@ -23,6 +26,8 @@
 <script>
 import TheMenu from './TheMenu'
 import TheSearch from './TheSearch'
+import store from '../store'
+
 export default {
   name: 'Header',
   components: {TheMenu, TheSearch},
@@ -31,10 +36,20 @@ export default {
       inputSearch: ''
     }
   },
-  methods : {
-    goToTorPage () {
-      let self = this
-      self.$router.push('/tor')
+  methods: {
+    logout () {
+      store.dispatch('authLogout')
+        .then(() => {
+          this.$router.push('/login')
+        })
+    }
+  },
+  computed: {
+    isAuthenticated () {
+      return this.$store.getters.isAuthenticated
+    },
+    userName () {
+      return 'username'
     }
   }
 }
@@ -42,11 +57,15 @@ export default {
 
 <style lang="scss" scoped>
   @import "../assets/style/scss/abstracts/variables";
+
+  @media screen and (max-width: 800px) {
+    div.header__menu { display:none; }
+  }
+
   .header {
     display: flex;
     box-sizing: border-box;
     height: 65px;
-    padding: 10px 25px;
     align-items: center;
 
     &__container {
@@ -63,6 +82,14 @@ export default {
       font-weight: 600;
     }
 
+    &__action {
+      & > * {
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+
     &__menu {
       margin: 0px 15px;
     }
@@ -71,7 +98,7 @@ export default {
       display: flex;
       align-items: center;
       margin-left: auto;
-      margin-right: 35px;
+      margin-right: 10px;
     }
 
     &__action {
