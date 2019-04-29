@@ -53,7 +53,8 @@ export default new Router({
     {
       path: '/article/upload',
       name: 'upload',
-      component: ArticleForm
+      component: ArticleForm,
+      beforeEnter: ifAuthenticated
     }, {
       path: '/article/:id',
       name: 'article',

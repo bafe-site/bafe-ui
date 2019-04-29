@@ -1,51 +1,65 @@
 <template>
     <div class="container">
         <div class="article__container">
-          <img class="article__thumbnail" :src="'data:image/jpeg;base64,'+ artikel.thumbnail"/>
+          <img class="article__thumbnail" :src="'data:image/jpeg;base64,'+ article.thumbnail"/>
           <div class="meta__container">
             <div class="meta__category">
-              <span class="label">{{ artikel.category }} </span>
+              <span class="label">{{ article.category }} </span>
             </div>
             <div class="author__container">
               <img class="author__profil-picture" src="../assets/img/logo.jpg"/>
               <div class="author__info">
-                <div class="author__name">{{ artikel.meta.author }}</div>
-                <div>{{ artikel.meta.createdDate}}</div>
+                <div class="author__name">{{ (article.meta || {}).author }}</div>
+                <div>{{ (article.meta || {}).createdDate}}</div>
               </div>
             </div>
           </div>
           <div class="article__title">
-            <h2>{{ artikel.title }}</h2>
+            <h2>{{ article.title }}</h2>
           </div>
-          <div v-html="artikel.content"></div>
+          <div v-html="article.content"></div>
         </div>
     </div>
 </template>
 
 <script>
-import Axios from 'axios'
-import Constant from '../constant'
+import Api from '../api'
 export default {
-  name: 'detailArtikel',
+  name: 'DetailArticle',
   data () {
     return {
-      artikel: [],
-      artikelPinggir: []
+      activeId: this.$route.params.id,
+      article: [{
+        thumbnail: '',
+        category: '',
+        content: '',
+        meta: {
+          author: '',
+          createdDate: ''
+        }
+      }]
     }
   },
   methods: {
     init () {
+      this.$nextTick(() => {
+        this.findArticle(this.activeId)
+      })
+    },
+    findArticle (id) {
       let self = this
-      Axios
-        .get(Constant.article.getId.replace(/{id}/i, self.$route.params.id))
-        .then(res => {
-          self.artikel = res.data.content.data
-          var d = new Date(self.artikel.meta.createdDate * 1000)
-          self.artikel.meta.createdDate = d.toLocaleString()
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      Api.article.find(id).then(res => {
+        self.article = res.data.content.data
+        self.article.meta.createdDate = new Date(self.article.meta.createdDate * 1000).toLocaleString()
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+  },
+  watch: {
+    '$route.params.id' (id) {
+      this.activeId = id
+      this.findArticle(this.activeId)
     }
   },
   mounted () {

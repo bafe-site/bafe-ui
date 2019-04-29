@@ -13,7 +13,7 @@
           <the-search></the-search>
         </div>
         <div class="header__action">
-          <button class="button button--round">Upload</button>
+          <router-link tag="button" :to="{ name: 'tor'}" class="button button--round">Upload</router-link>
           <router-link :to="{name: 'admin'}" v-if="isAuthenticated" class="button button--round button--hollow">
             <i class="fa fa-user"></i>{{ '&nbsp;' + userName}}</router-link>
           <a v-if="isAuthenticated" @click="logout"><i class="fas fa-sign-out-alt"></i></a>

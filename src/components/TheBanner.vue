@@ -12,7 +12,10 @@
         </div>
         <div class="banner__bottom-desc" v-if="!contents[active].style.mode">{{ contents[active].description }}</div>
         <div class="banner__action">
-          <a class="button button--hollow button--round button--white" :href="!contents[active].action.link">{{ contents[active].action.text }}</a>
+          <router-link
+            tag="button" :to="{ name: 'tor' }"
+            class="button button--hollow button--round button--white">
+            {{ contents[active].action.text }}</router-link>
         </div>
       </div>
       <div class="banner__arrow" @click="next()">
