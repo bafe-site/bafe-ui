@@ -36,7 +36,6 @@ export default {
       }
       if (self.isValid) {
         this.$store.dispatch('authRequest', user).then(() => {
-          console.log('ai')
           self.goTo('admin')
         }).catch(() => {
           self.errorMsg = 'Username atau password salah'

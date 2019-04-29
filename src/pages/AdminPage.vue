@@ -60,10 +60,7 @@ export default {
         .then(res => {
           console.log('success')
         })
-        .catch(err => {
-          console.log('error delete article')
-          console.log(err)
-        })
+        .catch(err => { console.log(err) })
     },
     seeArticle (idx) {
       let self = this
