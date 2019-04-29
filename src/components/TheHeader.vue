@@ -14,9 +14,9 @@
         </div>
         <div class="header__action">
           <button class="button button--round">Upload</button>
-          <router-link :to="{name: 'admin'}" v-if="isLogin" class="button button--round button--hollow">
-            <i class="fa fa-user"></i>{{ '&nbsp;' + user}}</router-link>
-          <a v-if="isLogin" @click="logout"><i class="fas fa-sign-out-alt"></i></a>
+          <router-link :to="{name: 'admin'}" v-if="isAuthenticated" class="button button--round button--hollow">
+            <i class="fa fa-user"></i>{{ '&nbsp;' + userName}}</router-link>
+          <a v-if="isAuthenticated" @click="logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
 <script>
 import TheMenu from './TheMenu'
 import TheSearch from './TheSearch'
-import { mapGetters } from 'vuex'
+import store from '../store'
 
 export default {
   name: 'Header',
@@ -38,20 +38,30 @@ export default {
   },
   methods: {
     logout () {
-
+      store.dispatch('authLogout')
+        .then(() => {
+          this.$router.push('/login')
+        })
     }
   },
   computed: {
-    ...mapGetters({
-      user: 'getUser',
-      isLogin: 'isLogin'
-    })
+    isAuthenticated () {
+      return this.$store.getters.isAuthenticated
+    },
+    userName () {
+      return 'username'
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
   @import "../assets/style/scss/abstracts/variables";
+
+  @media screen and (max-width: 800px) {
+    div.header__menu { display:none; }
+  }
+
   .header {
     display: flex;
     box-sizing: border-box;

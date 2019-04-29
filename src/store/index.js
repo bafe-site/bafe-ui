@@ -1,20 +1,62 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import cookie from 'vue-cookie'
+import Cookie from 'vue-cookie'
+import Axios from 'axios'
+
 Vue.use(Vuex)
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
   state: {
-    isLogin: false
+    token: Cookie.get('token') || '',
+    status: ''
   },
   getters: {
-    getUser: () => {
-      return cookie.get('userName')
+    isAuthenticated: state => !!state.token,
+    authStatus: state => state.status
+  },
+  mutations: {
+    authRequest: (state) => {
+      state.status = 'loading'
     },
-    isLogin: (state) => {
-      return !!cookie.get('userName')
+    authSuccess: (state, token) => {
+      state.status = 'success'
+      state.token = token
+    },
+    authError: (state) => {
+      state.status = 'error'
+    },
+    authLogout: (state) => {
+      state.status = 'loading'
+      state.token = ''
     }
   },
-  mutations: {},
-  actions: {}
+  actions: {
+    authRequest: ({commit, dispatch}, user) => {
+      return new Promise((resolve, reject) => {
+        commit('authRequest')
+        Axios({ url: 'http://localhost/bafe/public/api/auth/login', data: user, method: 'POST' })
+          .then(res => {
+            const token = res.data.meta.token
+            const date = new Date()
+            Cookie.set('token', token, { expires: date.getDate() + 30 })
+            commit('authSuccess', token)
+            resolve(res)
+          })
+          .catch(err => {
+            commit('authError', err)
+            Cookie.delete('token')
+            reject(err)
+          })
+      })
+    },
+    authLogout: ({commit, dispatch}) => {
+      return new Promise((resolve, reject) => {
+        commit('authLogout')
+        Cookie.delete('token')
+        resolve()
+      })
+    }
+  }
 })
+
+export default store

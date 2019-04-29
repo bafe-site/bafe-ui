@@ -9,9 +9,23 @@
 <script>
 import TheHeader from './components/TheHeader'
 import TheFooter from './components/TheFooter'
+
+import axios from 'axios'
+
 export default {
   name: 'App',
-  components: {TheFooter, TheHeader}
+  components: {TheFooter, TheHeader},
+  created () {
+    axios.interceptors.response.use(undefined, function (err) {
+      return new Promise(function (resolve, reject) {
+        if (err.status === 401 && err.config && !err.config.__isRetryRequest) {
+          this.$store.dispatch('authLogout')
+          this.$router.push({name: 'login'})
+        }
+        throw err
+      })
+    })
+  }
 }
 </script>
 

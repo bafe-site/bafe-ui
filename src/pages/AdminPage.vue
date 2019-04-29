@@ -1,5 +1,5 @@
 <template>
-  <div id="admin-page" v-if="isLogin">
+  <div id="admin-page" v-if="isAuthenticated">
     <div class="body__title">
       <div class="container">
         <h2>Daftar Artikel</h2>
@@ -43,7 +43,7 @@
 
 <script>
 import Axios from 'axios'
-import { mapGetters } from  'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'AdminPage',
@@ -54,15 +54,9 @@ export default {
   },
   methods: {
     deleteArticle: function (idx) {
-      const deletetArtikel = 'http://localhost/bafe/public/api/article/' + idx
+      const deleteArtikel = 'http://localhost/bafe/public/api/article/' + idx
       Axios
-        .delete(deletetArtikel, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.$cookie.get('token'),
-            'Accept': 'application/json'
-          }
-        })
+        .delete(deleteArtikel)
         .then(res => {
           console.log('success')
         })
@@ -92,10 +86,7 @@ export default {
       })
   },
   computed: {
-    ...mapGetters({
-      user: 'getUser',
-      isLogin: 'isLogin'
-    })
+    ...mapGetters(['isAuthenticated'])
   }
 }
 </script>

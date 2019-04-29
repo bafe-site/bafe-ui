@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import { store } from './store'
+import store from './store'
 import router from './router'
 import filter from './filter/index'
 import VueCookie from 'vue-cookie'
@@ -24,4 +24,4 @@ new Vue({
 })
 
 Vue.use(VueCookie)
-Vue.use(axios)
+
