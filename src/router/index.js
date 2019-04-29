@@ -63,7 +63,7 @@ export default new Router({
     }, {
       path: '/admin',
       name: 'admin',
-      component: admin,
+      component: Admin,
       beforeEnter: ifAuthenticated
     }, {
       path: '/about',
