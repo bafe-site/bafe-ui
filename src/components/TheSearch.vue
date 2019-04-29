@@ -7,20 +7,20 @@
 
 <script>
 
-  export default {
-    name: 'TheSearch',
-    data () {
-      return {
-        keyword: ''
-      }
-    },
-    methods: {
-      search (keyword) {
-        this.$router.push({ name: 'search', query: { keyword: keyword } })
-        this.keyword = ''
-      }
+export default {
+  name: 'TheSearch',
+  data () {
+    return {
+      keyword: ''
+    }
+  },
+  methods: {
+    search (keyword) {
+      this.$router.push({ name: 'search', query: { keyword: keyword } })
+      this.keyword = ''
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

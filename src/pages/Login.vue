@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'Login',
@@ -27,22 +27,19 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['setUser']),
     login () {
       let self = this
-      var date = new Date()
+      const user = {
+        email: self.email,
+        password: self.password
+      }
       if (self.isValid) {
-        axios
-          .post('http://localhost/bafe/public/api/auth/login', {
-            email: self.email,
-            password: self.password
-          })
-          .then(res => {
-            self.$cookie.set('token', res.data.meta.token, { expires: date.getDate() + 30 })
-            // self.goTo('home')
-          })
-          .catch(error => {
-            self.errorMsg = 'Username atau password tidak sesuai'
-          })
+        this.$store.dispatch('authRequest', user).then(() => {
+          self.goTo('admin')
+        }).catch(() => {
+          self.errorMsg = 'Username atau password salah'
+        })
       }
     },
     goTo (name) {
