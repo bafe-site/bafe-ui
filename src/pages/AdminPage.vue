@@ -7,35 +7,41 @@
     </div>
     <div class="body__content">
       <div class="container">
-        <table class="table">
-          <thead>
-          <tr>
-            <th>Id</th>
-            <th>Judul Artikel</th>
-            <th>Kategori</th>
-            <th>Penulis</th>
-            <th>Tanggal Dibuat</th>
-            <th>Thumbnail</th>
-            <th>View</th>
-            <th>Aksi</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="n in dataArtikel" :key="n.id">
-            <td class="column--center">{{ n.id }}</td>
-            <td>{{ n.title }}</td>
-            <td>{{ n.category }}</td>
-            <td>{{ n.meta.author }}</td>
-            <td>{{ n.meta.createdDate }}</td>
-            <td><img class="imageInside" :src="'data:image/jpeg;base64,'+ n.thumbnail"></td>
-            <td class="column--center">{{ n.viewer }}</td>
-            <td class="column--center">
-              <button @click='deleteArticle(n.id)'><i class="fas fa-trash-alt"></i></button>
-              <button @click='seeArticle(n.id)'><i class="fas fa-eye"></i></button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+        <div class="row" style="float: right">
+          <router-link tag="button" :to="{name: 'upload'}"
+                       class="button button--round" ><i class="fas fa-plus"></i> Artikel</router-link>
+        </div>
+        <div class="row">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Judul Artikel</th>
+              <th>Kategori</th>
+              <th>Penulis</th>
+              <th>Tanggal Dibuat</th>
+              <th>Thumbnail</th>
+              <th>View</th>
+              <th>Aksi</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="n in dataArtikel" :key="n.id">
+              <td class="column--center">{{ n.id }}</td>
+              <td>{{ n.title }}</td>
+              <td>{{ n.category }}</td>
+              <td>{{ n.meta.author }}</td>
+              <td>{{ n.meta.createdDate }}</td>
+              <td><img class="imageInside" :src="'data:image/jpeg;base64,'+ n.thumbnail"></td>
+              <td class="column--center">{{ n.viewer }}</td>
+              <td class="column--center">
+                <button @click='deleteArticle(n.id)'><i class="fas fa-trash-alt"></i></button>
+                <button @click='seeArticle(n.id)'><i class="fas fa-eye"></i></button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -101,6 +107,11 @@ export default {
 <style scoped>
 table {
   width: 100%;
+}
+
+.row {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .body__content {
