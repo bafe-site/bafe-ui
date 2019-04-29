@@ -22,7 +22,9 @@ const api = {
         params: params
       })
     },
-    find: () => {},
+    find: (id) => {
+      return Axios.get(path.detail_article.replace('{id}', id))
+    },
     delete: (id) => {
       return Axios.delete(path.detail_article.replace('{id}', id))
     }
