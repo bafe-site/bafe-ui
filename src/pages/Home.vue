@@ -247,8 +247,4 @@ export default {
   h2 {
     font-size: 40px;
   }
-
-  .row {
-    margin: 80px 0px;
-  }
 </style>

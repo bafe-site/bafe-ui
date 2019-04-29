@@ -4,13 +4,13 @@
       <div class="footer">
         <div class="footer__info">
           <div class="footer__menu">
-            <a href="/">Beranda</a>
+            <router-link :to="{name: 'home'}">Beranda</router-link>
             <span>|</span>
-            <a href="/">Tentang Kami</a>
+            <router-link :to="{name: 'about'}">Tentang Kami</router-link>
             <span>|</span>
-            <a href="/">Pedoman Media Siber</a>
+            <a>Pedoman Media Siber</a>
             <span>|</span>
-            <a href="/">Terms of Service</a>
+            <router-link :to="{name: 'tor'}">Terms of Service</router-link>
           </div>
           <img src="../assets/img/logo-horizontal.png">
           <p>Copyright © All rights reserved.</p>
