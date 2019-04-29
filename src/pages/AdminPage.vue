@@ -54,7 +54,7 @@ export default {
         orderBy: 'id',
         direction: 'desc',
         page: 1,
-        size: 10,
+        size: null,
         category: ''
       }
     }
