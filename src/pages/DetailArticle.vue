@@ -19,13 +19,16 @@
           </div>
           <div v-html="article.content"></div>
         </div>
+        <the-top></the-top>
     </div>
 </template>
 
 <script>
 import Api from '../api'
+import TheTop from '../components/TheTop'
 export default {
   name: 'DetailArticle',
+  components: {TheTop},
   data () {
     return {
       activeId: this.$route.params.id,
