@@ -7,6 +7,10 @@
 .grid-item {
   padding: 10px 10px;
 
+  * {
+    word-break: break-word;
+  }
+
   &:hover {
     -webkit-transform: scale(1.05, 1.05);
     transform: scale(1.05, 1.05);
