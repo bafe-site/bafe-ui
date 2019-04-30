@@ -7,7 +7,7 @@ Vue.use(Axios)
 
 const token = VueCookie.get('token')
 
-Axios.defaults.baseURL = 'http://localhost'
+Axios.defaults.baseURL = 'http://backk.bafe.space'
 Axios.defaults.headers.post['Content-Type'] = 'application/json'
 Axios.defaults.headers.post['Accept'] = 'application/json'
 

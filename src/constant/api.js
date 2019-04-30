@@ -1,13 +1,13 @@
 const api = {
-  base: '/bafe/public/api',
-  detail_article: '/bafe/public/api/article/{id}',
-  article: '/bafe/public/api/article',
+  base: '/api',
+  detail_article: '/api/article/{id}',
+  article: '/api/article',
   lookup: {
-    category: '/bafe/public/api/lookup/category'
+    category: '/api/lookup/category'
   },
   auth: {
-    login: '/bafe/public/api/auth/login',
-    logout: '/bafe/public/api/auth/logout'
+    login: '/api/auth/login',
+    logout: '/api/auth/logout'
   },
   header: {
     'Content-Type': 'application/json',
