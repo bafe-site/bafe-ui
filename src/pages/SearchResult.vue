@@ -32,7 +32,7 @@
                     <h3> {{ n.title }} </h3>
                   </div>
                   <div class="content__description">
-                    <p>{{ n.content | truncate(36) }}</p>
+                    <p>{{ n.summary | truncate(200) }}</p>
                   </div>
                 </div>
               </div>
@@ -48,8 +48,7 @@
 </template>
 
 <script>
-import Axios from 'axios'
-import Constant from '../constant'
+import Api from '../api'
 import TheSearch from '../components/TheSearch'
 
 export default {
@@ -63,12 +62,10 @@ export default {
   methods: {
     search (input) {
       let self = this
-      Axios
-        .get(Constant.article.get, {
-          params: {
-            keyword: input
-          }
-        })
+      let params = {
+        keyword: input
+      }
+      Api.article.filter(params)
         .then(res => {
           self.articles = res.data.content.data
         })

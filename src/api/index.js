@@ -7,7 +7,7 @@ Vue.use(Axios)
 
 const token = VueCookie.get('token')
 
-Axios.defaults.baseURL = 'http://backk.bafe.space'
+Axios.defaults.baseURL = 'https://backk.bafe.space'
 Axios.defaults.headers.post['Content-Type'] = 'application/json'
 Axios.defaults.headers.post['Accept'] = 'application/json'
 
@@ -27,6 +27,9 @@ const api = {
     },
     delete: (id) => {
       return Axios.delete(path.detail_article.replace('{id}', id))
+    },
+    upload: (data) => {
+      return Axios.post(path.article, data, { params: {} })
     }
   },
   lookup: {
@@ -34,6 +37,14 @@ const api = {
       filter: () => {
         return Axios.get(path.lookup.category)
       }
+    }
+  },
+  auth: {
+    login: (user) => {
+      return Axios.post(path.auth.login, user, {params: {}})
+    },
+    logout: () => {
+      return Axios.get(path.auth.logout)
     }
   }
 }

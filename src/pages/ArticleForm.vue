@@ -77,8 +77,7 @@
 
 <script>
 import { VueEditor } from 'vue2-editor'
-import Axios from 'axios'
-import Constant from '../constant'
+import Api from '../api'
 export default {
   name: 'ArticleForm',
   components: {
@@ -123,11 +122,9 @@ export default {
         summary: self.summaryContent
       })
 
-      Axios
-        .post(Constant.article.post, data, {
-          headers: Constant.header
-        })
+      Api.article.upload(data)
         .then(res => {
+          this.$router.push({ name: 'admin' })
         })
         .catch(err => {
           if (err.response.status === 422) {
@@ -154,8 +151,7 @@ export default {
     },
     getKategori () {
       let self = this
-      Axios
-        .get(Constant.lookup.category)
+      Api.lookup.category.filter()
         .then(res => {
           self.kategori = res.data.data
         })

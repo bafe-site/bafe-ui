@@ -66,7 +66,7 @@
                 <h3> {{ n.title }} </h3>
               </div>
               <div class="content__description">
-                <p>{{ n.content | truncate(36) }}</p>
+                <p>{{ n.summary | truncate(200) }}</p>
               </div>
             </div>
           </router-link>

@@ -18,7 +18,7 @@
               <h3> {{ articles[active].title }} </h3>
             </div>
             <div class="content__description">
-              <p> {{ articles[active].content | truncate(200) }} </p>
+              <p> {{ articles[active].summary | truncate(200) }} </p>
             </div>
             <div class="content__action">
               <router-link

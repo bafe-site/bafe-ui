@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Cookie from 'vue-cookie'
-import Axios from 'axios'
+import Api from '../api'
 
 Vue.use(Vuex)
 
@@ -34,7 +34,7 @@ const store = new Vuex.Store({
     authRequest: ({commit, dispatch}, user) => {
       return new Promise((resolve, reject) => {
         commit('authRequest')
-        Axios({ url: 'http://localhost/bafe/public/api/auth/login', data: user, method: 'POST' })
+        Api.auth.login(user)
           .then(res => {
             const token = res.data.meta.token
             const date = new Date()
@@ -51,6 +51,7 @@ const store = new Vuex.Store({
     },
     authLogout: ({commit, dispatch}) => {
       return new Promise((resolve, reject) => {
+        Api.auth.logout()
         commit('authLogout')
         Cookie.delete('token')
         resolve()
