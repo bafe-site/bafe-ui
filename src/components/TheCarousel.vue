@@ -73,9 +73,11 @@ export default {
       active: 0,
       max: 0,
       articles: [{
+        id: 0,
         title: '',
         content: '',
-        thumbnail: ''
+        thumbnail: '',
+        summary: ''
       }]
     }
   },
