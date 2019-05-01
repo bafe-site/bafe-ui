@@ -265,4 +265,7 @@ export default {
   h2 {
     font-size: 40px;
   }
+  .item__summary--horizontal .summary__thumbnail {
+    width: 50%;
+  }
 </style>
