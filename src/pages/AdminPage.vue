@@ -12,7 +12,10 @@
                        class="button button--round" ><i class="fas fa-plus"></i> Artikel</router-link>
         </div>
         <div class="row">
-          <table class="table">
+          <div class="loading" v-if="isLoading('admin-filter-article')">
+            <i class="fas fa-spinner fa-pulse"></i>
+          </div>
+          <table class="table" v-if="!isLoading('admin-filter-article')">
             <thead>
             <tr>
               <th>Id</th>
@@ -49,7 +52,7 @@
 
 <script>
 import Api from '../api'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'AdminPage',
@@ -66,6 +69,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['startLoading', 'endLoading']),
     deleteArticle (idx) {
       Api.article.delete(idx).then(res => {
         this.filterArticle()
@@ -88,9 +92,14 @@ export default {
         page: this.filter.page,
         category: this.filter.category
       }
+      this.startLoading('admin-filter-article')
       Api.article.filter(params).then(res => {
         this.dataArtikel = res.data.content.data
-      }).catch(err => { console.log(err) })
+        this.endLoading('admin-filter-article')
+      }).catch(err => {
+        console.log(err)
+        this.endLoading('admin-filter-article')
+      })
     }
   },
   mounted () {
@@ -99,7 +108,7 @@ export default {
     })
   },
   computed: {
-    ...mapGetters(['isAuthenticated'])
+    ...mapGetters(['isAuthenticated', 'isLoading'])
   }
 }
 </script>

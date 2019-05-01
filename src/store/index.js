@@ -8,10 +8,12 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     token: Cookie.get('token') || '',
-    status: ''
+    status: '',
+    loadings: []
   },
   getters: {
     isAuthenticated: state => !!state.token,
+    isLoading: state => code => { state.loadings.includes(code) },
     authStatus: state => state.status
   },
   mutations: {
@@ -28,6 +30,14 @@ const store = new Vuex.Store({
     authLogout: (state) => {
       state.status = 'loading'
       state.token = ''
+    },
+    startLoading: (state, code) => {
+      if (!state.loadings.includes(code)) {
+        state.loadings.push(code)
+      }
+    },
+    endLoading: (state, code) => {
+      state.loadings.splice(state.loadings.indexOf(code), 1)
     }
   },
   actions: {
