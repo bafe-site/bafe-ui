@@ -35,7 +35,11 @@
               <td>{{ n.category }}</td>
               <td>{{ n.meta.author }}</td>
               <td>{{ n.meta.createdDate }}</td>
-              <td><img class="imageInside" :src="'data:image/jpeg;base64,'+ n.thumbnail"></td>
+              <td>
+                <img class="col-4" v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail">
+                <iframe v-else-if="n.video" width="400"
+                        :src="n.video"></iframe>
+              </td>
               <td class="column--center">{{ n.viewer }}</td>
               <td class="column--center">
                 <button @click='deleteArticle(n.id)'><i class="fas fa-trash-alt"></i></button>
@@ -126,6 +130,10 @@ table {
 .body__content {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.col-4 {
+  width: 420px;
 }
 
 .imageInside {
