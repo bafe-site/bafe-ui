@@ -30,13 +30,17 @@
         </div>
       </div>
     </div>
-    <div class="row" ref="carousel">
+    <div class="loading" v-if="isLoading('filter-article')">
+      <i class="fas fa-spinner fa-pulse"></i>
+    </div>
+    <div class="row" ref="carousel" v-if="!isLoading('filter-article')">
       <h2>Populer</h2>
       <the-carousel
         :dataset="carousel.top.dataset"
         :config="carousel.top.config"></the-carousel>
     </div>
-    <div class="row section__content">
+
+    <div class="row section__content" v-if="!isLoading('filter-article')">
       <div class="category">
           <select class="input" name="Kategori" id="" v-model="filter.category">
             <option selected value>All</option>
@@ -66,7 +70,7 @@
                 <h3> {{ n.title }} </h3>
               </div>
               <div class="content__description">
-                <p>{{ n.content | truncate(36) }}</p>
+                <p>{{ n.summary | truncate(200) }}</p>
               </div>
             </div>
           </router-link>
@@ -83,6 +87,7 @@
 import TheCarousel from '../components/TheCarousel'
 import TheBanner from '../components/TheBanner'
 import Api from '../api'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'Home',
@@ -146,6 +151,7 @@ export default {
     })
   },
   methods: {
+    ...mapMutations(['startLoading', 'endLoading']),
     init () {
       this.getLatestArticle(3)
       this.getNewestArticle()
@@ -191,13 +197,18 @@ export default {
         page: this.filter.page,
         category: this.filter.category
       }
+      this.startLoading('filter-article')
       return Api.article.filter(params)
     },
     getNewestArticle () {
       this.filter.orderBy = 'viewer'
       this.filterArticle().then(res => {
         this.carousel.top.dataset.articles = res.data.content.data
-      }).catch(error => { console.log(error) })
+        this.endLoading('filter-article')
+      }).catch(error => {
+        console.log(error)
+        this.endLoading('filter-article')
+      })
     },
     getLatestArticle (size) {
       this.filter.orderBy = 'id'
@@ -208,7 +219,11 @@ export default {
         if (res.data.content.meta.totalPage === 1) {
           this.isShow.button.loadMore = false
         }
-      }).catch(error => { console.log(error) })
+        this.endLoading('filter-article')
+      }).catch(err => {
+        console.log(err)
+        this.endLoading('filter-article')
+      })
     },
     load () {
       this.filter.size += 3
@@ -232,6 +247,9 @@ export default {
         this.isShow.notFound = false
       }
     }
+  },
+  computed: {
+    ...mapGetters(['isLoading'])
   }
 }
 </script>
@@ -246,5 +264,8 @@ export default {
   }
   h2 {
     font-size: 40px;
+  }
+  .item__summary--horizontal .summary__thumbnail {
+    width: 50%;
   }
 </style>

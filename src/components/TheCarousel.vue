@@ -18,7 +18,7 @@
               <h3> {{ articles[active].title }} </h3>
             </div>
             <div class="content__description">
-              <p> {{ articles[active].content | truncate(200) }} </p>
+              <p> {{ articles[active].summary | truncate(200) }} </p>
             </div>
             <div class="content__action">
               <router-link
@@ -73,9 +73,11 @@ export default {
       active: 0,
       max: 0,
       articles: [{
+        id: 0,
         title: '',
         content: '',
-        thumbnail: ''
+        thumbnail: '',
+        summary: ''
       }]
     }
   },

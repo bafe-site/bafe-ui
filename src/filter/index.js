@@ -1,6 +1,10 @@
 const filter = {
   truncate: (value, format) => {
-    return value.substring(0, format) + ' ...'
+    if (value && (value.length > format)) {
+      return value.substring(0, format) + ' ...'
+    } else {
+      return value
+    }
   }
 }
 

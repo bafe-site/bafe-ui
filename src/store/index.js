@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Cookie from 'vue-cookie'
-import Axios from 'axios'
+import Api from '../api'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
     token: Cookie.get('token') || '',
-    status: ''
+    status: '',
+    loadings: []
   },
   getters: {
     isAuthenticated: state => !!state.token,
+    isLoading: state => code => { state.loadings.includes(code) },
     authStatus: state => state.status
   },
   mutations: {
@@ -28,13 +30,21 @@ const store = new Vuex.Store({
     authLogout: (state) => {
       state.status = 'loading'
       state.token = ''
+    },
+    startLoading: (state, code) => {
+      if (!state.loadings.includes(code)) {
+        state.loadings.push(code)
+      }
+    },
+    endLoading: (state, code) => {
+      state.loadings.splice(state.loadings.indexOf(code), 1)
     }
   },
   actions: {
     authRequest: ({commit, dispatch}, user) => {
       return new Promise((resolve, reject) => {
         commit('authRequest')
-        Axios({ url: 'http://localhost/bafe/public/api/auth/login', data: user, method: 'POST' })
+        Api.auth.login(user)
           .then(res => {
             const token = res.data.meta.token
             const date = new Date()
@@ -51,6 +61,7 @@ const store = new Vuex.Store({
     },
     authLogout: ({commit, dispatch}) => {
       return new Promise((resolve, reject) => {
+        Api.auth.logout()
         commit('authLogout')
         Cookie.delete('token')
         resolve()
