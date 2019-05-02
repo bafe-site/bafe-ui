@@ -46,6 +46,11 @@ const api = {
     logout: () => {
       return Axios.get(path.auth.logout)
     }
+  },
+  analytic: {
+    count: (body) => {
+      return Axios.put(path.analytic.count, body, {params: {}})
+    }
   }
 }
 

@@ -65,6 +65,7 @@ export default {
   mounted () {
     let self = this
     self.$nextTick(() => {
+      Api.analytic.count({ 'contentId': this.$route.params.id })
       self.init()
     })
   }
