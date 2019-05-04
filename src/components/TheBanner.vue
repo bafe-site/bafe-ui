@@ -2,7 +2,9 @@
   <div class="banner"
        :style="{ 'background-image': 'url(\'data:image/png;base64,' + contents[active].background + '\')' }">
     <div class="banner__container">
-      <div class="banner__arrow" @click="back()">
+      <div
+      class="banner__arrow"
+      @click="back()">
         <i class="fas fa-angle-left"></i>
       </div>
       <div class="banner__main" :style="{ 'text-align': contents[active].style.align }">
