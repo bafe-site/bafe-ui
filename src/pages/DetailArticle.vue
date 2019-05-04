@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <div class="article__container">
-          <img class="article__thumbnail" :src="'data:image/jpeg;base64,'+ article.thumbnail"/>
+          <img v-if="article.thumbnail" class="article__thumbnail" :src="'data:image/jpeg;base64,'+ article.thumbnail"/>
+          <iframe v-else-if="article.video" width="720" height="180" :src="article.video"></iframe>
           <div class="meta__container">
             <div class="meta__category">
               <span class="label">{{ article.category }} </span>
