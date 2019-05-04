@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="top" v-if="isTop" @click="goToTop">
-      <p>bafe</p>
+      <p>Up</p>
     </div>
   </div>
 </template>
@@ -42,7 +42,9 @@ export default {
     bottom: 10px;
     right: 10px;
     cursor: pointer;
-    background-color: #000000;
+    background-image: url('/assets/img/arrow_up.png');
+    background-color: #0c0c0c;
     color: #ffffff;
+    text-align: center;
   }
 </style>
