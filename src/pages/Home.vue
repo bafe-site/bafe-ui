@@ -80,18 +80,20 @@
         <button v-if="isShow.button.loadMore" style="margin: 30px auto" class="button button--hollow" @click="load()">Load More</button>
       </div>
     </div>
+    <the-top></the-top>
   </div>
 </template>
 
 <script>
 import TheCarousel from '../components/TheCarousel'
 import TheBanner from '../components/TheBanner'
+import TheTop from '../components/TheTop'
 import Api from '../api'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'Home',
-  components: {TheCarousel, TheBanner},
+  components: {TheCarousel, TheBanner, TheTop},
   data () {
     return {
       filter: {
