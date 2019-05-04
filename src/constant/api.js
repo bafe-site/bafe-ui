@@ -12,6 +12,9 @@ const api = {
   header: {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
+  },
+  analytic: {
+    count: '/api/article/count'
   }
 }
 
