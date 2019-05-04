@@ -7,7 +7,8 @@ import SearchResult from '../pages/SearchResult.vue'
 import ArticleForm from '../pages/ArticleForm.vue'
 import DetailArticle from '../pages/DetailArticle'
 import Admin from '../pages/AdminPage.vue'
-import AboutUs from '../pages/aboutUs'
+import AboutUs from '../pages/AboutUs'
+import NotFound from '../pages/NotFound'
 
 import store from '../store'
 
@@ -69,6 +70,9 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: AboutUs
+    }, {
+      path: '*',
+      component: NotFound
     }
   ]
 })
