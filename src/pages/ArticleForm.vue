@@ -43,6 +43,10 @@
                 <option v-for="n in kategori" :key="n.id" v-bind:value="n.id">{{ n.categoryName }}</option>
               </select>
             </div>
+            <div class="form-group__container form-group__container--horizontal">
+              <input type="checkbox" id="sponsor" class="input" value="true" v-model="isSponsored">
+              <label for="sponsor">&nbsp; Sponsored Content </label>
+            </div>
             <div class="form-group__container form-group__container--vertical">
               <label for="tags">Label</label>
               <textarea id="tags" class="input" v-model="tag" placeholder="Tambahkan label..."></textarea>
@@ -95,7 +99,8 @@ export default {
       tag: '',
       selectedFile: '',
       summaryContent: '',
-      picked: 'gambar'
+      picked: 'gambar',
+      isSponsored: false
     }
   },
   methods: {
@@ -119,7 +124,8 @@ export default {
         // dateCreated: dateNow,
         draft: 0,
         thumbnail: strImage,
-        summary: self.summaryContent
+        summary: self.summaryContent,
+        isSponsored: self.isSponsored
       })
 
       Api.article.upload(data)
