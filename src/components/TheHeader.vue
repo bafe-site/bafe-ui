@@ -69,6 +69,10 @@ export default {
     align-items: center;
 
     &__container {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background-color: white;
       border-bottom: 1px solid $grey-2;
     }
 
