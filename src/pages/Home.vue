@@ -235,6 +235,7 @@ export default {
       } else {
         this.isShow.content = true
         this.isShow.notFound = false
+        this.isShow.button.loadMore = true
       }
     }
   }
@@ -260,4 +261,5 @@ export default {
   .highlight {
     text-align: justify
   }
+
 </style>
