@@ -1,6 +1,6 @@
 <template>
   <div class="banner"
-       :style="{ 'background-image': 'url(\'data:image/png;base64,' + contents[active].background + '\')' }">
+       :style="{ 'background-image': 'url(' + require('../assets/img/' + contents[active].background) + ')' }">
     <div class="banner__container">
       <div class="banner__arrow" @click="back()">
         <i class="fas fa-angle-left"></i>
