@@ -58,6 +58,7 @@
               <iframe v-else-if="n.video" width="400" :src="n.video"></iframe>
             </div>
             <div class="summary__label">
+              <span v-if="n.isSponsored" class="label label--sponsor">Sponsored Content</span>
               <span class="label">{{ n.category }}</span>
             </div>
             <div class="summary__content">

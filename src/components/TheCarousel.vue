@@ -14,6 +14,7 @@
                   :src="articles[active].video"></iframe>
           <div class="summary__content">
             <div class="summary__meta">
+              <span v-if="articles[active].isSponsored" class="label label--sponsor">Sponsored Content</span>
               <span class="label">{{ articles[active].category }}</span>
             </div>
             <div class="content__title">
