@@ -1,5 +1,5 @@
 <template>
-  <div class="header__container" :class="{sticky : isActive}">
+  <div class="header__container">
     <div class="container">
       <div class="header">
         <div class="header__logo">
@@ -33,8 +33,7 @@ export default {
   components: {TheMenu, TheSearch},
   data () {
     return {
-      inputSearch: '',
-      isActive: false
+      inputSearch: ''
     }
   },
   methods: {
@@ -75,10 +74,6 @@ export default {
       z-index: 20;
       background-color: white;
       border-bottom: 1px solid $grey-2;
-      position: sticky;
-      position: -webkit-sticky;
-      top: 0;
-      background-color: white;
     }
 
     &__logo img {
@@ -115,12 +110,6 @@ export default {
       align-items: center;
       justify-self: flex-end;
     }
-  }
-
-  .sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
   }
 
   /deep/.search {
