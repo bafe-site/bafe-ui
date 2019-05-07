@@ -26,7 +26,7 @@
             <div class="content__action">
               <router-link
                 tag="button"
-                class="button button--hollow button--round button--white"
+                class="button button--hollow button--round button--white button--modified"
                 :to="{name: 'article', params: { id: articles[active].id }}">
                 Selengkapnya
               </router-link>
@@ -216,5 +216,13 @@ export default {
   /*Override CSS*/
   .item__summary--horizontal {
     margin-bottom: 30px;
+  }
+
+  .button.button--modified {
+    &:hover {
+      border: 2px solid #fff;
+      color: $bafe;
+      background-color: #fff;
+    }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div id="top" v-if="isTop" @click="goToTop">
-      <p>Up</p>
+  <div id="top">
+    <div v-if="isTop" class="top" @click="goToTop">
+      <i class="fas fa-chevron-up styled"></i>
     </div>
   </div>
 </template>
@@ -35,16 +35,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  #top {
+  .top {
     width: 40px;
     height: 40px;
     position: fixed;
     bottom: 10px;
     right: 10px;
     cursor: pointer;
-    background-image: url('/assets/img/arrow_up.png');
-    background-color: #0c0c0c;
-    color: #ffffff;
-    text-align: center;
+    background-color: #1B2C23;
+    z-index: 20;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    & > .styled {
+      color: #ffffff;
+      font-size: 15px;
+    }
   }
+
 </style>
