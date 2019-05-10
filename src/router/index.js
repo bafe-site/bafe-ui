@@ -1,15 +1,78 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Tor from '../pages/Tor.vue'
+import Home from '../pages/Home.vue'
+import Login from '../pages/Login.vue'
+import SearchResult from '../pages/SearchResult.vue'
+import ArticleForm from '../pages/ArticleForm.vue'
+import DetailArticle from '../pages/DetailArticle'
+import Admin from '../pages/AdminPage.vue'
+import AboutUs from '../pages/AboutUs'
+import NotFound from '../pages/NotFound'
+
+import store from '../store'
 
 Vue.use(Router)
 
+const ifNotAuthenticated = (to, from, next) => {
+  if (!store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/')
+}
+
+const ifAuthenticated = (to, from, next) => {
+  if (store.getters.isAuthenticated) {
+    next()
+    return
+  }
+  next('/login')
+}
+
 export default new Router({
+  mode: 'history',
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      component: Login,
+      beforeEnter: ifNotAuthenticated
+    }, {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'home',
+      component: Home
+    }, {
+      path: '/tor',
+      name: 'tor',
+      component: Tor
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchResult
+    },
+    {
+      path: '/article/upload',
+      name: 'upload',
+      component: ArticleForm,
+      beforeEnter: ifAuthenticated
+    }, {
+      path: '/article/:id',
+      name: 'article',
+      component: DetailArticle
+    }, {
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+      beforeEnter: ifAuthenticated
+    }, {
+      path: '/about',
+      name: 'about',
+      component: AboutUs
+    }, {
+      path: '*',
+      component: NotFound
     }
   ]
 })

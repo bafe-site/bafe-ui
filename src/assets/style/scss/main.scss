@@ -1,0 +1,32 @@
+@import "abstracts/variables";
+
+@import "base/reset";
+@import "base/typography";
+
+@import "components/button";
+@import "components/input";
+@import "components/item";
+@import "components/summary";
+@import "components/not-found";
+@import "components/form";
+@import "components/label";
+@import "components/table";
+
+@import "layout/grid";
+@import "layout/body";
+
+body {
+   margin: 0;
+   width: 100%;
+ }
+
+.container {
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0px 25px;
+  margin: 0px auto;
+}
+
+.row {
+  margin: 80px 0px;
+}
