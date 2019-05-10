@@ -8,9 +8,9 @@
             <span>|</span>
             <router-link :to="{name: 'about'}">Tentang Kami</router-link>
             <span>|</span>
-            <a>Pedoman Media Siber</a>
+            <a href="https://drive.google.com/file/d/1ESqHbPXUJ-6g7erNK668wT2C8s55fSNL/view?usp=sharing">Pedoman Media Siber</a>
             <span>|</span>
-            <router-link :to="{name: 'tor'}">Terms of Service</router-link>
+            <a href="https://drive.google.com/file/d/1pPlBlTwsKQ2DSrK8hI7creHggjKuOiKO/view?usp=sharing">Syarat dan Ketentuan</a>
           </div>
           <img src="../assets/img/logo-horizontal.png">
           <p>Copyright © All rights reserved.</p>
