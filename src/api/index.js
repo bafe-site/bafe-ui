@@ -1,9 +1,6 @@
-import Vue from 'vue'
 import Axios from 'axios'
 import VueCookie from 'vue-cookie'
 import path from '../constant/api'
-
-Vue.use(Axios)
 
 const token = VueCookie.get('token')
 

@@ -1,40 +1,48 @@
 <template>
-  <div class="carousel">
-    <div class="carousel__arrow" @click="back()">
-      <i class="fas fa-angle-left"></i>
+  <div id="carousel">
+    <div class="not-found__container" v-if="!isFound">
+      <div class="not-found__image">
+        <i class="fas fa-paper-plane"></i>
+      </div>
+      <h2>Help Us Share Your Idea</h2>
+      <p>Konten belum terisi.</p>
     </div>
-    <div class="carousel__main">
-      <div class="carousel__item-container">
-        <div class="item item__summary--horizontal">
-          <img class="summary__thumbnail"
-               v-if="articles[active].thumbnail"
-               :src="'data:image/jpeg;base64,'+articles[active].thumbnail"
-               :alt="articles[active].thumbnail">
-          <iframe v-else-if="articles[active].video" width="400"
-                  :src="articles[active].video"></iframe>
-          <div class="summary__content">
-            <div class="summary__meta">
-              <span v-if="articles[active].isSponsored" class="label label--sponsor">Sponsored Content</span>
-              <span class="label">{{ articles[active].category }}</span>
-            </div>
-            <div class="content__title">
-              <h3> {{ articles[active].title }} </h3>
-            </div>
-            <div class="content__description">
-              <p> {{ articles[active].summary | truncate(200) }} </p>
-            </div>
-            <div class="content__action">
-              <router-link
-                tag="button"
-                class="button button--hollow button--round button--white button--modified"
-                :to="{name: 'article', params: { id: articles[active].id }}">
-                Selengkapnya
-              </router-link>
+    <div class="carousel" v-else>
+      <div class="carousel__arrow" @click="back()">
+        <i class="fas fa-angle-left"></i>
+      </div>
+      <div class="carousel__main">
+        <div class="carousel__item-container">
+          <div class="item item__summary--horizontal">
+            <img class="summary__thumbnail"
+                 v-if="articles[active].thumbnail"
+                 :src="'data:image/jpeg;base64,'+articles[active].thumbnail"
+                 :alt="articles[active].thumbnail">
+            <iframe v-else-if="articles[active].video" width="400"
+                    :src="articles[active].video"></iframe>
+            <div class="summary__content">
+              <div class="summary__meta">
+                <span v-if="articles[active].isSponsored" class="label label--sponsor">Sponsored Content</span>
+                <span class="label">{{ articles[active].category }}</span>
+              </div>
+              <div class="content__title">
+                <h3> {{ articles[active].title }} </h3>
+              </div>
+              <div class="content__description">
+                <p> {{ articles[active].summary | truncate(200) }} </p>
+              </div>
+              <div class="content__action">
+                <router-link
+                  tag="button"
+                  class="button button--hollow button--round button--white button--modified"
+                  :to="{name: 'article', params: { id: articles[active].id }}">
+                  Selengkapnya
+                </router-link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel__bullet-container">
+        <div class="carousel__bullet-container">
         <span
           class="carousel__bullet"
           v-for="idx in articles.length"
@@ -46,10 +54,11 @@
             <i class="fas fa-circle"></i>
           </a>
         </span>
+        </div>
       </div>
-    </div>
-    <div class="carousel__arrow" @click="next()">
-      <i class="fas fa-angle-right"></i>
+      <div class="carousel__arrow" @click="next()">
+        <i class="fas fa-angle-right"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -96,6 +105,9 @@ export default {
       return (idx) => {
         return self.active === (idx - 1)
       }
+    },
+    isFound () {
+      return this.articles.length > 1 && this.articles[0].content
     }
   },
   methods: {
@@ -224,5 +236,9 @@ export default {
       color: $bafe;
       background-color: #fff;
     }
+  }
+
+  .not-found__container {
+    background-color: $bafe;
   }
 </style>

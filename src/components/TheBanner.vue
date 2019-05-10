@@ -1,5 +1,5 @@
 <template>
-  <div class="banner"
+  <div v-if=" contents[active].background" class="banner"
        :style="{ 'background-image': 'url(' + require('../assets/img/' + contents[active].background) + ')' }">
     <div class="banner__container">
       <div class="banner__arrow" @click="back()">

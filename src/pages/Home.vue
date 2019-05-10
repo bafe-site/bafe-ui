@@ -233,6 +233,8 @@ export default {
       }).catch(err => {
         console.log(err)
         this.endLoading('filter-article')
+        this.isShow.notFound = true
+        this.isShow.button.loadMore = false
       })
     },
     load () {
