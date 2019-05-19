@@ -109,9 +109,6 @@ export default {
       // var dateNow = Date.now()
       var kategoriID = parseInt(self.kategoriD)
       var strImage = self.selectedFile.replace(/^data:image\/[a-z]+;base64,/, '')
-      if (self.video !== null && self.video !== '') {
-        self.video = 'emptyVideo'
-      }
 
       // var tagS = self.tag.join()
       let data = JSON.stringify({

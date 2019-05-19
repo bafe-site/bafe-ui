@@ -23,7 +23,7 @@
               <div class="item item__summary--vertical">
                 <div class="summary__thumbnail">
                   <img v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail" :alt="n.thumbnail">
-                  <iframe v-else-if="n.video" width="400"
+                  <iframe v-else-if="n.video" width="400" height="300px"
                           :src="n.video"></iframe>
                 </div>
                 <div class="summary__label">

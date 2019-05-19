@@ -55,7 +55,7 @@
             class="item item__summary--vertical">
             <div class="summary__thumbnail">
               <img v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail" :alt="n.thumbnail">
-              <iframe v-else-if="n.video" width="400" :src="n.video"></iframe>
+              <iframe v-else-if="n.video" width="348" height="261" :src="n.video"></iframe>
             </div>
             <div class="summary__label">
               <span v-if="n.isSponsored" class="label label--sponsor">Sponsored Content</span>
