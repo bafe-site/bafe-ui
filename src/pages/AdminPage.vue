@@ -34,10 +34,10 @@
               <td>{{ n.title }}</td>
               <td>{{ n.category }}</td>
               <td>{{ n.meta.author }}</td>
-              <td>{{ n.meta.createdDate }}</td>
+              <td>{{ parseInt(n.meta.createdDate) | date('DD/MM/YYYY') }}</td>
               <td>
                 <img class="col-4" v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail">
-                <iframe v-else-if="n.video" width="400"
+                <iframe v-else-if="n.video" width="100" height="75"
                         :src="n.video"></iframe>
               </td>
               <td class="column--center">{{ n.viewer }}</td>
@@ -101,7 +101,7 @@ export default {
         this.dataArtikel = res.data.content.data
         this.endLoading('admin-filter-article')
       }).catch(err => {
-        console.log(err)
+        alert(err)
         this.endLoading('admin-filter-article')
       })
     }
@@ -133,11 +133,6 @@ table {
 }
 
 .col-4 {
-  width: 420px;
-}
-
-.imageInside {
-  max-width: 200px;
-  margin: 3px;
+  width: 100px;
 }
 </style>
