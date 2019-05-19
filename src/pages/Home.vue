@@ -287,4 +287,8 @@ export default {
     text-align: justify
   }
 
+  .category {
+    width: 200px;
+  }
+
 </style>
