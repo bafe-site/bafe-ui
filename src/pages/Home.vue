@@ -226,8 +226,11 @@ export default {
 
       this.filterArticle().then(res => {
         this.latestContent = res.data.content.data
-        if (res.data.content.meta.totalPage === 1) {
+        console.log(res.data.content.meta.totalPage)
+        if (res.data.content.meta.totalPage <= 1) {
           this.isShow.button.loadMore = false
+        } else {
+          this.isShow.button.loadMore = true
         }
         this.endLoading('filter-article')
       }).catch(err => {
@@ -253,11 +256,9 @@ export default {
       if (value.length === 0) {
         this.isShow.content = false
         this.isShow.notFound = true
-        this.isShow.button.loadMore = false
       } else {
         this.isShow.content = true
         this.isShow.notFound = false
-        this.isShow.button.loadMore = true
       }
     }
   },

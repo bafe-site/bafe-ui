@@ -57,7 +57,7 @@ export default {
         self.article = res.data.content.data
         self.article.meta.createdDate = new Date(self.article.meta.createdDate * 1000).toLocaleString()
       }).catch(err => {
-        console.log(err)
+        alert(err)
       })
     }
   },

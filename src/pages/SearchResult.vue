@@ -73,7 +73,7 @@ export default {
           self.articles = res.data.content.data
         })
         .catch(err => {
-          console.log(err)
+          alert(err)
         })
     }
   },

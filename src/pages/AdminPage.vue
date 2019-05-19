@@ -101,7 +101,7 @@ export default {
         this.dataArtikel = res.data.content.data
         this.endLoading('admin-filter-article')
       }).catch(err => {
-        console.log(err)
+        alert(err)
         this.endLoading('admin-filter-article')
       })
     }
