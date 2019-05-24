@@ -14,7 +14,7 @@
         <video class="summary__thumbnail" src="../assets/img/GIF.mp4" type="video/mp4" autoplay controls></video>
         <div class="summary__content">
           <div class="set__title content__title">
-            <h2>Mengapa Berbagi?</h2>
+            <h2>Ayo Berbagi!</h2>
           </div>
           <div class="content__description">
             <p class="highlight">
@@ -284,7 +284,7 @@ export default {
   }
 
   .highlight {
-    text-align: justify
+    text-align: left;
   }
 
   .category {
