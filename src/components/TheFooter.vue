@@ -16,7 +16,7 @@
           <p>Copyright © All rights reserved.</p>
         </div>
         <div class="footer__socials">
-          <a class="footer__icon" href="https://www.instagram.com/bafe.space/">
+          <a class="footer__icon" href="https://www.instagram.com/bafe.id/">
             <div class="footer__icon--circle">
               <i class="fab fa-instagram"></i>
             </div>

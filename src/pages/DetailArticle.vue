@@ -9,7 +9,7 @@
               <span class="label">{{ article.category }} </span>
             </div>
             <div class="author__container">
-              <img class="author__profil-picture" src="../assets/img/people_bafe.png"/>
+              <img class="author__profil-picture" src="../assets/img/logo.jpg"/>
               <div class="author__info">
                 <div class="author__name">{{ (article.meta || {}).author }}</div>
                 <div>{{ (article.meta || {}).createdDate}}</div>
