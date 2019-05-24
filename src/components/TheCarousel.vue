@@ -18,7 +18,7 @@
                  v-if="articles[active].thumbnail"
                  :src="'data:image/jpeg;base64,'+articles[active].thumbnail"
                  :alt="articles[active].thumbnail">
-            <iframe v-else-if="articles[active].video" width="400"
+            <iframe v-else-if="articles[active].video" width="400" height="300"
                     :src="articles[active].video"></iframe>
             <div class="summary__content">
               <div class="summary__meta">

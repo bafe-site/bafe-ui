@@ -19,10 +19,15 @@
             </div>
             <div class="form-group__container form-group__container--vertical">
               <label for="summary">Ringkasan</label>
-              <textarea id="summary"
-                        v-model="summaryContent"
-                        class="input"
-                        placeholder="Tulis Simpulan Artikelmu Disini"></textarea>
+              <div>
+                <textarea id="summary"
+                          v-model="summaryContent"
+                          class="input"
+                          placeholder="Tulis Simpulan Artikelmu Disini"
+                          :class="{ 'input--error': summaryContent.length > 255 }"></textarea>
+                <span v-if="summaryContent.length > 255" class="footnote footnote--error">Tidak boleh lebih dari 255 karakter</span>
+                <span v-else class="footnote pull-right">{{ summaryContent.length + ' / 255'}}</span>
+              </div>
             </div>
             <div>
               <vue-editor onfocus="this.value=''" v-model="content"></vue-editor>
@@ -69,7 +74,7 @@
             <div class="setting-form__action">
               <div class="form-group__container form-group__container--horizontal">
                 <button @click="saveContent" class="button button--main" type="submit" value="uploadArtikel">Kirim</button>
-                <a class="pull-right"><i class="fa fa-trash"></i><span> hapus </span></a>
+                <a class="pull-right red"><i class="fa fa-trash"></i><span> hapus </span></a>
               </div>
             </div>
           </div>
@@ -106,14 +111,8 @@ export default {
   methods: {
     saveContent () {
       let self = this
-      // var dateNow = Date.now()
       var kategoriID = parseInt(self.kategoriD)
       var strImage = self.selectedFile.replace(/^data:image\/[a-z]+;base64,/, '')
-      if (self.video !== null && self.video !== '') {
-        self.video = 'emptyVideo'
-      }
-
-      // var tagS = self.tag.join()
       let data = JSON.stringify({
         title: self.judulContent,
         content: self.content,
@@ -121,7 +120,6 @@ export default {
         video: self.video,
         author: self.author,
         tag: self.tag,
-        // dateCreated: dateNow,
         draft: 0,
         thumbnail: strImage,
         summary: self.summaryContent,
@@ -134,10 +132,10 @@ export default {
         })
         .catch(err => {
           if (err.response.status === 422) {
-            console.log('lack of data')
             alert('Masukan belum lengkap')
+          } else {
+            alert(err)
           }
-          console.log(err)
         })
     },
     processImage (e) {
@@ -162,14 +160,13 @@ export default {
           self.kategori = res.data.data
         })
         .catch(err => {
-          console.log(err)
+          alert(err)
         })
     }
   },
   mounted () {
     let self = this
     self.$nextTick(() => {
-      // self.init()
       self.getKategori()
     })
   }
@@ -177,6 +174,7 @@ export default {
 
 </script>
 <style lang="scss" scoped>
+
   .article-form {
     display: flex;
     flex-direction: row;
@@ -217,6 +215,10 @@ export default {
 
   .pull-right {
     margin-left: auto;
+    text-align: right;
+  }
+
+  .red {
     color: darkred;
   }
 
