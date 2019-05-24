@@ -14,7 +14,7 @@
         <video class="summary__thumbnail" src="../assets/img/GIF.mp4" type="video/mp4" autoplay controls></video>
         <div class="summary__content">
           <div class="set__title content__title">
-            <h2>Ayo Berbagi!</h2>
+            <h2>Mengapa Berbagi?</h2>
           </div>
           <div class="content__description">
             <p class="highlight">
@@ -55,7 +55,7 @@
             class="item item__summary--vertical">
             <div class="summary__thumbnail">
               <img v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail" :alt="n.thumbnail">
-              <iframe v-else-if="n.video" width="400" height="300" :src="n.video"></iframe>
+              <iframe v-else-if="n.video" width="400" :src="n.video"></iframe>
             </div>
             <div class="summary__label">
               <span v-if="n.isSponsored" class="label label--sponsor">Sponsored Content</span>
@@ -283,7 +283,7 @@ export default {
   }
 
   .highlight {
-    text-align: left;
+    text-align: justify
   }
 
 </style>

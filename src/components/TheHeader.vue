@@ -6,7 +6,7 @@
           <a href="/"><img src="../assets/img/logo-icon.png" alt="home"></a>
         </div>
         <div class="header__menu">
-          <h1><a href="/">Citizen Journalism Platform for Innovative Solution</a></h1>
+          <h1>Citizen Journalism Platform for Innovative Solution</h1>
           <!--<the-menu></the-menu>-->
         </div>
         <div class="header__search">
@@ -62,9 +62,6 @@ export default {
     div.header__menu { display:none; }
   }
 
-  a {
-    color: #385446;
-  }
   .header {
     display: flex;
     box-sizing: border-box;
