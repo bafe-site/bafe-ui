@@ -9,6 +9,7 @@
 <script>
 import TheHeader from './components/TheHeader'
 import TheFooter from './components/TheFooter'
+import Cookie from 'vue-cookie'
 
 import axios from 'axios'
 
@@ -16,6 +17,19 @@ export default {
   name: 'App',
   components: {TheFooter, TheHeader},
   created () {
+    axios.interceptors.request.use(
+      (config) => {
+        let token = Cookie.get('token')
+        if (token) {
+          config.headers['Authorization'] = 'Bearer ' + token
+        }
+        return config
+      },
+
+      (error) => {
+        return Promise.reject(error)
+      }
+    )
     axios.interceptors.response.use(undefined, function (err) {
       return new Promise(function (resolve, reject) {
         if (err.status === 401 && err.config && !err.config.__isRetryRequest) {

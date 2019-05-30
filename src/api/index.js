@@ -1,16 +1,9 @@
 import Axios from 'axios'
-import VueCookie from 'vue-cookie'
 import path from '../constant/api'
-
-const token = VueCookie.get('token')
 
 Axios.defaults.baseURL = 'https://backk.bafe.space'
 Axios.defaults.headers.post['Content-Type'] = 'application/json'
 Axios.defaults.headers.post['Accept'] = 'application/json'
-
-if (token) {
-  Axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
-}
 
 const api = {
   article: {
