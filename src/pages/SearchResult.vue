@@ -1,7 +1,7 @@
 <template>
   <div id="search-result" >
     <header class="body__title">
-      <div class="container">
+      <div class="container" v-if="$route.query.keyword!=undefined">
         <h2>{{ 'Hasil pencarian untuk "' + $route.query.keyword + '"'}}</h2>
       </div>
     </header>

@@ -52,14 +52,14 @@ export default {
         transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
       }
 
-      &:hover {
-        -webkit-transform: scale(1.05, 1.05);
-        transform: scale(1.05, 1.05);
-      }
+      // &:hover {
+      //   -webkit-transform: scale(1.05, 1.05);
+      //   transform: scale(1.05, 1.05);
+      // }
 
-      &:hover::after {
-        opacity: 1;
-      }
+      // &:hover::after {
+      //   opacity: 1;
+      // }
 
       &-append {
         padding: 0px 10px;

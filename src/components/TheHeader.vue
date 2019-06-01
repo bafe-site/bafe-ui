@@ -10,7 +10,9 @@
           <!--<the-menu></the-menu>-->
         </div>
         <div class="header__search">
-          <the-search></the-search>
+          <!-- <button @click="search()" class="search__input-group-append"></button> -->
+          <router-link :to="'search'"><i class="fas fa-search search__icon"></i></router-link>
+          <!-- <the-search></the-search> -->
         </div>
         <div class="header__action">
           <router-link tag="button" :to="{ name: 'tor'}" class="button button--round">Upload</router-link>
@@ -62,6 +64,10 @@ export default {
     div.header__menu { display:none; }
   }
 
+  .container {
+    padding: 0 5px;
+  }
+
   .header {
     display: flex;
     box-sizing: border-box;
@@ -103,6 +109,8 @@ export default {
       align-items: center;
       margin-left: auto;
       margin-right: 10px;
+      border: 2px solid $bafe;
+      border-radius: 20px;
     }
 
     &__action {
@@ -123,6 +131,13 @@ export default {
         -o-transition: width 0.6s ease-in-out;
         transition: width 0.6s ease-in-out;
       }
+    }
+  }
+
+  .search {
+    &__icon {
+      padding: 10px;
+      color: $bafe
     }
   }
 </style>
