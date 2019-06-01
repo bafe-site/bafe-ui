@@ -36,7 +36,7 @@
                         menubar: false,
                         resize: false,
                         plugins: 'advlist autolink lists link image charmap print preview anchor textcolor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
-                        toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'}"
+                        toolbar: 'undo redo | formatselect | bold italic backcolor | link |alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat'}"
                 v-model="content"></editor>
               <!-- <vue-editor onfocus="this.value=''" v-model="content"></vue-editor> -->
             </div>
