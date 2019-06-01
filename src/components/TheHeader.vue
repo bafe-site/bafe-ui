@@ -62,6 +62,10 @@ export default {
     div.header__menu { display:none; }
   }
 
+  .container {
+    padding: 0 5px;
+  }
+
   .header {
     display: flex;
     box-sizing: border-box;

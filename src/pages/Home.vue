@@ -10,29 +10,29 @@
         :config="banner.config"></the-banner>
     </div>
     <div class="row">
-      <div class="item item__summary--horizontal">
-        <video class="summary__thumbnail" src="../assets/img/GIF.mp4" type="video/mp4" autoplay controls></video>
-        <div class="summary__content">
-          <div class="set__title content__title">
-            <h2>Mengapa Berbagi?</h2>
-          </div>
-          <div class="content__description">
-            <p class="highlight">
-              &emsp; Menjamurnya hoaks, ujaran kebencian, serta wacana yang tidak menyediakan solusi telah menciptakan keresahan bagi kita semua. Kata ‘independen’ sudah tidak lagi menjadi ciri khas media yang kini banyak dikemudikan oleh pihak tertentu demi memoles citra. Kerap kali kita dikejutkan dengan tereksposnya kebohongan yang dibuat oleh tokoh yang kita bela. Ada pula sebagian dari kita yang menerima perlakuan tidak adil karena stigma. Solusi yang kita telah pikirkan dan buat susah payah hanya dipandang sebelah mata dan akhirnya tidak bisa diproduksi massal karena kurang dana. Ingin membuat sebuah gerakan untuk perubahan yang bermakna malah dicap SJW dan cari perhatian saja.<br>
-              &emsp; BAFE ingin menjadi tempat untuk orang berbagi karena semua orang pasti sebenarnya peduli. Yuk, ceritakan isu yang terjadi di sekitarmu, bagikan ilmumu, dan bersama-sama buat perubahan yang berarti. Partisipasimu penting untuk mewujudkan ekosistem yang saling mendukung demi berkembangnya masyarakat yang berorientasi pada solusi!</p>
-          </div>
+      <div class="item item__summary--vertical">
+        <video class="summary__thumbnail" width="250" src="../assets/img/GIF.mp4" type="video/mp4" autoplay controls></video>
+        <!-- <div class="summary__content"> -->
+        <div class="set__title content__title">
+          <h2>Mengapa Bafe?</h2>
         </div>
+        <div class="content__description">
+          <p class="highlight">
+            &emsp; Menjamurnya hoaks, ujaran kebencian, serta wacana yang tidak menyediakan solusi telah menciptakan keresahan bagi kita semua. Kata ‘independen’ sudah tidak lagi menjadi ciri khas media yang kini banyak dikemudikan oleh pihak tertentu demi memoles citra. Kerap kali kita dikejutkan dengan tereksposnya kebohongan yang dibuat oleh tokoh yang kita bela. Ada pula sebagian dari kita yang menerima perlakuan tidak adil karena stigma. Solusi yang kita telah pikirkan dan buat susah payah hanya dipandang sebelah mata dan akhirnya tidak bisa diproduksi massal karena kurang dana. Ingin membuat sebuah gerakan untuk perubahan yang bermakna malah dicap SJW dan cari perhatian saja.<br>
+            &emsp; BAFE ingin menjadi tempat untuk orang berbagi karena semua orang pasti sebenarnya peduli. Yuk, ceritakan isu yang terjadi di sekitarmu, bagikan ilmumu, dan bersama-sama buat perubahan yang berarti. Partisipasimu penting untuk mewujudkan ekosistem yang saling mendukung demi berkembangnya masyarakat yang berorientasi pada solusi!</p>
+        </div>
+        <!-- </div> -->
       </div>
     </div>
     <div class="loading" v-if="isLoading('filter-article')">
       <i class="fas fa-spinner fa-pulse"></i>
     </div>
-    <div class="row" ref="carousel" v-if="!isLoading('filter-article')">
+    <!-- <div class="row" ref="carousel" v-if="!isLoading('filter-article')">
       <h2>Populer</h2>
       <the-carousel
         :dataset="carousel.top.dataset"
         :config="carousel.top.config"></the-carousel>
-    </div>
+    </div> -->
 
     <div class="row section__content" v-if="!isLoading('filter-article')">
       <div class="category">
@@ -55,7 +55,7 @@
             class="item item__summary--vertical">
             <div class="summary__thumbnail">
               <img v-if="n.thumbnail" :src="'data:image/jpeg;base64,'+ n.thumbnail" :alt="n.thumbnail">
-              <iframe v-else-if="n.video" width="400" :src="n.video"></iframe>
+              <iframe v-else-if="n.video" width="250" :src="n.video"></iframe>
             </div>
             <div class="summary__label">
               <span v-if="n.isSponsored" class="label label--sponsor">Sponsored Content</span>
@@ -279,7 +279,7 @@ export default {
     font-size: 40px;
   }
   .item__summary--horizontal .summary__thumbnail {
-    width: 50%;
+    width: 20%;
   }
 
   .highlight {
