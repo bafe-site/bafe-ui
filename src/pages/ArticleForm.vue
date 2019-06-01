@@ -30,7 +30,15 @@
               </div>
             </div>
             <div>
-              <vue-editor onfocus="this.value=''" v-model="content"></vue-editor>
+              <editor
+                api-key="ivw8ls8qja0obk9f7f3dte4gi8ao3la5lop71c9ask9ek8u4"
+                :init="{height: 320,
+                        menubar: false,
+                        resize: false,
+                        plugins: 'advlist autolink lists link image charmap print preview anchor textcolor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
+                        toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'}"
+                v-model="content"></editor>
+              <!-- <vue-editor onfocus="this.value=''" v-model="content"></vue-editor> -->
             </div>
           </div>
           <div class="setting-form__container">
@@ -86,11 +94,14 @@
 
 <script>
 import { VueEditor } from 'vue2-editor'
+import Editor from '@tinymce/tinymce-vue'
+
 import Api from '../api'
 export default {
   name: 'ArticleForm',
   components: {
-    VueEditor
+    VueEditor,
+    'editor': Editor
   },
   data () {
     return {
