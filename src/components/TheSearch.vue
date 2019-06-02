@@ -1,6 +1,6 @@
 <template>
   <div class="search__input-group">
-    <input type="text" v-model="keyword" class="search__form-control" placeholder="Cari Disini" @keyup.enter="search(keyword)">
+    <!-- <input type="text" v-model="keyword" class="search__form-control" placeholder="Cari Disini" @keyup.enter="search(keyword)"> -->
     <button @click="search(keyword)" class="search__input-group-append"><i class="fas fa-search"></i></button>
   </div>
 </template>
@@ -63,7 +63,7 @@ export default {
 
       &-append {
         padding: 0px 10px;
-        border-radius: 0 20px 20px 0;
+        border-radius: 20px;
         color: $bafe;
         background-color: $white;
       }
@@ -73,7 +73,7 @@ export default {
       width: 100%;
       background-color: $white;
       padding: 0px 20px;
-      border-radius: 20px 0 0 20px;
+      border-radius: 20px;
     }
   }
 </style>
